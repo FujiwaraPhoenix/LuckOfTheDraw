@@ -52,17 +52,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe421fdcd2bdaba45baa90313488d451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desertTerrainAsset1: {fileID: 1931313286277660, guid: b18844658559827468f37b20d602ec48,
+  desertTerrainAsset1: {fileID: 1272674931436240, guid: a56fea78726130243870fa42e858dddb,
     type: 2}
-  desertTerrainAsset2: {fileID: 0}
+  desertTerrainAsset2: {fileID: 1073317294629646, guid: 81f23deaf70ee984ca0ab7138c2a23c6,
+    type: 2}
   desertTerrainAsset3: {fileID: 0}
   grassTerrainAsset1: {fileID: 1931313286277660, guid: b18844658559827468f37b20d602ec48,
     type: 2}
-  grassTerrainAsset2: {fileID: 0}
-  grassTerrainAsset3: {fileID: 0}
-  iceTerrainAsset1: {fileID: 1931313286277660, guid: b18844658559827468f37b20d602ec48,
+  grassTerrainAsset2: {fileID: 1668826717476588, guid: cde83b1b5c16fb04ca1f7e1f398409e8,
     type: 2}
-  iceTerrainAsset2: {fileID: 0}
+  grassTerrainAsset3: {fileID: 0}
+  iceTerrainAsset1: {fileID: 1501261579909506, guid: 8456d577c0a24c04783d0d59aca889c1,
+    type: 2}
+  iceTerrainAsset2: {fileID: 1773498916854828, guid: 12fbf306ab461a2468fb2ce0d676571c,
+    type: 2}
   iceTerrainAsset3: {fileID: 0}
   amountOfAsset1: 10
   amountOfAsset2: 10
