@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour { //The Player should be tagged as player and have the player layermask
 
     public static Player pc;
+
+    int health = 30;
 
     //Controls how fast the player moves.
     public float mvtSpd;
@@ -59,5 +61,10 @@ public class Player : MonoBehaviour {
         }
         mvtDir.Normalize();
         transform.position += new Vector3(mvtDir.x * Time.deltaTime * mvtSpd, mvtDir.y * Time.deltaTime * mvtSpd);
+    }
+
+    public void getHit(int damage)
+    {
+        health -= damage; //Update once we get actual health working
     }
 }
