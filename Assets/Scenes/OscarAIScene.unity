@@ -244,7 +244,22 @@ MonoBehaviour:
   inputDir: {x: 0, y: 0}
   mvtSpd: 50
   aggroRadius: 2
-  enemyBehavior: 1
+  spawnLoc: {x: 0, y: 0, z: 0}
+  dirLocked: 0
+  foundPlayer: 0
+  charging: 0
+  stationaryTimer: 0
+  chargeTimer: 0
+  damage: 5
+  wanderTimerMax: 4
+  wanderTimerMin: 0.5
+  wanderCooldownMax: 5
+  wanderCooldownMin: 1
+  shootCooldown: 2
+  shot: {fileID: 0}
+  spawnCooldown: 1
+  spawnMax: 5
+  enemyBehavior: 5
 --- !u!212 &1646180139
 SpriteRenderer:
   m_ObjectHideFlags: 0
