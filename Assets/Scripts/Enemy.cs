@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
+    //Is this a boss?
     public bool isBoss = false;
+
+    //Stuff involving movement, collision, and rigidbody.
     public Rigidbody2D rb;
     public Vector2 inputDir;
     public float mvtSpd;
+
+    //For detection of player
     public float aggroRadius;
     public Vector3 spawnLoc;
+
+    //If the enemy has BullRush AI pattern:
+    public bool charging;
+    public float stationaryTimer;
 
     public enum AIType
     {
@@ -83,5 +92,10 @@ public class Enemy : MonoBehaviour {
         {
             rb.velocity = Vector2.zero;
         }
+    }
+
+    void blindRage()
+    {
+
     }
 }
