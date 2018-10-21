@@ -7,6 +7,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     public static Player pc;
 
     int health = 30;
+    bool alive = true;
 
     //Controls how fast the player moves.
     public float mvtSpd;
@@ -31,7 +32,10 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 	
 	// Update is called once per frame
 	void Update () {
-        movePC();
+        if (alive) //Make sure the player cannot move if they're out of health
+        {
+            movePC();
+        }
 	}
 
     //As the name says, this function will move the player character around. Easy.
@@ -66,5 +70,9 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     public void getHit(int damage)
     {
         health -= damage; //Update once we get actual health working
+        if(health <= 0)
+        {
+            alive = false; //If health runs out, the player dies
+        }
     }
 }
