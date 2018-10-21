@@ -7,6 +7,10 @@ public class Enemy : MonoBehaviour {
     //Is this a boss?
     public bool isBoss = false;
 
+    //If it is a boss, it needs HP bars. For the sake of simplicity, let's make the bar HP = 50 for now. Also 3 bars total.
+    public int hpBarsLeft = 3;
+    public int hpReset = 50;
+
     //General Globals
     public int damage = 5; //How much damage the enemy does per collision
     public int health = 10; //How much damage the enemy takes before dying
@@ -72,6 +76,7 @@ public class Enemy : MonoBehaviour {
         if(isBoss) //Set health depending on enemy type
         {
             health = 50; //Update this once we decide on the actual value
+            hpBarsLeft = 3;
         }
     }
 	
@@ -80,13 +85,28 @@ public class Enemy : MonoBehaviour {
         runAI(enemyBehavior);
         if (enemyBehavior != AIType.BullRush && enemyBehavior != AIType.Pursuer && enemyBehavior != AIType.Territorial)
         {
-
+            //Move about normally.
         }
         if (inputDir.magnitude > 1)
         {
             inputDir.Normalize();
         }
         rb.velocity = inputDir * mvtSpd * Time.deltaTime;
+        if (isBoss)
+        {
+            switch (hpBarsLeft)
+            {
+                case 1:
+                    enemyBehavior = AIType.BullRush;
+                    break;
+                case 2:
+                    enemyBehavior = AIType.Sniper;
+                    break;
+                case 3:
+                    enemyBehavior = AIType.Pursuer;
+                    break;
+            }
+        }
     }
 
 
@@ -267,13 +287,26 @@ public class Enemy : MonoBehaviour {
     public void takeDamage(int d) //Method for taking damage, pass the damage dealt as a parameter
     {
         health -= d; //Takes damage
-        if(health <= 0)
+        if(health <= 0 && !isBoss)
         {
             if(spawned) //If it's a spawned enemy, tell the spawner that it's spawned count is one less
             {
                 mother.spawnedDied();
             }
             Destroy(this.gameObject); //Destroy itself
+        }
+        else if (isBoss && health <=0)
+        {
+            //If it's got more than 3 bars lefts...
+            if (hpBarsLeft > 1)
+            {
+                hpBarsLeft--;
+                health = hpReset;
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 
