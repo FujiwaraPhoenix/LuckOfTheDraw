@@ -8,15 +8,17 @@ TagManager:
   - GrassTile
   - DesertTile
   - IceTile
+  - Biome
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
+  - 
   - Water
   - UI
   - 
   - 
-  - Player
+  - Terrain
   - 
   - 
   - 
