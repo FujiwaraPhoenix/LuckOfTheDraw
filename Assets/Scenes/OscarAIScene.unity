@@ -227,7 +227,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1646180138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +240,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBoss: 0
+  hpBarsLeft: 3
+  hpReset: 50
+  damage: 5
+  health: 10
   rb: {fileID: 1646180137}
   inputDir: {x: 0, y: 0}
   mvtSpd: 50
@@ -250,16 +254,15 @@ MonoBehaviour:
   charging: 0
   stationaryTimer: 0
   chargeTimer: 0
-  damage: 5
   wanderTimerMax: 4
   wanderTimerMin: 0.5
   wanderCooldownMax: 5
   wanderCooldownMin: 1
   shootCooldown: 2
-  shot: {fileID: 0}
+  shot: {fileID: 114543821867366166, guid: 45c47889ff28fa54da1d8106cc4196fb, type: 2}
   spawnCooldown: 1
   spawnMax: 5
-  enemyBehavior: 5
+  enemyBehavior: 1
 --- !u!212 &1646180139
 SpriteRenderer:
   m_ObjectHideFlags: 0
