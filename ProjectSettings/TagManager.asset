@@ -5,16 +5,18 @@ TagManager:
   serializedVersion: 2
   tags:
   - Hexs
+  - GrassTile
+  - DesertTile
+  - IceTile
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
   - Water
   - UI
   - 
   - 
-  - 
+  - Player
   - 
   - 
   - 
