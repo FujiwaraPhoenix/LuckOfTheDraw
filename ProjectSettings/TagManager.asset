@@ -7,15 +7,17 @@ TagManager:
   - GrassTile
   - DesertTile
   - IceTile
+  - Resource
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
+  - 
   - Water
   - UI
   - 
   - 
-  - Player
+  - 
   - 
   - 
   - 
