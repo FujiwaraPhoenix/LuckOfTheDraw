@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BiomeGeneration : MonoBehaviour {
     //these gameobjects will be the specific prefabs for the objects that will exist within the world(e.g trees, boulders, ponds, etc.)
+    public Sprite desert;
+    public Sprite grassland;
+    public Sprite iceTundra;
 
     public GameObject desertTerrainAsset1;
     public GameObject desertTerrainAsset2;
@@ -35,20 +38,27 @@ public class BiomeGeneration : MonoBehaviour {
     bool isGrass = false;
     bool isIce = false;
 
+    float biomeNumber;
+
     // Use this for initialization
     void Start () {
+        biomeNumber = Random.Range(0f, 3f);
         //this will ensure that the biome has a randomly picked color upon activation
-        if (this.gameObject.tag == "DesertTile")
+        if (biomeNumber >= 0 && biomeNumber < 1f)
         {
             isDesert = true;
+            GetComponent<SpriteRenderer>().sprite = desert;
         }
-        if (this.gameObject.tag == "GrassTile")
+        if (biomeNumber >= 1 && biomeNumber < 2f)
         {
             isGrass = true;
+            GetComponent<SpriteRenderer>().sprite = grassland;
         }
-        if (this.gameObject.tag == "IceTile")
+        if (biomeNumber >= 2 && biomeNumber < 3f)
         {
             isIce = true;
+            GetComponent<SpriteRenderer>().sprite = iceTundra;
+
         }
         //this.GetComponent<MeshRenderer>().material.color = Random.ColorHSV(0f, 1f, 0f, 1f, 0f, 1f);
 
@@ -72,21 +82,6 @@ public class BiomeGeneration : MonoBehaviour {
                 Rock.transform.localPosition = spawnPosition;
 
             }
-            //for (int i = 0; i < amountOfAsset3; i++)
-            //{
-            //    spawnPosition = new Vector3(Random.Range(-0.65f, 0.65f), -1f, Random.Range(-0.65f, 0.65f));
-            //    GameObject biome = (GameObject)Instantiate(desertTerrainAsset3, transform.position, Quaternion.identity);
-            //    biome.transform.SetParent(this.transform);
-            //    biome.transform.localPosition = spawnPosition;
-            //}
-            //for (int i = 0; i < amountOfPlants; i++)
-            //{
-            //    spawnPosition = new Vector3(Random.Range(-0.65f, 0.65f), -1f, Random.Range(-0.65f, 0.65f));
-            //    EdiblePlant plant = Controller.Instance.speciesList[0];
-            //    EdiblePlant terrainPlant = (EdiblePlant)Instantiate(plant, transform.position, Quaternion.identity);
-            //    terrainPlant.transform.SetParent(this.transform);
-            //    terrainPlant.transform.localPosition = spawnPosition;
-            //}
         }
         if (isGrass)
         {
@@ -106,22 +101,6 @@ public class BiomeGeneration : MonoBehaviour {
                 Rock.transform.localPosition = spawnPosition;
 
             }
-            //for (int i = 0; i < amountOfAsset3; i++)
-            //{
-            //    spawnPosition = new Vector3(Random.Range(-0.65f, 0.65f), -1f, Random.Range(-0.65f, 0.65f));
-            //    GameObject biome = (GameObject)Instantiate(grassTerrainAsset3, transform.position, Quaternion.identity);
-            // //   biome.transform.localScale = new Vector3(Random.Range(1, 5), Random.Range(1, 5), 1);
-            //    biome.transform.SetParent(this.transform);
-            //    biome.transform.localPosition = spawnPosition;
-            //}
-            //for (int i = 0; i < amountOfPlants; i++)
-            //{
-            //    spawnPosition = new Vector3(Random.Range(-0.65f, 0.65f), -1f, Random.Range(-0.65f, 0.65f));
-            //    EdiblePlant plant = Controller.Instance.speciesList[1];
-            //    EdiblePlant terrainPlant = (EdiblePlant)Instantiate(plant, transform.position, Quaternion.identity);
-            //    terrainPlant.transform.SetParent(this.transform);
-            //    terrainPlant.transform.localPosition = spawnPosition;
-            //}
         }
         if (isIce)
         {
@@ -141,21 +120,6 @@ public class BiomeGeneration : MonoBehaviour {
                 Rock.transform.localPosition = spawnPosition;
 
             }
-            //for (int i = 0; i < amountOfAsset3; i++)
-            //{
-            //    spawnPosition = new Vector3(Random.Range(-0.65f, 0.65f), -1f, Random.Range(-0.65f, 0.65f));
-            //    GameObject biome = (GameObject)Instantiate(iceTerrainAsset3, transform.position, Quaternion.identity);
-            //    biome.transform.SetParent(this.transform);
-            //    biome.transform.localPosition = spawnPosition;
-            //}
-            //for (int i = 0; i < amountOfPlants; i++)
-            //{
-            //    spawnPosition = new Vector3(Random.Range(-0.65f, 0.65f), -1f, Random.Range(-0.65f, 0.65f));
-            //    EdiblePlant plant = Controller.Instance.speciesList[2];
-            //    EdiblePlant terrainPlant = (EdiblePlant)Instantiate(plant, transform.position, Quaternion.identity);
-            //    terrainPlant.transform.SetParent(this.transform);
-            //    terrainPlant.transform.localPosition = spawnPosition;
-            //}
         }
     }
 
