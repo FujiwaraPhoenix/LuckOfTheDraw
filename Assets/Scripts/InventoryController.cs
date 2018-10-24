@@ -108,7 +108,9 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                 Debug.Log("Taking Action");
                 if(haveGun)
                 {
-                    Instantiate(gunResource, transform.position, Quaternion.identity);
+                    //Instantiate(gunResource, transform.position, Quaternion.identity);
+                    gunResource.SetActive(true);
+                    gunResource.transform.position = transform.position;
                 }
                 gunResource = r.gameObject;
                 gunIndex = r.pickup();
@@ -120,7 +122,9 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
             {
                 if (haveShot)
                 {
-                    Instantiate(shotResource, transform.position, Quaternion.identity);
+                    //Instantiate(shotResource, transform.position, Quaternion.identity);
+                    shotResource.SetActive(true);
+                    shotResource.transform.position = transform.position;
                 }
                 shotResource = r.gameObject;
                 shotIndex = r.pickup();
@@ -132,7 +136,9 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
             {
                 if (haveEffect)
                 {
-                    Instantiate(effectResource, transform.position, Quaternion.identity);
+                    //Instantiate(effectResource, transform.position, Quaternion.identity);
+                    effectResource.SetActive(true);
+                    effectResource.transform.position = transform.position;
                 }
                 effectResource = r.gameObject;
                 effectIndex = r.pickup();
