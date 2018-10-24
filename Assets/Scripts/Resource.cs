@@ -31,7 +31,8 @@ public class Resource : MonoBehaviour
 
     public int pickup() //When picked up, tell the caller how it affects it the modularity and tell the resource to remove itself
     {
-        isGone = true;
+        //isGone = true;
+        gameObject.SetActive(false); //Due to issues with references, resources should be deactivated when put into slots and reactivated when dropped back on the ground
         return modifierNum;
     }
 
