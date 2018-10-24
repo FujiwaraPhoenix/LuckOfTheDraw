@@ -334,6 +334,8 @@ GameObject:
   - component: {fileID: 1880842061}
   - component: {fileID: 1880842065}
   - component: {fileID: 1880842064}
+  - component: {fileID: 1880842066}
+  - component: {fileID: 1880842067}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Untagged
@@ -457,3 +459,39 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1880842066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1880842060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda043f756f4ab14d80dcacf46950630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pBullet: {fileID: 114707342353824186, guid: adf0fd706459caa4abf441da997cfa17, type: 2}
+  shotTimer: 0
+  rof: 3
+  rofMod: 0
+  damage: 1
+  dmgMod: 0
+  baseSpread: 5
+  spreadMod: 0
+--- !u!114 &1880842067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1880842060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f3d7acd562b44941bb7a40467cb50f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunIndex: 0
+  shotIndex: 0
+  effectIndex: 0
+  gunImage: {fileID: 0}
+  shotImage: {fileID: 0}
+  effectImage: {fileID: 0}
