@@ -91,7 +91,10 @@ public class Enemy : MonoBehaviour {
         {
             inputDir.Normalize();
         }
-        rb.velocity = inputDir * mvtSpd * Time.deltaTime;
+        if (enemyBehavior != AIType.Pursuer)
+        {
+            rb.velocity = inputDir * mvtSpd * Time.deltaTime;
+        }
         if (isBoss)
         {
             switch (hpBarsLeft)
