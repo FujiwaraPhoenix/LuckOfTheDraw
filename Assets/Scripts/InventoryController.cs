@@ -17,9 +17,9 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
     bool haveEffect = false;
 
     //The numbers used for the inventory slots
-    int gunIndex = 0;
-    int shotIndex = 0;
-    int effectIndex = 0;
+    public int gunIndex = 0;
+    public int shotIndex = 0;
+    public int effectIndex = 0;
 
     //The images of the resources in the respective slots
     public Image gunImage;
