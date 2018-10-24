@@ -30,7 +30,6 @@ public class BiomeGeneration : MonoBehaviour {
     public float amountOfAsset3;
     public static int asset3Richness;
     float asset3Concentration;
-    float amountOfPlants = 10f;
 
     Vector3 spawnPosition;
 

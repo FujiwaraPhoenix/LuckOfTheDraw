@@ -11,8 +11,8 @@ public class TreeProperties : MonoBehaviour {
     public Sprite trunk03;
 
     float trunkNumber;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         fruitRichness = Random.Range(1, 5);
         trunkNumber = Random.Range(0f, 3f);
 
@@ -35,7 +35,7 @@ public class TreeProperties : MonoBehaviour {
             consumable.transform.SetParent(this.transform);
             consumable.transform.localPosition = spawnPos;
         }
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {

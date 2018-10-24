@@ -9,6 +9,7 @@ TagManager:
   - DesertTile
   - IceTile
   - Resource
+  - Biome
   layers:
   - Default
   - TransparentFX
@@ -18,6 +19,7 @@ TagManager:
   - UI
   - 
   - 
+  - Terrain
   - 
   - 
   - 
