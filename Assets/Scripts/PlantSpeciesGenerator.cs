@@ -25,41 +25,38 @@ public class PlantSpeciesGenerator : MonoBehaviour {
     //At minimum, one species must recover hunger.
     public void generateSpecies()
     {
-        Controller.Instance.speciesList = new EdiblePlant[listLength];
-        for (int i = 0; i < Controller.Instance.speciesList.Length; i++) {
+        FruitController.FruitInstance.speciesList = new EdiblePlant[listLength];
+        for (int i = 0; i < FruitController.FruitInstance.speciesList.Length; i++) {
             EdiblePlant e = Instantiate (baseplant, transform.position, Quaternion.identity);
             e.healthHealed = Random.Range(-10, 10);
             e.hungerRecovered = Random.Range(-10, 10);
-            int randomVal = Random.Range(0, 8);
+            int randomVal = Random.Range(0, 7);
             switch (randomVal)
             {
                 case 0:
                     e.pE = EdiblePlant.possibleEffects.None;
                     break;
                 case 1:
-                    e.pE = EdiblePlant.possibleEffects.Poisoned;
+                    e.pE = EdiblePlant.possibleEffects.SpeedIncrease;
                     break;
                 case 2:
-                    e.pE = EdiblePlant.possibleEffects.Paralyzed;
+                    e.pE = EdiblePlant.possibleEffects.SpeedDecrease;
                     break;
                 case 3:
-                    e.pE = EdiblePlant.possibleEffects.Speedy;
+                    e.pE = EdiblePlant.possibleEffects.HPRegenIncrease;
                     break;
                 case 4:
-                    e.pE = EdiblePlant.possibleEffects.Slowed;
+                    e.pE = EdiblePlant.possibleEffects.HPRegenDecrease;
                     break;
                 case 5:
-                    e.pE = EdiblePlant.possibleEffects.Confused;
+                    e.pE = EdiblePlant.possibleEffects.DRIncrease;
                     break;
                 case 6:
-                    e.pE = EdiblePlant.possibleEffects.Drunk;
-                    break;
-                case 7:
-                    e.pE = EdiblePlant.possibleEffects.Hungry;
+                    e.pE = EdiblePlant.possibleEffects.DRDecrease;
                     break;
             }
-            e.spr.sprite = spriteList[Random.Range(0, spriteList.Length)];
-            Controller.Instance.speciesList[i] = e;
+            //e.spr.sprite = spriteList[Random.Range(0, spriteList.Length)];
+            FruitController.FruitInstance.speciesList[i] = e;
         }
         checkSpecies();
     }
@@ -68,18 +65,18 @@ public class PlantSpeciesGenerator : MonoBehaviour {
     {
         bool vetted = false;
         bool vetted1 = false;
-        for (int i = 0; i < Controller.Instance.speciesList.Length; i++)
+        for (int i = 0; i < FruitController.FruitInstance.speciesList.Length; i++)
         {
             if (!vetted)
             {
-                if (Controller.Instance.speciesList[i].hungerRecovered > 5)
+                if (FruitController.FruitInstance.speciesList[i].hungerRecovered > 5)
                 {
                     vetted = true;
                 }
             }
             if (!vetted1)
             {
-                if (Controller.Instance.speciesList[i].healthHealed > 5)
+                if (FruitController.FruitInstance.speciesList[i].healthHealed > 5)
                 {
                     vetted1 = true;
                 }
@@ -88,13 +85,13 @@ public class PlantSpeciesGenerator : MonoBehaviour {
         if (!vetted)
         {
             int chosenPlant = Random.Range(0, 3);
-            Controller.Instance.speciesList[chosenPlant].hungerRecovered = Random.Range(5, 10);
+            FruitController.FruitInstance.speciesList[chosenPlant].hungerRecovered = Random.Range(5, 10);
         }
 
         if (!vetted1)
         {
             int chosenPlant = Random.Range(0, 3);
-            Controller.Instance.speciesList[chosenPlant].healthHealed = Random.Range(5, 10);
+            FruitController.FruitInstance.speciesList[chosenPlant].healthHealed = Random.Range(5, 10);
         }
     }
 }

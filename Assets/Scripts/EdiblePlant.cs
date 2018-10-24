@@ -10,13 +10,12 @@ public class EdiblePlant : MonoBehaviour {
     public enum possibleEffects
     {
         None,
-        Poisoned,
-        Paralyzed,
-        Speedy,
-        Slowed,
-        Confused,
-        Drunk,
-        Hungry
+        SpeedIncrease,
+        SpeedDecrease,
+        HPRegenIncrease,
+        HPRegenDecrease,
+        DRIncrease,
+        DRDecrease,
     }
 
     public possibleEffects pE;
