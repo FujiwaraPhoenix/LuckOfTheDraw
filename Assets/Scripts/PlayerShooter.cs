@@ -60,16 +60,24 @@ public class PlayerShooter : MonoBehaviour {
         //
         if (shotTimer <= 0f)
         {
-            if (InventoryController.ic.gunIndex != 4)
+            if(InventoryController.ic.gunIndex == 4) //Multishot
+            {
+                PlayerBullet pb = Instantiate(pBullet, transform.position, Quaternion.identity);
+                pb.travelDir = generateAngToMouse();
+                PlayerBullet pb1 = Instantiate(pBullet, transform.position, Quaternion.identity);
+                //pb1.travelDir = new Vector3(pb.travelDir.x, pb.travelDir.y, 0f) * Quaternion.AngleAxis(15, Vector2.right);
+                PlayerBullet pb2 = Instantiate(pBullet, transform.position, Quaternion.identity);
+                //pb2.travelDir = generateAngToMouse() + (Vector2)(Quaternion.Euler(0, 0, -15f) * Vector2.right); ;
+            }
+            else if (InventoryController.ic.gunIndex == 5) //Burst
+            {
+
+            }
+            else //Default
             {
                 PlayerBullet pb = Instantiate(pBullet, transform.position, Quaternion.identity);
                 pb.travelDir = generateAngToMouse();
             }
-            else
-            {
-                //Shoot 3.
-            }
-            //
             shotTimer = rof + rofMod;
         }
     }
