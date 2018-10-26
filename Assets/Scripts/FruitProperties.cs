@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FruitProperties : MonoBehaviour {
-    int HealthAmount;
-    int HungerAmount;
-    int SpeedPropety;
+    public int HealthAmount;
+    public int HungerAmount;
+    public float SpeedPropety;
+    public int ArmorProperty;
+    public float Regenproperty;
+
 	// Use this for initialization
 	void Start () {
 
@@ -13,5 +16,6 @@ public class FruitProperties : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
 	}
 }

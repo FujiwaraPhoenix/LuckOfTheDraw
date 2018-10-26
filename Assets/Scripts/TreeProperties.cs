@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class TreeProperties : MonoBehaviour {
     private float fruitRichness;
+    public GameObject FruitGenerator;
     public GameObject Fruit;
+    private int FruitNumber;
     Vector3 spawnPos;
     public Sprite trunk01;
     public Sprite trunk02;
@@ -15,6 +17,7 @@ public class TreeProperties : MonoBehaviour {
     void Start () {
         fruitRichness = Random.Range(1, 5);
         trunkNumber = Random.Range(0f, 3f);
+        FruitNumber = Random.Range(0, 5);
 
         if(trunkNumber >= 0f && trunkNumber < 1f)
         {
@@ -28,6 +31,7 @@ public class TreeProperties : MonoBehaviour {
         {
             GetComponent<SpriteRenderer>().sprite = trunk03;
         }
+        Fruit = FruitGenerator.GetComponent<FruitSpeciesGenerator>().FruitList[FruitNumber].gameObject;
         for (int i = 0; i < fruitRichness;i++)
         {
             spawnPos = new Vector3(Random.Range(-1.65f, 1.65f), Random.Range(0, 2.05f), -2);

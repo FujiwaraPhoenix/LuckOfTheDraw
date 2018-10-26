@@ -44,6 +44,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1529735234251934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4922887898342896}
+  - component: {fileID: 114821673988475140}
+  m_Layer: 0
+  m_Name: FruitSpeciesGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4297595458801788
 Transform:
   m_ObjectHideFlags: 1
@@ -68,9 +84,23 @@ Transform:
   m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children:
   - {fileID: 4297595458801788}
+  - {fileID: 4922887898342896}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30}
+--- !u!4 &4922887898342896
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1529735234251934}
+  m_LocalRotation: {x: -0, y: -0, z: 0.258819, w: 0.9659259}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.40000004, y: 0.40000004, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4809503487709012}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114775188677169940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -88,6 +118,30 @@ MonoBehaviour:
   TheScale: {x: 0, y: 0, z: 0}
   stretch: 
   Hex: {fileID: 1670316969234202, guid: 176ab802ce0423d47b3d0a5f700998e2, type: 2}
+--- !u!114 &114821673988475140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1529735234251934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1d708d59d132d4e9d43559f898390c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FruitPreFab: {fileID: 1770660905224566, guid: 09793c389e0d408459091f3e7e64c337,
+    type: 2}
+  Fruit01: {fileID: 0}
+  Fruit02: {fileID: 0}
+  Fruit03: {fileID: 0}
+  Fruit04: {fileID: 0}
+  Fruit05: {fileID: 0}
+  FruitList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114979129471446582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,6 +171,7 @@ MonoBehaviour:
   iceTerrainAsset2: {fileID: 1773498916854828, guid: 12fbf306ab461a2468fb2ce0d676571c,
     type: 2}
   iceTerrainAsset3: {fileID: 0}
+  FruitGen: {fileID: 1529735234251934}
   amountOfAsset1: 10
   amountOfAsset2: 10
   amountOfAsset3: 10
