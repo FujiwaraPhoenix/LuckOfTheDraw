@@ -1104,9 +1104,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f3d7acd562b44941bb7a40467cb50f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunIndex: 0
+  shotIndex: 0
+  effectIndex: 0
   gunImage: {fileID: 533969123}
   shotImage: {fileID: 1693111226}
   effectImage: {fileID: 1617643923}
+--- !u!114 &2116548690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2116548688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda043f756f4ab14d80dcacf46950630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pBullet: {fileID: 114707342353824186, guid: adf0fd706459caa4abf441da997cfa17, type: 2}
+  shotTimer: 0
+  rof: 3
+  rofMod: 0
+  damage: 1
+  dmgMod: 0
+  baseSpread: 5
+  spreadMod: 0
 --- !u!1001 &2117955382
 Prefab:
   m_ObjectHideFlags: 0
