@@ -73,6 +73,7 @@ public class BiomeGeneration : MonoBehaviour {
                 GameObject Tree = (GameObject)Instantiate(desertTerrainAsset1, transform.position, Quaternion.identity);
                 Tree.transform.SetParent(this.transform);
                 Tree.transform.localPosition = spawnPosition;
+                Tree.GetComponent<TreeProperties>().FruitGenerator = FruitGen;
 
             }
             for (int i = 0; i < amountOfAsset2; i++)
@@ -112,6 +113,7 @@ public class BiomeGeneration : MonoBehaviour {
                 GameObject Tree = (GameObject)Instantiate(iceTerrainAsset1, transform.position, Quaternion.identity);
                 Tree.transform.SetParent(this.transform);
                 Tree.transform.localPosition = spawnPosition;
+                Tree.GetComponent<TreeProperties>().FruitGenerator = FruitGen;
 
             }
             for (int i = 0; i < amountOfAsset2; i++)

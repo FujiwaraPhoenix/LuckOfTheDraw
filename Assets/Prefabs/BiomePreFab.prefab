@@ -80,7 +80,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1052040696418678}
   m_LocalRotation: {x: -0, y: -0, z: -0.258819, w: 0.9659259}
-  m_LocalPosition: {x: 18.40304, y: -10.624999, z: 0}
+  m_LocalPosition: {x: -18.437346, y: -10.65942, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children:
   - {fileID: 4297595458801788}
@@ -156,7 +156,7 @@ MonoBehaviour:
   desert: {fileID: 21300000, guid: c82cd0f3e55367142a6f60cc47d54be9, type: 3}
   grassland: {fileID: 21300000, guid: 4d40cd41c2a5f034ca9aa98576c34067, type: 3}
   iceTundra: {fileID: 21300000, guid: e372e481a9d30fc49a181b8336f71876, type: 3}
-  desertTerrainAsset1: {fileID: 1272674931436240, guid: a56fea78726130243870fa42e858dddb,
+  desertTerrainAsset1: {fileID: 1051049232834274, guid: 2be60faf6b500a84eb870b22816517e1,
     type: 2}
   desertTerrainAsset2: {fileID: 1073317294629646, guid: 81f23deaf70ee984ca0ab7138c2a23c6,
     type: 2}
@@ -166,7 +166,7 @@ MonoBehaviour:
   grassTerrainAsset2: {fileID: 1668826717476588, guid: cde83b1b5c16fb04ca1f7e1f398409e8,
     type: 2}
   grassTerrainAsset3: {fileID: 0}
-  iceTerrainAsset1: {fileID: 1501261579909506, guid: 8456d577c0a24c04783d0d59aca889c1,
+  iceTerrainAsset1: {fileID: 1051049232834274, guid: 2be60faf6b500a84eb870b22816517e1,
     type: 2}
   iceTerrainAsset2: {fileID: 1773498916854828, guid: 12fbf306ab461a2468fb2ce0d676571c,
     type: 2}
