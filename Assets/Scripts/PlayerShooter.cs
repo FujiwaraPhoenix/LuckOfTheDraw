@@ -25,6 +25,11 @@ public class PlayerShooter : MonoBehaviour {
     //Accuracy (Spread)
     public float baseSpread = 5f;
     public float spreadMod = 0f;
+
+    //Burst
+    float burstTimer = 0;
+    int burstCount = 0;
+    bool inBurst = false;
     
 
     //The rest is handled from within the instantiation of each object.
@@ -38,11 +43,34 @@ public class PlayerShooter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+
 		if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log(generateAngToMouse());
         }
         isPlayerShooting();
+
+        if(inBurst && InventoryController.ic.gunIndex == 5) //If the player has burst shots and has shot, fire two more shots afterwards
+        {
+            if(burstCount >= 3)
+            {
+                inBurst = false;
+            }
+            else if(burstTimer >= 0.15f)
+            {
+                burstTimer = 0;
+                burstCount++;
+                inBurst = true;
+                PlayerBullet pb = Instantiate(pBullet, transform.position, Quaternion.identity);
+                pb.travelDir = generateAngToMouse();
+                pb.setIndices(InventoryController.ic.gunIndex, InventoryController.ic.shotIndex, InventoryController.ic.effectIndex);
+            }
+            else
+            {
+                burstTimer += Time.deltaTime;
+            }
+        }
 	}
 
     public void isPlayerShooting()
@@ -60,16 +88,34 @@ public class PlayerShooter : MonoBehaviour {
         //
         if (shotTimer <= 0f)
         {
-            if (InventoryController.ic.gunIndex != 4)
+            if(InventoryController.ic.gunIndex == 4) //Multishot
             {
                 PlayerBullet pb = Instantiate(pBullet, transform.position, Quaternion.identity);
                 pb.travelDir = generateAngToMouse();
+                PlayerBullet pb1 = Instantiate(pBullet, transform.position, Quaternion.identity);
+                pb.setIndices(InventoryController.ic.gunIndex, InventoryController.ic.shotIndex, InventoryController.ic.effectIndex);
+                //pb1.travelDir = new Vector3(pb.travelDir.x, pb.travelDir.y, 0f) * Quaternion.AngleAxis(15, Vector2.right);
+                pb1.travelDir = (Vector2)(Quaternion.Euler(0, 0, 15f) * generateAngToMouse());
+                pb1.setIndices(InventoryController.ic.gunIndex, InventoryController.ic.shotIndex, InventoryController.ic.effectIndex);
+                PlayerBullet pb2 = Instantiate(pBullet, transform.position, Quaternion.identity);
+                pb2.travelDir = (Vector2)(Quaternion.Euler(0, 0, -15f) * generateAngToMouse());
+                pb2.setIndices(InventoryController.ic.gunIndex, InventoryController.ic.shotIndex, InventoryController.ic.effectIndex);
             }
-            else
+            else if (InventoryController.ic.gunIndex == 5) //Burst
             {
-                //Shoot 3.
+                burstTimer = 0;
+                burstCount = 1;
+                inBurst = true;
+                PlayerBullet pb = Instantiate(pBullet, transform.position, Quaternion.identity);
+                pb.travelDir = generateAngToMouse();
+                pb.setIndices(InventoryController.ic.gunIndex, InventoryController.ic.shotIndex, InventoryController.ic.effectIndex);
             }
-            //
+            else //Default
+            {
+                PlayerBullet pb = Instantiate(pBullet, transform.position, Quaternion.identity);
+                pb.travelDir = generateAngToMouse();
+                pb.setIndices(InventoryController.ic.gunIndex, InventoryController.ic.shotIndex, InventoryController.ic.effectIndex);
+            }
             shotTimer = rof + rofMod;
         }
     }

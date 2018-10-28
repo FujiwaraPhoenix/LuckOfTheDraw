@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crossbow : MonoBehaviour {
+public class Crossbow : MonoBehaviour { //Code from one of Nick's earlier projects that we're referencing
     public GameObject Arrow;
     public static Vector3 arrowSize;
 
@@ -93,5 +93,5 @@ public class Crossbow : MonoBehaviour {
     //        }
     //    }
 
-    //}
+    }
 }
