@@ -20,11 +20,10 @@ TagManager:
   - 
   - 
   - Terrain
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PBullet
+  - Player
+  - Enemy
+  - EBullet
   - 
   - 
   - 

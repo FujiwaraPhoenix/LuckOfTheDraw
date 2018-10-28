@@ -43,12 +43,30 @@ public class PlayerShooter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (InventoryController.ic.gunIndex == 1)
+        {
+            rofMod = -1f;
+        }
+        else
+        {
+            rofMod = 0f;
+        }
+        if (InventoryController.ic.gunIndex == 3)
+        {
+            spreadMod = -2.5f;
+        }
+        else
+        {
+            spreadMod = 0f;
+        }
 
-
-		if (Input.GetKeyDown(KeyCode.Space))
+		/*if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log(generateAngToMouse());
-        }
+        }*/
+
+        //For the sake of 
+
         isPlayerShooting();
 
         if(inBurst && InventoryController.ic.gunIndex == 5) //If the player has burst shots and has shot, fire two more shots afterwards
@@ -113,7 +131,12 @@ public class PlayerShooter : MonoBehaviour {
             else //Default
             {
                 PlayerBullet pb = Instantiate(pBullet, transform.position, Quaternion.identity);
-                pb.travelDir = generateAngToMouse();
+                Vector2 tempDir = generateAngToMouse();
+                float angle = ToAng(tempDir);
+                Debug.Log(angle);
+                float actualAngle = Random.Range(angle - (baseSpread + spreadMod), angle + (baseSpread + spreadMod));
+                Debug.Log(actualAngle);
+                pb.travelDir = ToVect(actualAngle).normalized;
                 pb.setIndices(InventoryController.ic.gunIndex, InventoryController.ic.shotIndex, InventoryController.ic.effectIndex);
             }
             shotTimer = rof + rofMod;
@@ -128,5 +151,15 @@ public class PlayerShooter : MonoBehaviour {
         toMouse = newLoc.normalized;
         return toMouse;
             
+    }
+
+    public static float ToAng(Vector3 a)
+    {
+        return Mathf.Atan2(a.y, a.x) * Mathf.Rad2Deg;
+    }
+
+    public static Vector3 ToVect(float a)
+    {
+        return new Vector3(Mathf.Cos(a * Mathf.Deg2Rad), Mathf.Sin(a * Mathf.Deg2Rad), 0);
     }
 }
