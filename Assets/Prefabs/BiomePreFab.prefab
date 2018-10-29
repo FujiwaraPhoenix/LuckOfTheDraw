@@ -129,7 +129,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf1d708d59d132d4e9d43559f898390c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FruitPreFab: {fileID: 1770660905224566, guid: 09793c389e0d408459091f3e7e64c337,
+  FruitPreFab1: {fileID: 1827675667707388, guid: 3a409f8cb1a98c842a25c54e82247a70,
+    type: 2}
+  FruitPreFab2: {fileID: 1071184279236714, guid: 326f2d05e6fd7ca43b817bfb83514f0e,
+    type: 2}
+  FruitPreFab3: {fileID: 1391522635887284, guid: ec6345bfab66e814994f66f791d3c10b,
     type: 2}
   Fruit01: {fileID: 0}
   Fruit02: {fileID: 0}
@@ -158,23 +162,16 @@ MonoBehaviour:
   iceTundra: {fileID: 21300000, guid: e372e481a9d30fc49a181b8336f71876, type: 3}
   desertTerrainAsset1: {fileID: 1051049232834274, guid: 2be60faf6b500a84eb870b22816517e1,
     type: 2}
-  desertTerrainAsset2: {fileID: 1073317294629646, guid: 81f23deaf70ee984ca0ab7138c2a23c6,
-    type: 2}
-  desertTerrainAsset3: {fileID: 0}
   grassTerrainAsset1: {fileID: 1051049232834274, guid: 2be60faf6b500a84eb870b22816517e1,
     type: 2}
-  grassTerrainAsset2: {fileID: 1668826717476588, guid: cde83b1b5c16fb04ca1f7e1f398409e8,
-    type: 2}
-  grassTerrainAsset3: {fileID: 0}
   iceTerrainAsset1: {fileID: 1051049232834274, guid: 2be60faf6b500a84eb870b22816517e1,
     type: 2}
-  iceTerrainAsset2: {fileID: 1773498916854828, guid: 12fbf306ab461a2468fb2ce0d676571c,
-    type: 2}
-  iceTerrainAsset3: {fileID: 0}
+  rock01: {fileID: 1844180092276724, guid: cc392bcc569829e4fb6e673af015191b, type: 2}
+  rock02: {fileID: 1173928176750438, guid: 1f637aa6f3e092f46b3800d82742dd68, type: 2}
+  rock03: {fileID: 1488549965400412, guid: 55d0ae97328943042bcb4b988a97f246, type: 2}
   FruitGen: {fileID: 1529735234251934}
   amountOfAsset1: 10
   amountOfAsset2: 10
-  amountOfAsset3: 10
 --- !u!212 &212367946615825124
 SpriteRenderer:
   m_ObjectHideFlags: 1

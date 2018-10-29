@@ -9,16 +9,13 @@ public class BiomeGeneration : MonoBehaviour {
     public Sprite iceTundra;
 
     public GameObject desertTerrainAsset1;
-    public GameObject desertTerrainAsset2;
-    public GameObject desertTerrainAsset3;
-
     public GameObject grassTerrainAsset1;
-    public GameObject grassTerrainAsset2;
-    public GameObject grassTerrainAsset3;
-
     public GameObject iceTerrainAsset1;
-    public GameObject iceTerrainAsset2;
-    public GameObject iceTerrainAsset3;
+
+    public GameObject rock01;
+    public GameObject rock02;
+    public GameObject rock03;
+    int rockGenNumber;
 
     public GameObject FruitGen;
 
@@ -29,9 +26,6 @@ public class BiomeGeneration : MonoBehaviour {
     public float amountOfAsset2;
     public static int asset2Richness;
     float asset2Concentration;
-    public float amountOfAsset3;
-    public static int asset3Richness;
-    float asset3Concentration;
 
     Vector3 spawnPosition;
 
@@ -78,10 +72,26 @@ public class BiomeGeneration : MonoBehaviour {
             }
             for (int i = 0; i < amountOfAsset2; i++)
             {
+                rockGenNumber = Random.Range(0, 3);
                 spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
-                GameObject Rock = (GameObject)Instantiate(desertTerrainAsset2, transform.position, Quaternion.identity);
-                Rock.transform.SetParent(this.transform);
-                Rock.transform.localPosition = spawnPosition;
+                if (rockGenNumber == 0)
+                {
+                    GameObject Rock = (GameObject)Instantiate(rock01, transform.position, Quaternion.identity);
+                    Rock.transform.SetParent(this.transform);
+                    Rock.transform.localPosition = spawnPosition;
+                }
+                if (rockGenNumber == 1)
+                {
+                    GameObject Rock = (GameObject)Instantiate(rock02, transform.position, Quaternion.identity);
+                    Rock.transform.SetParent(this.transform);
+                    Rock.transform.localPosition = spawnPosition;
+                }
+                if (rockGenNumber == 2)
+                {
+                    GameObject Rock = (GameObject)Instantiate(rock03, transform.position, Quaternion.identity);
+                    Rock.transform.SetParent(this.transform);
+                    Rock.transform.localPosition = spawnPosition;
+                }
 
             }
         }
@@ -98,11 +108,26 @@ public class BiomeGeneration : MonoBehaviour {
             }
             for (int i = 0; i < amountOfAsset2; i++)
             {
+                rockGenNumber = Random.Range(0, 3);
                 spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
-                GameObject Rock = (GameObject)Instantiate(grassTerrainAsset2, transform.position, Quaternion.identity);
-                Rock.transform.SetParent(this.transform);
-                Rock.transform.localPosition = spawnPosition;
-
+                if (rockGenNumber == 0)
+                {
+                    GameObject Rock = (GameObject)Instantiate(rock01, transform.position, Quaternion.identity);
+                    Rock.transform.SetParent(this.transform);
+                    Rock.transform.localPosition = spawnPosition;
+                }
+                if (rockGenNumber == 1)
+                {
+                    GameObject Rock = (GameObject)Instantiate(rock02, transform.position, Quaternion.identity);
+                    Rock.transform.SetParent(this.transform);
+                    Rock.transform.localPosition = spawnPosition;
+                }
+                if (rockGenNumber == 2)
+                {
+                    GameObject Rock = (GameObject)Instantiate(rock03, transform.position, Quaternion.identity);
+                    Rock.transform.SetParent(this.transform);
+                    Rock.transform.localPosition = spawnPosition;
+                }
             }
         }
         if (isIce)
@@ -118,10 +143,26 @@ public class BiomeGeneration : MonoBehaviour {
             }
             for (int i = 0; i < amountOfAsset2; i++)
             {
+                rockGenNumber = Random.Range(0, 3);
                 spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
-                GameObject Rock = (GameObject)Instantiate(iceTerrainAsset2, transform.position, Quaternion.identity);
-                Rock.transform.SetParent(this.transform);
-                Rock.transform.localPosition = spawnPosition;
+                if (rockGenNumber == 0)
+                {
+                    GameObject Rock = (GameObject)Instantiate(rock01, transform.position, Quaternion.identity);
+                    Rock.transform.SetParent(this.transform);
+                    Rock.transform.localPosition = spawnPosition;
+                }
+                if (rockGenNumber == 1)
+                {
+                    GameObject Rock = (GameObject)Instantiate(rock02, transform.position, Quaternion.identity);
+                    Rock.transform.SetParent(this.transform);
+                    Rock.transform.localPosition = spawnPosition;
+                }
+                if (rockGenNumber == 2)
+                {
+                    GameObject Rock = (GameObject)Instantiate(rock03, transform.position, Quaternion.identity);
+                    Rock.transform.SetParent(this.transform);
+                    Rock.transform.localPosition = spawnPosition;
+                }
 
             }
         }
