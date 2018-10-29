@@ -15,6 +15,9 @@ public class Enemy : MonoBehaviour {
     public int damage = 5; //How much damage the enemy does per collision
     public int health = 10; //How much damage the enemy takes before dying
 
+    //Spriting Globals
+    SpriteRenderer sr;
+
     //Stuff involving movement, collision, and rigidbody.
     public Rigidbody2D rb;
     public Vector2 inputDir;
@@ -63,6 +66,9 @@ public class Enemy : MonoBehaviour {
     public float tickTimer = 0f;
     public int ticksRemaining;
 
+    //Feedback Globals
+    float flash = 1;
+
     public enum AIType
     {
         Wanderer,
@@ -78,6 +84,7 @@ public class Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
         spawnLoc = new Vector3(transform.position.x, transform.position.y);
         if(isBoss) //Set health depending on enemy type
         {
@@ -88,6 +95,14 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+
+        //Flashes red when damage is taken
+        sr.color = new Color(1, flash, flash);
+        if(flash < 1)
+        {
+            flash += 0.2f;
+        }
+
         runAI(enemyBehavior);
         if (enemyBehavior != AIType.BullRush && enemyBehavior != AIType.Pursuer && enemyBehavior != AIType.Territorial)
         {
@@ -325,6 +340,7 @@ public class Enemy : MonoBehaviour {
     public void takeDamage(int d) //Method for taking damage, pass the damage dealt as a parameter
     {
         health -= d; //Takes damage
+        flash = 0;
         if(health <= 0 && !isBoss)
         {
             if(spawned) //If it's a spawned enemy, tell the spawner that it's spawned count is one less

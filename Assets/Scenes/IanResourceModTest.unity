@@ -258,6 +258,11 @@ Prefab:
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114578636055951758, guid: ea992b938d972944d87e590c15971419,
+        type: 2}
+      propertyPath: modifierNum
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea992b938d972944d87e590c15971419, type: 2}
   m_IsPrefabAsset: 0
@@ -550,6 +555,11 @@ Prefab:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114578636055951758, guid: ea992b938d972944d87e590c15971419,
+        type: 2}
+      propertyPath: modifierNum
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea992b938d972944d87e590c15971419, type: 2}
   m_IsPrefabAsset: 0
@@ -592,10 +602,35 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 50098199971900944, guid: 40457ed755e95734ba940cdec0da98c3,
+    - target: {fileID: 114697388928297894, guid: 40457ed755e95734ba940cdec0da98c3,
         type: 2}
-      propertyPath: m_SleepingMode
-      value: 0
+      propertyPath: gunImage
+      value: 
+      objectReference: {fileID: 533969123}
+    - target: {fileID: 114697388928297894, guid: 40457ed755e95734ba940cdec0da98c3,
+        type: 2}
+      propertyPath: shotImage
+      value: 
+      objectReference: {fileID: 1693111226}
+    - target: {fileID: 114697388928297894, guid: 40457ed755e95734ba940cdec0da98c3,
+        type: 2}
+      propertyPath: effectImage
+      value: 
+      objectReference: {fileID: 1617643923}
+    - target: {fileID: 114126979552526840, guid: 40457ed755e95734ba940cdec0da98c3,
+        type: 2}
+      propertyPath: healthtext
+      value: 
+      objectReference: {fileID: 1218062208}
+    - target: {fileID: 114085087333022542, guid: 40457ed755e95734ba940cdec0da98c3,
+        type: 2}
+      propertyPath: barrel
+      value: 
+      objectReference: {fileID: 1312298958}
+    - target: {fileID: 114697388928297894, guid: 40457ed755e95734ba940cdec0da98c3,
+        type: 2}
+      propertyPath: gunIndex
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40457ed755e95734ba940cdec0da98c3, type: 2}
@@ -662,6 +697,86 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1218062206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1218062207}
+  - component: {fileID: 1218062209}
+  - component: {fileID: 1218062208}
+  m_Layer: 5
+  m_Name: HealthText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1218062207
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1218062206}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1750812144}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -320, y: -210.1852}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1218062208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1218062206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &1218062209
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1218062206}
+  m_CullTransparentMesh: 0
+--- !u!1 &1312298958 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1351355801506708, guid: 40457ed755e95734ba940cdec0da98c3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1008671434}
 --- !u!1001 &1558414825
 Prefab:
   m_ObjectHideFlags: 0
@@ -986,6 +1101,26 @@ Prefab:
       propertyPath: m_Name
       value: TestFruit (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114578636055951758, guid: ea992b938d972944d87e590c15971419,
+        type: 2}
+      propertyPath: modifierNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212020907861365474, guid: ea992b938d972944d87e590c15971419,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212020907861365474, guid: ea992b938d972944d87e590c15971419,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.67013526
+      objectReference: {fileID: 0}
+    - target: {fileID: 212020907861365474, guid: ea992b938d972944d87e590c15971419,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.990566
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea992b938d972944d87e590c15971419, type: 2}
   m_IsPrefabAsset: 0
@@ -1023,6 +1158,7 @@ RectTransform:
   - {fileID: 1693111224}
   - {fileID: 610719264}
   - {fileID: 1617643925}
+  - {fileID: 1218062207}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1088,47 +1224,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &2116548688 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1194993316767950, guid: 40457ed755e95734ba940cdec0da98c3,
-    type: 2}
-  m_PrefabInternal: {fileID: 1008671434}
---- !u!114 &2116548689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2116548688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f3d7acd562b44941bb7a40467cb50f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gunIndex: 0
-  shotIndex: 0
-  effectIndex: 0
-  gunImage: {fileID: 533969123}
-  shotImage: {fileID: 1693111226}
-  effectImage: {fileID: 1617643923}
---- !u!114 &2116548690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2116548688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cda043f756f4ab14d80dcacf46950630, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pBullet: {fileID: 114707342353824186, guid: adf0fd706459caa4abf441da997cfa17, type: 2}
-  shotTimer: 0
-  rof: 3
-  rofMod: 0
-  damage: 1
-  dmgMod: 0
-  baseSpread: 5
-  spreadMod: 0
 --- !u!1001 &2117955382
 Prefab:
   m_ObjectHideFlags: 0
@@ -1183,6 +1278,26 @@ Prefab:
     - target: {fileID: 1770660905224566, guid: ea992b938d972944d87e590c15971419, type: 2}
       propertyPath: m_Name
       value: TestFruit (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 212020907861365474, guid: ea992b938d972944d87e590c15971419,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212020907861365474, guid: ea992b938d972944d87e590c15971419,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212020907861365474, guid: ea992b938d972944d87e590c15971419,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114578636055951758, guid: ea992b938d972944d87e590c15971419,
+        type: 2}
+      propertyPath: modifierNum
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea992b938d972944d87e590c15971419, type: 2}

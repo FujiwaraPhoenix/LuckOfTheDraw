@@ -7,7 +7,11 @@ public class PlayerShooter : MonoBehaviour {
     //This is attached to the player; we parse all information from the InventoryController(ic), so we don't need as many globals here.
 
     public PlayerBullet pBullet;
+    public GameObject barrel;
     private Vector3 playerPos;
+
+    //The gun, used for feedback
+    public AimArrow gunSprite;
 
     //Gun information. These are all the base stats for the gun, plus modifiers.
 
@@ -15,8 +19,9 @@ public class PlayerShooter : MonoBehaviour {
     public float shotTimer = 0f;
 
     //Rate of Fire
-    public float rof = 3f;
+    public float rof = 2f;
     public float rofMod = 0f;
+    bool canShoot = true;
 
     //Damage
     public int damage = 1;
@@ -80,8 +85,10 @@ public class PlayerShooter : MonoBehaviour {
                 burstTimer = 0;
                 burstCount++;
                 inBurst = true;
-                PlayerBullet pb = Instantiate(pBullet, transform.position, Quaternion.identity);
-                pb.travelDir = generateAngToMouse();
+                PlayerBullet pb = Instantiate(pBullet, barrel.transform.position, Quaternion.identity);
+                //pb.travelDir = generateAngToMouse();
+                pb.transform.localRotation = gunSprite.transform.localRotation;
+                pb.travelDir = pb.transform.right;
                 pb.setIndices(InventoryController.ic.gunIndex, InventoryController.ic.shotIndex, InventoryController.ic.effectIndex);
             }
             else
@@ -99,24 +106,47 @@ public class PlayerShooter : MonoBehaviour {
         }
 
         shotTimer -= Time.deltaTime;
+        if(shotTimer <= 0f && !canShoot)
+        {
+            canShoot = true;
+            gunSprite.flashColor();
+        }
     }
 
     void shoot()
     {
         //
-        if (shotTimer <= 0f)
+        if (canShoot)
         {
+            canShoot = false;
             if(InventoryController.ic.gunIndex == 4) //Multishot
             {
-                PlayerBullet pb = Instantiate(pBullet, transform.position, Quaternion.identity);
+                /*PlayerBullet pb = Instantiate(pBullet, barrel.transform.position, Quaternion.identity);
                 pb.travelDir = generateAngToMouse();
-                PlayerBullet pb1 = Instantiate(pBullet, transform.position, Quaternion.identity);
+                PlayerBullet pb1 = Instantiate(pBullet, barrel.transform.position, Quaternion.identity);
                 pb.setIndices(InventoryController.ic.gunIndex, InventoryController.ic.shotIndex, InventoryController.ic.effectIndex);
                 //pb1.travelDir = new Vector3(pb.travelDir.x, pb.travelDir.y, 0f) * Quaternion.AngleAxis(15, Vector2.right);
                 pb1.travelDir = (Vector2)(Quaternion.Euler(0, 0, 15f) * generateAngToMouse());
                 pb1.setIndices(InventoryController.ic.gunIndex, InventoryController.ic.shotIndex, InventoryController.ic.effectIndex);
-                PlayerBullet pb2 = Instantiate(pBullet, transform.position, Quaternion.identity);
+                PlayerBullet pb2 = Instantiate(pBullet, barrel.transform.position, Quaternion.identity);
                 pb2.travelDir = (Vector2)(Quaternion.Euler(0, 0, -15f) * generateAngToMouse());
+                pb2.setIndices(InventoryController.ic.gunIndex, InventoryController.ic.shotIndex, InventoryController.ic.effectIndex);*/
+
+                PlayerBullet pb = Instantiate(pBullet, barrel.transform.position, Quaternion.identity);
+                pb.transform.localRotation = gunSprite.transform.localRotation;
+                pb.travelDir = pb.transform.right;
+                pb.setIndices(InventoryController.ic.gunIndex, InventoryController.ic.shotIndex, InventoryController.ic.effectIndex);
+
+                PlayerBullet pb1 = Instantiate(pBullet, barrel.transform.position, Quaternion.identity);
+                pb1.transform.localRotation = pb.transform.localRotation;
+                pb1.transform.Rotate(Vector3.forward, 15);
+                pb1.travelDir = pb1.transform.right;
+                pb1.setIndices(InventoryController.ic.gunIndex, InventoryController.ic.shotIndex, InventoryController.ic.effectIndex);
+
+                PlayerBullet pb2 = Instantiate(pBullet, barrel.transform.position, Quaternion.identity);
+                pb2.transform.localRotation = pb.transform.localRotation;
+                pb2.transform.Rotate(Vector3.forward, -15);
+                pb2.travelDir = pb2.transform.right;
                 pb2.setIndices(InventoryController.ic.gunIndex, InventoryController.ic.shotIndex, InventoryController.ic.effectIndex);
             }
             else if (InventoryController.ic.gunIndex == 5) //Burst
@@ -124,20 +154,24 @@ public class PlayerShooter : MonoBehaviour {
                 burstTimer = 0;
                 burstCount = 1;
                 inBurst = true;
-                PlayerBullet pb = Instantiate(pBullet, transform.position, Quaternion.identity);
-                pb.travelDir = generateAngToMouse();
+                PlayerBullet pb = Instantiate(pBullet, barrel.transform.position, Quaternion.identity);
+                //pb.travelDir = generateAngToMouse();
+                pb.transform.localRotation = gunSprite.transform.localRotation;
+                pb.travelDir = pb.transform.right;
                 pb.setIndices(InventoryController.ic.gunIndex, InventoryController.ic.shotIndex, InventoryController.ic.effectIndex);
             }
             else //Default
             {
-                PlayerBullet pb = Instantiate(pBullet, transform.position, Quaternion.identity);
-                Vector2 tempDir = generateAngToMouse();
+                PlayerBullet pb = Instantiate(pBullet, barrel.transform.position, Quaternion.identity);
+                //Vector2 tempDir = generateAngToMouse();
                 //float angle = ToAng(tempDir);
                 //Debug.Log(angle);
                 //float actualAngle = Random.Range(angle - (baseSpread + spreadMod), angle + (baseSpread + spreadMod));
                 //Debug.Log(actualAngle);
                 //pb.travelDir = ToVect(actualAngle).normalized;
-                pb.travelDir = tempDir.normalized;
+                //pb.travelDir = tempDir.normalized;
+                pb.transform.localRotation = gunSprite.transform.localRotation;
+                pb.travelDir = pb.transform.right;
                 pb.setIndices(InventoryController.ic.gunIndex, InventoryController.ic.shotIndex, InventoryController.ic.effectIndex);
             }
             shotTimer = rof + rofMod;

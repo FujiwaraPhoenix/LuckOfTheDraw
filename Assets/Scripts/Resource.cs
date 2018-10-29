@@ -41,6 +41,11 @@ public class Resource : MonoBehaviour
         return self;
     }
 
+    public Color giveColor()
+    {
+        return sr.color;
+    }
+
     public void eat() //If the resource is a fruit, eat it
     {
         if (isFruit)

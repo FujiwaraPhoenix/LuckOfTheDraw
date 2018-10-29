@@ -7,7 +7,7 @@ public class PlayerBullet : MonoBehaviour {
     public Vector3 travelDir;
     public bool isSine = false;
     public int aftereffect = 0;
-    public float mvtSpd = 5;
+    public float mvtSpd = 10;
     public int damage = 1;
     public float lifetime = 3;
     public bool isTracking = false;
@@ -32,7 +32,7 @@ public class PlayerBullet : MonoBehaviour {
         {
             transform.position += travelDir * mvtSpd * Time.deltaTime;
         }
-        Debug.Log(Mathf.Cos(timer) + " " + Mathf.Sin(timer));
+        //Debug.Log(Mathf.Cos(timer) + " " + Mathf.Sin(timer));
 
         if (shotIndex == 2) //If the bullet has acceleration
         {
@@ -69,10 +69,10 @@ public class PlayerBullet : MonoBehaviour {
         switch(shotIndex)
         {
             case 1:
-                mvtSpd = 10;
+                mvtSpd = 20;
                 break;
             case 2: //Temporary; sine wave otherwise. Currently acceleration.
-                mvtSpd = 1;
+                mvtSpd = 5;
                 break;
             case 3:
                 lifetime = 7.5f;
@@ -150,6 +150,10 @@ public class PlayerBullet : MonoBehaviour {
             if (effectIndex != 3 || effectIndex != 4)
             {
                 Destroy(this.gameObject);
+            }
+            else
+            {
+                Debug.Log("Shouldn't be destroyed");
             }
         }
     }

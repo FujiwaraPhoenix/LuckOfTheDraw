@@ -107,6 +107,7 @@ MonoBehaviour:
   lifetime: 3
   isTracking: 0
   trackingTarget: {fileID: 0}
+  e: {fileID: 114761009793447556, guid: 0a22745f690461d4d81ab4668c279b57, type: 2}
 --- !u!212 &212968788759103352
 SpriteRenderer:
   m_ObjectHideFlags: 1

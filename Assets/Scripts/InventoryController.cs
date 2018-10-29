@@ -93,10 +93,10 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("In a trigger");
+        //Debug.Log("In a trigger");
         if(cooldown <= 0 && collision.tag == "Resource") //If the player is over the triggerbox of a resource
         {
-            Debug.Log("Trigger is resource");
+            //Debug.Log("Trigger is resource");
             //Depending on what key the player presses, take the resource and input it into a modularity slot
             //If the player already has a resource in that slot, drop the previous resource on the ground
             //Update the references for what resource is in the slot, the modularity instance, and the ui sprite
@@ -105,7 +105,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
             Resource r = collision.GetComponent<Resource>();
             if(pressOne)
             {
-                Debug.Log("Taking Action");
+                //Debug.Log("Taking Action");
                 if(haveGun)
                 {
                     //Instantiate(gunResource, transform.position, Quaternion.identity);
@@ -115,6 +115,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                 gunResource = r.gameObject;
                 gunIndex = r.pickup();
                 gunImage.sprite = r.giveSprite();
+                gunImage.color = r.giveColor();
                 haveGun = true;
                 cooldown = 0.5f;
             }
@@ -129,6 +130,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                 shotResource = r.gameObject;
                 shotIndex = r.pickup();
                 shotImage.sprite = r.giveSprite();
+                shotImage.color = r.giveColor();
                 haveShot = true;
                 cooldown = 0.5f;
             }
@@ -143,6 +145,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                 effectResource = r.gameObject;
                 effectIndex = r.pickup();
                 effectImage.sprite = r.giveSprite();
+                effectImage.color = r.giveColor();
                 haveEffect = true;
                 cooldown = 0.5f;
             }
