@@ -7,7 +7,7 @@ public class Consumables : MonoBehaviour {
     public  int speed;
     public static int regen;
     public int health;
-    public static int hunger;
+    public static float hunger;
     public GameObject fruit;
     public Transform player;
     public float fruitspeed = 3;
@@ -48,6 +48,7 @@ public class Consumables : MonoBehaviour {
        if (colli.gameObject.tag == "Fruit")
         {
             health = FruitProperties.publicHealth;
+            Player.publichunger = Player.publichunger + FruitProperties.publicHunger;
             Player.publichealth = Player.publichealth + FruitProperties.publicHealth;
             Destroy(colli.gameObject);
       }
