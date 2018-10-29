@@ -10,9 +10,11 @@ public class Consumables : MonoBehaviour {
     public static float hunger;
     public GameObject fruit;
     public Transform player;
-    public float fruitspeed = 3;
+    float fruitspeed = 1.5f;
+    float eatTimer;
+    GameObject absorbedFruit = null;
     
-        public Collider2D bob;
+    public Collider2D bob;
 
     //ParticleSystem.MainModule main = consume[i].main;
     public ParticleSystem consume;
@@ -31,16 +33,18 @@ public class Consumables : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D coll)
     {
-
-        float step = fruitspeed * Time.deltaTime;
+        Debug.Log(absorbedFruit);
         if (coll.tag == "Fruit")
         {
-            ImAFruit.moving = true;
-        
-            coll.transform.position = Vector3.MoveTowards(coll.transform.position, player.position, step);
+            absorbedFruit = coll.gameObject;
+            Debug.Log(absorbedFruit);
+            if (absorbedFruit != null)
+            {
+                ImAFruit.moving = true;
+                absorbedFruit.transform.position = Vector3.MoveTowards(absorbedFruit.transform.position, player.position, fruitspeed * Time.deltaTime);
+                Debug.Log(absorbedFruit);
+            }
         }
-
-      
     }
 
     void OnCollisionEnter2D(Collision2D colli)
@@ -51,6 +55,7 @@ public class Consumables : MonoBehaviour {
             Player.publichunger = Player.publichunger + FruitProperties.publicHunger;
             Player.publichealth = Player.publichealth + FruitProperties.publicHealth;
             Destroy(colli.gameObject);
+            absorbedFruit = null;
       }
     }
 
@@ -72,6 +77,7 @@ public class Consumables : MonoBehaviour {
             main.loop = false;
             consume.Stop();
             bob.enabled = false;
+            absorbedFruit = null;
         }
 
     }

@@ -45,8 +45,10 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     // Update is called once per frame
     void Update () {
         health = publichealth;
-        hungerText.text = publichunger.ToString();
+        hungerText.text = publichunger.ToString("F0");
         healthtext.text = health.ToString();
+
+        publichunger -= 1.0f * Time.deltaTime;
         if (alive) //Make sure the player cannot move if they're out of health
         {
             movePC();
@@ -66,12 +68,12 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
         if (tryUp)
         {
             mvtDir += Vector2.up;
-            publichunger = publichunger - 0.1f;
+            //publichunger = publichunger - 0.1f;
         }
         if (tryDown)
         {
             mvtDir += Vector2.down;
-            publichunger = publichunger - 0.1f;
+            //publichunger = publichunger - 0.1f;
         }
         if (tryLeft)
         {
