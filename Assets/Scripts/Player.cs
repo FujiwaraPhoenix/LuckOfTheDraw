@@ -13,6 +13,12 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     public static float publichunger = 100;
     bool alive = true;
 
+    private SpriteRenderer mySpriteRenderer;
+    private SpriteRenderer gunSpriteRenderer;
+    public GameObject player1Sprite;
+    public GameObject gunSprite;
+
+
     //Controls how fast the player moves.
     public float mvtSpd;
 
@@ -31,11 +37,13 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
     // Use this for initialization
     void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        mySpriteRenderer = player1Sprite.GetComponent<SpriteRenderer>();
+        gunSpriteRenderer = gunSprite.GetComponent<SpriteRenderer>();
+
+    }
+
+    // Update is called once per frame
+    void Update () {
         health = publichealth;
         hungerText.text = publichunger.ToString();
         healthtext.text = health.ToString();
@@ -69,11 +77,15 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
         {
             mvtDir += Vector2.left;
             publichunger = publichunger - 0.1f;
+            mySpriteRenderer.flipX = true;
+            gunSpriteRenderer.flipY = true;
         }
         if (tryRight)
         {
             mvtDir += Vector2.right;
             publichunger = publichunger - 0.1f;
+            mySpriteRenderer.flipX = false;
+            gunSpriteRenderer.flipY = false;
         }
         mvtDir.Normalize();
         transform.position += new Vector3(mvtDir.x * Time.deltaTime * mvtSpd, mvtDir.y * Time.deltaTime * mvtSpd);
