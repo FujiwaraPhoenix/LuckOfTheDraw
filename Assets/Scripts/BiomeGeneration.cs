@@ -20,6 +20,8 @@ public class BiomeGeneration : MonoBehaviour {
     public GameObject iceTerrainAsset2;
     public GameObject iceTerrainAsset3;
 
+    public GameObject FruitGen;
+
     //these floats will determine how many of each asset will populate the world upon the creation of the individual biome
     public float amountOfAsset1;
     public static int asset1Richness;
@@ -57,8 +59,8 @@ public class BiomeGeneration : MonoBehaviour {
         {
             isIce = true;
             GetComponent<SpriteRenderer>().sprite = iceTundra;
-
         }
+        Debug.Log(GetComponent<SpriteRenderer>().sprite);
         //this.GetComponent<MeshRenderer>().material.color = Random.ColorHSV(0f, 1f, 0f, 1f, 0f, 1f);
 
         //these for statements will populate the world accordingly with how mnay of a specific asset you want at randomized locations with 
@@ -71,6 +73,7 @@ public class BiomeGeneration : MonoBehaviour {
                 GameObject Tree = (GameObject)Instantiate(desertTerrainAsset1, transform.position, Quaternion.identity);
                 Tree.transform.SetParent(this.transform);
                 Tree.transform.localPosition = spawnPosition;
+                Tree.GetComponent<TreeProperties>().FruitGenerator = FruitGen;
 
             }
             for (int i = 0; i < amountOfAsset2; i++)
@@ -90,6 +93,7 @@ public class BiomeGeneration : MonoBehaviour {
                 GameObject Tree = (GameObject)Instantiate(grassTerrainAsset1, transform.position, Quaternion.identity);
                 Tree.transform.SetParent(this.transform);
                 Tree.transform.localPosition = spawnPosition;
+                Tree.GetComponent<TreeProperties>().FruitGenerator = FruitGen;
 
             }
             for (int i = 0; i < amountOfAsset2; i++)
@@ -109,6 +113,7 @@ public class BiomeGeneration : MonoBehaviour {
                 GameObject Tree = (GameObject)Instantiate(iceTerrainAsset1, transform.position, Quaternion.identity);
                 Tree.transform.SetParent(this.transform);
                 Tree.transform.localPosition = spawnPosition;
+                Tree.GetComponent<TreeProperties>().FruitGenerator = FruitGen;
 
             }
             for (int i = 0; i < amountOfAsset2; i++)

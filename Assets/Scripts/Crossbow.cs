@@ -37,7 +37,7 @@ public class Crossbow : MonoBehaviour { //Code from one of Nick's earlier projec
     }
 	
 	// Update is called once per frame
-	void Update () {
+	//void Update () {
     //    if (Input.GetMouseButton(0))
     //    {
     //        if (CraftingMechanism.scatterShot == true || CraftingMechanism.basicAttack == true)
