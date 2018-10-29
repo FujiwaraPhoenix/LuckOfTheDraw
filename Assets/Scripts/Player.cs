@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour { //The Player should be tagged as player and have the player layermask
 
     public static Player pc;
-
-    int health = 30;
+    public Text healthtext;
+    public int health = 30;
+    public static int publichealth = 30;
     bool alive = true;
 
     //Controls how fast the player moves.
@@ -32,9 +34,12 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 	
 	// Update is called once per frame
 	void Update () {
+        health = publichealth;
+        healthtext.text = health.ToString();
         if (alive) //Make sure the player cannot move if they're out of health
         {
             movePC();
+          //  healthtext.text = health.ToString();
         }
 	}
 

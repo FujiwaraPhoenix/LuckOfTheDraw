@@ -10,6 +10,7 @@ TagManager:
   - IceTile
   - Resource
   - Biome
+  - Fruit
   layers:
   - Default
   - TransparentFX
@@ -20,13 +21,12 @@ TagManager:
   - 
   - 
   - Terrain
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PBullet
+  - Player
+  - Enemy
+  - EBullet
+  - Tree
+  - Fruit
   - 
   - 
   - 

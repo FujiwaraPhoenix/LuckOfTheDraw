@@ -57,6 +57,12 @@ public class Enemy : MonoBehaviour {
     bool spawned = false;
     Enemy mother;
 
+    //Possible status effects.
+    public int currentStatus = 0;
+    public float tickrate = 2f;
+    public float tickTimer = 0f;
+    public int ticksRemaining;
+
     public enum AIType
     {
         Wanderer,
@@ -109,6 +115,35 @@ public class Enemy : MonoBehaviour {
                     enemyBehavior = AIType.Pursuer;
                     break;
             }
+        }
+        if (currentStatus != 0)
+        {
+            if (ticksRemaining > 0)
+            {
+                switch (currentStatus)
+                {
+                    case 1:
+                        if (tickTimer <= 0)
+                        {
+                            health -= 1;
+                            ticksRemaining--;
+                            tickTimer = tickrate;
+                        }
+                        break;
+                    case 5:
+                        if (tickTimer > 0)
+                        {
+                            //This one ticks once, so...
+                            rb.velocity *= .5f;
+                        }
+                        else
+                        {
+                            ticksRemaining--;
+                        }
+                        break;
+                }
+            }
+            tickTimer -= Time.deltaTime;
         }
     }
 
