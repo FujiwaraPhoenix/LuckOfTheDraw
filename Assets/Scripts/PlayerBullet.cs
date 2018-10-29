@@ -12,6 +12,7 @@ public class PlayerBullet : MonoBehaviour {
     public float lifetime = 3;
     public bool isTracking = false;
     public Enemy trackingTarget;
+    public Explosion e;
 
     int gunIndex;
     int shotIndex;
@@ -132,9 +133,12 @@ public class PlayerBullet : MonoBehaviour {
                     break;
                 //Drop an AoE.
                 case 2:
+                    Explosion newExp = Instantiate(e, transform.position, Quaternion.identity);
                     break;
                 //Bounce
                 case 4:
+                    Vector3 newDirection = (Vector3.Reflect(travelDir, collision.contacts[0].normal));
+                    travelDir = (Vector2)newDirection;
                     break;
                 //Slow the enemy.
                 case 5:

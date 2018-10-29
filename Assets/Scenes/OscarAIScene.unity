@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 1880842064}
   - component: {fileID: 1880842066}
   - component: {fileID: 1880842067}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,6 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 270b2c3e1ea88ad43bc1e991078e6ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 30
   mvtSpd: 5
 --- !u!212 &1880842062
 SpriteRenderer:
