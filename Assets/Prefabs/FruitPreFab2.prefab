@@ -21,9 +21,12 @@ GameObject:
   - component: {fileID: 4839194929438864}
   - component: {fileID: 212944466130709300}
   - component: {fileID: 114787130544058660}
-  m_Layer: 0
+  - component: {fileID: 60478080133369848}
+  - component: {fileID: 50393224940723962}
+  - component: {fileID: 114249789963277828}
+  m_Layer: 14
   m_Name: FruitPreFab2
-  m_TagString: Untagged
+  m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,6 +44,111 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50393224940723962
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1071184279236714}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!60 &60478080133369848
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1071184279236714}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 4}
+    newSize: {x: 9.73, y: 16.58}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.72999996, y: -1.05}
+      - {x: 0.88, y: -0.9}
+      - {x: 0.96999997, y: -0.78}
+      - {x: 1.03, y: -0.69}
+      - {x: 1.12, y: -0.44}
+      - {x: 1.14, y: -0.22999999}
+      - {x: 1.14, y: -0.02}
+      - {x: 1.13, y: 0.04}
+      - {x: 1.1, y: 0.26999998}
+      - {x: 1.04, y: 0.41}
+      - {x: 0.95, y: 0.57}
+      - {x: 0.87, y: 0.69}
+      - {x: 0.96, y: 0.78}
+      - {x: 1.05, y: 0.89}
+      - {x: 1.01, y: 0.98999995}
+      - {x: 0.9, y: 1.04}
+      - {x: 0.84, y: 1.0799999}
+      - {x: 0.78, y: 1.0799999}
+      - {x: 0.72999996, y: 1.05}
+      - {x: 0.74, y: 1.01}
+      - {x: 0.75, y: 0.96}
+      - {x: 0.84, y: 0.89}
+      - {x: 0.74, y: 0.78999996}
+      - {x: 0.53999996, y: 0.88}
+      - {x: 0.42, y: 0.91999996}
+      - {x: 0.13, y: 0.94}
+      - {x: -0.02, y: 0.91999996}
+      - {x: -0.21, y: 0.85999995}
+      - {x: -0.39, y: 0.78}
+      - {x: -0.58, y: 0.65999997}
+      - {x: -0.65999997, y: 0.59999996}
+      - {x: -0.84999996, y: 0.42}
+      - {x: -0.91999996, y: 0.34}
+      - {x: -1.02, y: 0.19}
+      - {x: -1.05, y: 0.12}
+      - {x: -1.1, y: -0.02}
+      - {x: -1.1, y: -0.34}
+      - {x: -1.06, y: -0.48999998}
+      - {x: -0.96, y: -0.68}
+      - {x: -0.88, y: -0.78999996}
+      - {x: -0.69, y: -1}
+      - {x: -0.5, y: -1.13}
+      - {x: -0.29999998, y: -1.22}
+      - {x: -0.11, y: -1.28}
+      - {x: 0.21, y: -1.28}
+      - {x: 0.28, y: -1.27}
+      - {x: 0.47, y: -1.1999999}
+      - {x: 0.63, y: -1.12}
+--- !u!114 &114249789963277828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1071184279236714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 518a3c218e5fad14b808ac4e5b3ac775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1030967904792742, guid: 645cdabfd5deecf42a403b103d985f21, type: 2}
+  fruitspeed: 5
 --- !u!114 &114787130544058660
 MonoBehaviour:
   m_ObjectHideFlags: 1

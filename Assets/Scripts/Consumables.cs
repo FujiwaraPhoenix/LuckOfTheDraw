@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Consumables : MonoBehaviour {
 
-    public static int speed;
+    public  int speed;
     public static int regen;
-    public static int health;
+    public int health;
     public static int hunger;
     public GameObject fruit;
     public Transform player;
-    public float fruitspeed;
+    public float fruitspeed = 3;
+    
+        public Collider2D bob;
 
     //ParticleSystem.MainModule main = consume[i].main;
     public ParticleSystem consume;
@@ -18,8 +20,8 @@ public class Consumables : MonoBehaviour {
     // Use this for initialization
     void Awake()
     {
-        CircleCollider2D cc;
-        cc = gameObject.AddComponent<CircleCollider2D>();
+        //CircleCollider2D cc;
+        //cc = gameObject.AddComponent<CircleCollider2D>();
     }
 
 
@@ -27,7 +29,7 @@ public class Consumables : MonoBehaviour {
        
     }
 
-    void OnTriggerEnter2D(Collider2D coll)
+    void OnTriggerStay2D(Collider2D coll)
     {
 
         float step = fruitspeed * Time.deltaTime;
@@ -35,7 +37,7 @@ public class Consumables : MonoBehaviour {
         {
             ImAFruit.moving = true;
         
-          //  coll.transform.position = Vector3.MoveTowards(coll.transform.position, player.position, step);
+            coll.transform.position = Vector3.MoveTowards(coll.transform.position, player.position, step);
         }
 
       
@@ -43,10 +45,12 @@ public class Consumables : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D colli)
     {
-        if (colli.gameObject.tag == "Fruit")
+       if (colli.gameObject.tag == "Fruit")
         {
-            //Destroy(colli.gameObject);
-        }
+            health = FruitProperties.publicHealth;
+            Player.publichealth = Player.publichealth + FruitProperties.publicHealth;
+            Destroy(colli.gameObject);
+      }
     }
 
     // Update is called once per frame
@@ -59,12 +63,14 @@ public class Consumables : MonoBehaviour {
         {
             consume.Play();
             main.loop = true;
+            bob.enabled = true;
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
             main.loop = false;
             consume.Stop();
+            bob.enabled = false;
         }
 
     }
