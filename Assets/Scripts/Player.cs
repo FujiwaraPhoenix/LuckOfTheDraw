@@ -6,7 +6,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
     public static Player pc;
 
-    int health = 30;
+    public int health = 30;
     bool alive = true;
 
     //Controls how fast the player moves.
