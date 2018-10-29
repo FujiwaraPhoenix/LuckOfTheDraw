@@ -7,8 +7,10 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
     public static Player pc;
     public Text healthtext;
-    public int health;
+    public Text hungerText;
+    public int health = 30;
     public static int publichealth = 30;
+    public static float publichunger = 100;
     bool alive = true;
 
     //Controls how fast the player moves.
@@ -35,6 +37,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 	// Update is called once per frame
 	void Update () {
         health = publichealth;
+        hungerText.text = publichunger.ToString();
         healthtext.text = health.ToString();
         if (alive) //Make sure the player cannot move if they're out of health
         {
@@ -55,18 +58,22 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
         if (tryUp)
         {
             mvtDir += Vector2.up;
+            publichunger = publichunger - 0.1f;
         }
         if (tryDown)
         {
             mvtDir += Vector2.down;
+            publichunger = publichunger - 0.1f;
         }
         if (tryLeft)
         {
             mvtDir += Vector2.left;
+            publichunger = publichunger - 0.1f;
         }
         if (tryRight)
         {
             mvtDir += Vector2.right;
+            publichunger = publichunger - 0.1f;
         }
         mvtDir.Normalize();
         transform.position += new Vector3(mvtDir.x * Time.deltaTime * mvtSpd, mvtDir.y * Time.deltaTime * mvtSpd);
