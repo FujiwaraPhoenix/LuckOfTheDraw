@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class AimArrow : MonoBehaviour {
 
+    float colorFlash = 1;
+
+    SpriteRenderer sr;
+
 	// Use this for initialization
 	void Start () {
-		
+        sr = GetComponent<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -21,8 +25,17 @@ public class AimArrow : MonoBehaviour {
         float angle = Mathf.Atan2(mouse_pos.y, mouse_pos.x) * Mathf.Rad2Deg;
         this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-
+        sr.color = new Color(colorFlash, colorFlash, 1);
+        if(colorFlash <= 1)
+        {
+            colorFlash += .1f;
+        }
 
 		
 	}
+
+    public void flashColor()
+    {
+        colorFlash = .5f;
+    }
 }
