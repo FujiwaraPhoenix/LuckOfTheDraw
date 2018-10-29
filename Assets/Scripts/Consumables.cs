@@ -47,8 +47,10 @@ public class Consumables : MonoBehaviour {
     {
        if (colli.gameObject.tag == "Fruit")
         {
-            health = FruitProperties.publicHealth;
-            Player.publichealth = Player.publichealth + FruitProperties.publicHealth;
+            //health = FruitProperties.publicHealth;
+            health = colli.gameObject.GetComponent<FruitProperties>().HealthAmount;
+            Debug.Log(health);
+            Player.publichealth = Player.publichealth + health;
             Destroy(colli.gameObject);
       }
     }

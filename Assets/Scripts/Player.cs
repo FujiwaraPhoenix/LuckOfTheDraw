@@ -7,7 +7,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
     public static Player pc;
     public Text healthtext;
-    public int health = 30;
+    public int health;
     public static int publichealth = 30;
     bool alive = true;
 
