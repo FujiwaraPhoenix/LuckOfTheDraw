@@ -132,11 +132,12 @@ public class PlayerShooter : MonoBehaviour {
             {
                 PlayerBullet pb = Instantiate(pBullet, transform.position, Quaternion.identity);
                 Vector2 tempDir = generateAngToMouse();
-                float angle = ToAng(tempDir);
-                Debug.Log(angle);
-                float actualAngle = Random.Range(angle - (baseSpread + spreadMod), angle + (baseSpread + spreadMod));
-                Debug.Log(actualAngle);
-                pb.travelDir = ToVect(actualAngle).normalized;
+                //float angle = ToAng(tempDir);
+                //Debug.Log(angle);
+                //float actualAngle = Random.Range(angle - (baseSpread + spreadMod), angle + (baseSpread + spreadMod));
+                //Debug.Log(actualAngle);
+                //pb.travelDir = ToVect(actualAngle).normalized;
+                pb.travelDir = tempDir.normalized;
                 pb.setIndices(InventoryController.ic.gunIndex, InventoryController.ic.shotIndex, InventoryController.ic.effectIndex);
             }
             shotTimer = rof + rofMod;
