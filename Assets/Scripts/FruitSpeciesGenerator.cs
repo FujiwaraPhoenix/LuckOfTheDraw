@@ -30,7 +30,7 @@ public class FruitSpeciesGenerator : MonoBehaviour {
         {
             HealingAmount = Random.Range(-5, 10);
             HungerSaturation = Random.Range(-5, 10);
-            SpeedAlteration = Random.Range(-0.5f, 4f);
+            SpeedAlteration = Random.Range(-0.1f, 2f);
             Armor = Random.Range(0, 5);
             RegenLevel = Random.Range(0f, 1f);
             fruitGenNumber = Random.Range(0, 3);
