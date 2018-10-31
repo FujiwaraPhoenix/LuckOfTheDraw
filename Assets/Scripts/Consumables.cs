@@ -47,6 +47,7 @@ public class Consumables : MonoBehaviour {
             //health = FruitProperties.publicHealth;
             Player.publichunger = Player.publichunger + colli.gameObject.GetComponent<FruitProperties>().HungerAmount;
             Player.publichealth = Player.publichealth + colli.gameObject.GetComponent<FruitProperties>().HealthAmount;
+            Player.mvtSpd = Player.mvtSpd + colli.gameObject.GetComponent<FruitProperties>().SpeedPropety;
             Destroy(colli.gameObject);
             absorbedFruit[0] = null;
       }

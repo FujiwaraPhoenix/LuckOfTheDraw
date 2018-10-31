@@ -12,7 +12,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     public int health = 30;
     public static int publichealth = 30;
     public static float publichunger = 100;
-    public static float publicspeed;
+    public static float publicspeed = 2;
     bool alive = true;
 
     private SpriteRenderer mySpriteRenderer;
@@ -22,7 +22,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
 
     //Controls how fast the player moves.
-    public float mvtSpd;
+    public static float mvtSpd = 2;
 
     public void Awake()
     {
