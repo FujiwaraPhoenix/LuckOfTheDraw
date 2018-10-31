@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FruitSpeciesGenerator : MonoBehaviour {
-    public GameObject FruitPreFab1;
-    public GameObject FruitPreFab2;
-    public GameObject FruitPreFab3;
+public class RockGenerator : MonoBehaviour {
+    public GameObject RockPreFab1;
+    public GameObject RockPreFab2;
+    public GameObject RockPreFab3;
     //GameObject generatedFruit;
     int fruitGenNumber;
 
 
-    public GameObject Fruit01;
-    public GameObject Fruit02;
-    public GameObject Fruit03;
-    public GameObject Fruit04;
-    public GameObject Fruit05;
+    public GameObject Rock01;
+    public GameObject Rock02;
+    public GameObject Rock03;
+    public GameObject Rock04;
+    public GameObject Rock05;
 
     int HealingAmount;
     int HungerSaturation;
@@ -30,13 +30,13 @@ public class FruitSpeciesGenerator : MonoBehaviour {
         {
             HealingAmount = Random.Range(-5, 10);
             HungerSaturation = Random.Range(-5, 10);
-            SpeedAlteration = Random.Range(-0.5f, 4f);
+            SpeedAlteration = Random.Range(-10f, 20f);
             Armor = Random.Range(0, 5);
             RegenLevel = Random.Range(0f, 1f);
             fruitGenNumber = Random.Range(0, 3);
             if (fruitGenNumber == 0)
             {
-                GameObject generatedFruit = Instantiate(FruitPreFab1, transform.position, transform.rotation);
+                GameObject generatedFruit = Instantiate(RockPreFab1, transform.position, transform.rotation);
                 generatedFruit.GetComponent<FruitProperties>().HealthAmount = HealingAmount;
                 generatedFruit.GetComponent<FruitProperties>().HungerAmount = HungerSaturation;
                 generatedFruit.GetComponent<FruitProperties>().SpeedPropety = SpeedAlteration;
@@ -47,7 +47,7 @@ public class FruitSpeciesGenerator : MonoBehaviour {
             }
             if (fruitGenNumber == 1)
             {
-                GameObject generatedFruit = Instantiate(FruitPreFab2, transform.position, transform.rotation);
+                GameObject generatedFruit = Instantiate(RockPreFab2, transform.position, transform.rotation);
                 generatedFruit.GetComponent<FruitProperties>().HealthAmount = HealingAmount;
                 generatedFruit.GetComponent<FruitProperties>().HungerAmount = HungerSaturation;
                 generatedFruit.GetComponent<FruitProperties>().SpeedPropety = SpeedAlteration;
@@ -58,7 +58,7 @@ public class FruitSpeciesGenerator : MonoBehaviour {
             }
             if (fruitGenNumber == 2)
             {
-                GameObject generatedFruit = Instantiate(FruitPreFab3, transform.position, transform.rotation);
+                GameObject generatedFruit = Instantiate(RockPreFab3, transform.position, transform.rotation);
                 generatedFruit.GetComponent<FruitProperties>().HealthAmount = HealingAmount;
                 generatedFruit.GetComponent<FruitProperties>().HungerAmount = HungerSaturation;
                 generatedFruit.GetComponent<FruitProperties>().SpeedPropety = SpeedAlteration;
@@ -68,14 +68,15 @@ public class FruitSpeciesGenerator : MonoBehaviour {
                 FruitList[i] = generatedFruit;
             }
         }
-        Fruit01 = FruitList[0];
-        Fruit02 = FruitList[1];
-        Fruit03 = FruitList[2];
-        Fruit04 = FruitList[3];
-        Fruit05 = FruitList[4];
+        Rock01 = FruitList[0];
+        Rock02 = FruitList[1];
+        Rock03 = FruitList[2];
+        Rock04 = FruitList[3];
+        Rock05 = FruitList[4];
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
     }
 }
