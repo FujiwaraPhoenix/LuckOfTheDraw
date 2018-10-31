@@ -16,10 +16,10 @@ public class ImAFruit : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        float step = fruitspeed * Time.deltaTime;
-        if (moving == true)
-        {
-            Vector3.MoveTowards(transform.position, player.transform.position, step);
-        }
+        //float step = fruitspeed * Time.deltaTime;
+        //if (moving == true)
+        //{
+        //    Vector3.MoveTowards(transform.position, player.transform.position, step);
+        //}
     }
 }

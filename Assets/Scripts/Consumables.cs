@@ -12,7 +12,8 @@ public class Consumables : MonoBehaviour {
     public Transform player;
     float fruitspeed = 1.5f;
     float eatTimer;
-    GameObject absorbedFruit = null;
+    //private GameObject absorbedFruit = null;
+    private GameObject[] absorbedFruit = new GameObject[1];
     
     public Collider2D bob;
 
@@ -33,17 +34,9 @@ public class Consumables : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D coll)
     {
-        Debug.Log(absorbedFruit);
-        if (coll.tag == "Fruit")
+        if (coll.gameObject.tag == "Fruit" && absorbedFruit[0] == null )
         {
-            absorbedFruit = coll.gameObject;
-            Debug.Log(absorbedFruit);
-            if (absorbedFruit != null)
-            {
-                ImAFruit.moving = true;
-                absorbedFruit.transform.position = Vector3.MoveTowards(absorbedFruit.transform.position, player.position, fruitspeed * Time.deltaTime);
-                Debug.Log(absorbedFruit);
-            }
+            absorbedFruit[0] = coll.gameObject;
         }
     }
 
@@ -55,14 +48,12 @@ public class Consumables : MonoBehaviour {
             Player.publichunger = Player.publichunger + FruitProperties.publicHunger;
             Player.publichealth = Player.publichealth + FruitProperties.publicHealth;
             Destroy(colli.gameObject);
-            absorbedFruit = null;
+            absorbedFruit[0] = null;
       }
     }
 
     // Update is called once per frame
     void Update () {
-
-        
         ParticleSystem.MainModule main = consume.main;
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -71,13 +62,20 @@ public class Consumables : MonoBehaviour {
             main.loop = true;
             bob.enabled = true;
         }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            if (absorbedFruit[0] != null)
+            {
+                Debug.Log(absorbedFruit[0]);
+                absorbedFruit[0].transform.position = Vector3.MoveTowards(absorbedFruit[0].transform.position, player.position, fruitspeed * Time.deltaTime);
+            }
+        }
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
             main.loop = false;
             consume.Stop();
             bob.enabled = false;
-            absorbedFruit = null;
         }
 
     }
