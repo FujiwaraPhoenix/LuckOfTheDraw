@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4772309033380172}
   - component: {fileID: 212201714027564424}
+  - component: {fileID: 114044818248229942}
+  - component: {fileID: 114547464144134804}
   m_Layer: 0
   m_Name: RockPreFab2
   m_TagString: Untagged
@@ -40,6 +42,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114044818248229942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1173928176750438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4b4b783e09aec449513b79a70a0061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFruit: 0
+  modifierNum: 0
+--- !u!114 &114547464144134804
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1173928176750438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a98793cc18b83a4bbc354506d64a174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RockGenNumber: 0
 --- !u!212 &212201714027564424
 SpriteRenderer:
   m_ObjectHideFlags: 1

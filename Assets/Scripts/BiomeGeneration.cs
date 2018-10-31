@@ -18,6 +18,9 @@ public class BiomeGeneration : MonoBehaviour {
     int rockGenNumber;
 
     public GameObject FruitGen;
+    public GameObject RockGen;
+    int RockNumber;
+
 
     //these floats will determine how many of each asset will populate the world upon the creation of the individual biome
     public float amountOfAsset1;
@@ -72,26 +75,30 @@ public class BiomeGeneration : MonoBehaviour {
             }
             for (int i = 0; i < amountOfAsset2; i++)
             {
-                rockGenNumber = Random.Range(0, 3);
+                //rockGenNumber = Random.Range(0, 3);
+                RockNumber = Random.Range(0, 5);
                 spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
-                if (rockGenNumber == 0)
-                {
-                    GameObject Rock = (GameObject)Instantiate(rock01, transform.position, Quaternion.identity);
-                    Rock.transform.SetParent(this.transform);
-                    Rock.transform.localPosition = spawnPosition;
-                }
-                if (rockGenNumber == 1)
-                {
-                    GameObject Rock = (GameObject)Instantiate(rock02, transform.position, Quaternion.identity);
-                    Rock.transform.SetParent(this.transform);
-                    Rock.transform.localPosition = spawnPosition;
-                }
-                if (rockGenNumber == 2)
-                {
-                    GameObject Rock = (GameObject)Instantiate(rock03, transform.position, Quaternion.identity);
-                    Rock.transform.SetParent(this.transform);
-                    Rock.transform.localPosition = spawnPosition;
-                }
+                GameObject Rock = (GameObject)Instantiate(RockGen.GetComponent<RockGenerator>().RockList[RockNumber], transform.position, Quaternion.identity);
+                Rock.transform.SetParent(this.transform);
+                Rock.transform.localPosition = spawnPosition;
+                //if (rockGenNumber == 0)
+                //{
+                //    GameObject Rock = (GameObject)Instantiate(rock01, transform.position, Quaternion.identity);
+                //    Rock.transform.SetParent(this.transform);
+                //    Rock.transform.localPosition = spawnPosition;
+                //}
+                //if (rockGenNumber == 1)
+                //{
+                //    GameObject Rock = (GameObject)Instantiate(rock02, transform.position, Quaternion.identity);
+                //    Rock.transform.SetParent(this.transform);
+                //    Rock.transform.localPosition = spawnPosition;
+                //}
+                //if (rockGenNumber == 2)
+                //{
+                //    GameObject Rock = (GameObject)Instantiate(rock03, transform.position, Quaternion.identity);
+                //    Rock.transform.SetParent(this.transform);
+                //    Rock.transform.localPosition = spawnPosition;
+                //}
 
             }
         }
@@ -108,26 +115,30 @@ public class BiomeGeneration : MonoBehaviour {
             }
             for (int i = 0; i < amountOfAsset2; i++)
             {
-                rockGenNumber = Random.Range(0, 3);
+                //rockGenNumber = Random.Range(0, 3);
+                RockNumber = Random.Range(0, 5);
                 spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
-                if (rockGenNumber == 0)
-                {
-                    GameObject Rock = (GameObject)Instantiate(rock01, transform.position, Quaternion.identity);
-                    Rock.transform.SetParent(this.transform);
-                    Rock.transform.localPosition = spawnPosition;
-                }
-                if (rockGenNumber == 1)
-                {
-                    GameObject Rock = (GameObject)Instantiate(rock02, transform.position, Quaternion.identity);
-                    Rock.transform.SetParent(this.transform);
-                    Rock.transform.localPosition = spawnPosition;
-                }
-                if (rockGenNumber == 2)
-                {
-                    GameObject Rock = (GameObject)Instantiate(rock03, transform.position, Quaternion.identity);
-                    Rock.transform.SetParent(this.transform);
-                    Rock.transform.localPosition = spawnPosition;
-                }
+                GameObject Rock = (GameObject)Instantiate(RockGen.GetComponent<RockGenerator>().RockList[RockNumber], transform.position, Quaternion.identity);
+                Rock.transform.SetParent(this.transform);
+                Rock.transform.localPosition = spawnPosition;
+                //if (rockGenNumber == 0)
+                //{
+                //    GameObject Rock = (GameObject)Instantiate(rock01, transform.position, Quaternion.identity);
+                //    Rock.transform.SetParent(this.transform);
+                //    Rock.transform.localPosition = spawnPosition;
+                //}
+                //if (rockGenNumber == 1)
+                //{
+                //    GameObject Rock = (GameObject)Instantiate(rock02, transform.position, Quaternion.identity);
+                //    Rock.transform.SetParent(this.transform);
+                //    Rock.transform.localPosition = spawnPosition;
+                //}
+                //if (rockGenNumber == 2)
+                //{
+                //    GameObject Rock = (GameObject)Instantiate(rock03, transform.position, Quaternion.identity);
+                //    Rock.transform.SetParent(this.transform);
+                //    Rock.transform.localPosition = spawnPosition;
+                //}
             }
         }
         if (isIce)
@@ -143,26 +154,30 @@ public class BiomeGeneration : MonoBehaviour {
             }
             for (int i = 0; i < amountOfAsset2; i++)
             {
-                rockGenNumber = Random.Range(0, 3);
+                //rockGenNumber = Random.Range(0, 3);
+                RockNumber = Random.Range(0, 5);
                 spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
-                if (rockGenNumber == 0)
-                {
-                    GameObject Rock = (GameObject)Instantiate(rock01, transform.position, Quaternion.identity);
-                    Rock.transform.SetParent(this.transform);
-                    Rock.transform.localPosition = spawnPosition;
-                }
-                if (rockGenNumber == 1)
-                {
-                    GameObject Rock = (GameObject)Instantiate(rock02, transform.position, Quaternion.identity);
-                    Rock.transform.SetParent(this.transform);
-                    Rock.transform.localPosition = spawnPosition;
-                }
-                if (rockGenNumber == 2)
-                {
-                    GameObject Rock = (GameObject)Instantiate(rock03, transform.position, Quaternion.identity);
-                    Rock.transform.SetParent(this.transform);
-                    Rock.transform.localPosition = spawnPosition;
-                }
+                GameObject Rock = (GameObject)Instantiate(RockGen.GetComponent<RockGenerator>().RockList[RockNumber], transform.position, Quaternion.identity);
+                Rock.transform.SetParent(this.transform);
+                Rock.transform.localPosition = spawnPosition;
+                //if (rockGenNumber == 0)
+                //{
+                //    GameObject Rock = (GameObject)Instantiate(rock01, transform.position, Quaternion.identity);
+                //    Rock.transform.SetParent(this.transform);
+                //    Rock.transform.localPosition = spawnPosition;
+                //}
+                //if (rockGenNumber == 1)
+                //{
+                //    GameObject Rock = (GameObject)Instantiate(rock02, transform.position, Quaternion.identity);
+                //    Rock.transform.SetParent(this.transform);
+                //    Rock.transform.localPosition = spawnPosition;
+                //}
+                //if (rockGenNumber == 2)
+                //{
+                //    GameObject Rock = (GameObject)Instantiate(rock03, transform.position, Quaternion.identity);
+                //    Rock.transform.SetParent(this.transform);
+                //    Rock.transform.localPosition = spawnPosition;
+                //}
 
             }
         }
