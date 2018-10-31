@@ -68,24 +68,20 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
         if (tryUp)
         {
             mvtDir += Vector2.up;
-            //publichunger = publichunger - 0.1f;
         }
         if (tryDown)
         {
             mvtDir += Vector2.down;
-            //publichunger = publichunger - 0.1f;
         }
         if (tryLeft)
         {
             mvtDir += Vector2.left;
-            publichunger = publichunger - 0.1f;
             mySpriteRenderer.flipX = true;
             gunSpriteRenderer.flipY = true;
         }
         if (tryRight)
         {
             mvtDir += Vector2.right;
-            publichunger = publichunger - 0.1f;
             mySpriteRenderer.flipX = false;
             gunSpriteRenderer.flipY = false;
         }
