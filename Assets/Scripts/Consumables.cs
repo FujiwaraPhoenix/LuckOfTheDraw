@@ -7,12 +7,15 @@ public class Consumables : MonoBehaviour {
     public  int speed;
     public static int regen;
     public int health;
-    public static int hunger;
+    public static float hunger;
     public GameObject fruit;
     public Transform player;
-    public float fruitspeed = 3;
+    float fruitspeed = 1.5f;
+    float eatTimer;
+    //private GameObject absorbedFruit = null;
+    private GameObject[] absorbedFruit = new GameObject[1];
     
-        public Collider2D bob;
+    public Collider2D bob;
 
     //ParticleSystem.MainModule main = consume[i].main;
     public ParticleSystem consume;
@@ -31,34 +34,35 @@ public class Consumables : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D coll)
     {
-
-        float step = fruitspeed * Time.deltaTime;
-        if (coll.tag == "Fruit")
+        if (coll.gameObject.tag == "Fruit" && absorbedFruit[0] == null )
         {
-            ImAFruit.moving = true;
-        
-            coll.transform.position = Vector3.MoveTowards(coll.transform.position, player.position, step);
+            absorbedFruit[0] = coll.gameObject;
         }
-
-      
     }
 
     void OnCollisionEnter2D(Collision2D colli)
     {
-       if (colli.gameObject.tag == "Fruit")
+       if (colli.gameObject.tag == "Fruit" && colli.gameObject == absorbedFruit[0])
         {
             //health = FruitProperties.publicHealth;
-            health = colli.gameObject.GetComponent<FruitProperties>().HealthAmount;
-            Debug.Log(health);
-            Player.publichealth = Player.publichealth + health;
+            Player.publichunger = Player.publichunger + colli.gameObject.GetComponent<FruitProperties>().HungerAmount;
+            Player.publichealth = Player.publichealth + colli.gameObject.GetComponent<FruitProperties>().HealthAmount;
+            if (Player.mvtSpd > 0.3f)
+            {
+                Player.mvtSpd = Player.mvtSpd + colli.gameObject.GetComponent<FruitProperties>().SpeedPropety;
+            }
             Destroy(colli.gameObject);
+            absorbedFruit[0] = null;
       }
     }
 
     // Update is called once per frame
     void Update () {
 
-        
+if (Player.mvtSpd < 0.3)
+        {
+            Player.mvtSpd = 0.3f;
+        }
         ParticleSystem.MainModule main = consume.main;
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -67,12 +71,23 @@ public class Consumables : MonoBehaviour {
             main.loop = true;
             bob.enabled = true;
         }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            
+            if (absorbedFruit[0] != null && Vector3.Distance(transform.position, absorbedFruit[0].transform.position) < 1.5f)
+            {
+                Debug.Log(Vector3.Distance(transform.position, absorbedFruit[0].transform.position));
+                Debug.Log(absorbedFruit[0]);
+                absorbedFruit[0].transform.position = Vector3.MoveTowards(absorbedFruit[0].transform.position, player.position, fruitspeed * Time.deltaTime);
+            }
+        }
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
             main.loop = false;
             consume.Stop();
             bob.enabled = false;
+            absorbedFruit[0] = null;
         }
 
     }
