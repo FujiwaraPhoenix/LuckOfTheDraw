@@ -6,7 +6,7 @@ public class GateControl : MonoBehaviour {
 
     //Used for a gate that closes after the player walks through the trigger. Player must be tagged as Player for this to work.
 
-    public GameObject gate; //The gameobject that acts as a gate.
+    public GameObject[] gate; //The gameobject that acts as a gate.
 
     public GameObject cameraPos; //Where you want the camera to zoom to if you want that to happen.
     public bool zoom; //If you want the camera to zoom when the gate closes.
@@ -18,7 +18,10 @@ public class GateControl : MonoBehaviour {
     bool closeGate = false;
     
 	void Start () {
-        gate.SetActive(false);
+        for(int x = 0; x < gate.Length; x++)
+        {
+            gate[x].SetActive(false);
+        }
 	}
 	
 	void Update () {
@@ -27,10 +30,13 @@ public class GateControl : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!closeGate && collision.tag == "Player")
+        if (!closeGate && collision.tag == "Player")
         {
             closeGate = true;
-            gate.SetActive(true);
+            for (int x = 0; x < gate.Length; x++)
+            {
+                gate[x].SetActive(true);
+            }
             
             if(zoom)
             {

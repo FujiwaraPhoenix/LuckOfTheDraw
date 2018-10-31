@@ -249,7 +249,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             {
                 if (chargeTimer > 0f)
                 {
-                    rb.velocity = inputDir * mvtSpd * 2f * Time.deltaTime;
+                    rb.velocity = inputDir * (mvtSpd * 20f) * Time.deltaTime;
                 }
                 else
                 {
@@ -388,6 +388,17 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             effectSprites.sprite = effectList[1];
             tickrate = 5f;
             ticksRemaining = 2;
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Hit Something");
+        if(collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Hit a player");
+            Player p = collision.gameObject.GetComponent<Player>();
+            p.getHit(damage);
         }
     }
 
