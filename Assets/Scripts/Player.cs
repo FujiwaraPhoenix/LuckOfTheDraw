@@ -8,9 +8,11 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     public static Player pc;
     public Text healthtext;
     public Text hungerText;
+    public Text speedText;
     public int health = 30;
     public static int publichealth = 30;
     public static float publichunger = 100;
+    public static float publicspeed;
     bool alive = true;
 
     private SpriteRenderer mySpriteRenderer;
@@ -44,6 +46,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
     // Update is called once per frame
     void Update () {
+        speedText.text = mvtSpd.ToString();
         health = publichealth;
         hungerText.text = publichunger.ToString("F0");
         healthtext.text = health.ToString();
