@@ -47,7 +47,10 @@ public class Consumables : MonoBehaviour {
             //health = FruitProperties.publicHealth;
             Player.publichunger = Player.publichunger + colli.gameObject.GetComponent<FruitProperties>().HungerAmount;
             Player.publichealth = Player.publichealth + colli.gameObject.GetComponent<FruitProperties>().HealthAmount;
-            Player.mvtSpd = Player.mvtSpd + colli.gameObject.GetComponent<FruitProperties>().SpeedPropety;
+            if (Player.mvtSpd > 0.3f)
+            {
+                Player.mvtSpd = Player.mvtSpd + colli.gameObject.GetComponent<FruitProperties>().SpeedPropety;
+            }
             Destroy(colli.gameObject);
             absorbedFruit[0] = null;
       }
@@ -55,6 +58,11 @@ public class Consumables : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+
+if (Player.mvtSpd < 0.3)
+        {
+            Player.mvtSpd = 0.3f;
+        }
         ParticleSystem.MainModule main = consume.main;
 
         if (Input.GetKeyDown(KeyCode.Space))
