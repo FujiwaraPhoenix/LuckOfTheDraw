@@ -60,6 +60,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1753490369228746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4688927983228580}
+  - component: {fileID: 114764712079049516}
+  m_Layer: 0
+  m_Name: RockGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4297595458801788
 Transform:
   m_ObjectHideFlags: 1
@@ -73,6 +89,19 @@ Transform:
   m_Father: {fileID: 4809503487709012}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4688927983228580
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753490369228746}
+  m_LocalRotation: {x: -0, y: -0, z: 0.258819, w: 0.9659259}
+  m_LocalPosition: {x: -0.23683739, y: 1.8408482, z: -1.0592862}
+  m_LocalScale: {x: 0.40000004, y: 0.40000004, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4809503487709012}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4809503487709012
 Transform:
   m_ObjectHideFlags: 1
@@ -85,6 +114,7 @@ Transform:
   m_Children:
   - {fileID: 4297595458801788}
   - {fileID: 4922887898342896}
+  - {fileID: 4688927983228580}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30}
@@ -101,6 +131,34 @@ Transform:
   m_Father: {fileID: 4809503487709012}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114764712079049516
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753490369228746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a0cbcb4d8655841982bbca8a1532db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RockPreFab1: {fileID: 1844180092276724, guid: cc392bcc569829e4fb6e673af015191b,
+    type: 2}
+  RockPreFab2: {fileID: 1173928176750438, guid: 1f637aa6f3e092f46b3800d82742dd68,
+    type: 2}
+  RockPreFab3: {fileID: 1488549965400412, guid: 55d0ae97328943042bcb4b988a97f246,
+    type: 2}
+  Rock01: {fileID: 0}
+  Rock02: {fileID: 0}
+  Rock03: {fileID: 0}
+  Rock04: {fileID: 0}
+  Rock05: {fileID: 0}
+  RockList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114775188677169940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,6 +228,7 @@ MonoBehaviour:
   rock02: {fileID: 1173928176750438, guid: 1f637aa6f3e092f46b3800d82742dd68, type: 2}
   rock03: {fileID: 1488549965400412, guid: 55d0ae97328943042bcb4b988a97f246, type: 2}
   FruitGen: {fileID: 1529735234251934}
+  RockGen: {fileID: 1753490369228746}
   amountOfAsset1: 10
   amountOfAsset2: 10
 --- !u!212 &212367946615825124
