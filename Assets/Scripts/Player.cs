@@ -20,6 +20,8 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     public GameObject player1Sprite;
     public GameObject gunSprite;
 
+    Rigidbody2D rb;
+
 
     //Controls how fast the player moves.
     public static float mvtSpd = 2;
@@ -39,6 +41,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
     // Use this for initialization
     void Start () {
+        rb = GetComponent<Rigidbody2D>();
         mySpriteRenderer = player1Sprite.GetComponent<SpriteRenderer>();
         gunSpriteRenderer = gunSprite.GetComponent<SpriteRenderer>();
 
