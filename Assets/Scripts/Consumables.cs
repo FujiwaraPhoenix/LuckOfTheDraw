@@ -42,11 +42,11 @@ public class Consumables : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D colli)
     {
-       if (colli.gameObject.tag == "Fruit")
+       if (colli.gameObject.tag == "Fruit" && colli.gameObject == absorbedFruit[0])
         {
-            health = FruitProperties.publicHealth;
-            Player.publichunger = Player.publichunger + FruitProperties.publicHunger;
-            Player.publichealth = Player.publichealth + FruitProperties.publicHealth;
+            //health = FruitProperties.publicHealth;
+            Player.publichunger = Player.publichunger + colli.gameObject.GetComponent<FruitProperties>().HungerAmount;
+            Player.publichealth = Player.publichealth + colli.gameObject.GetComponent<FruitProperties>().HealthAmount;
             Destroy(colli.gameObject);
             absorbedFruit[0] = null;
       }
@@ -64,8 +64,10 @@ public class Consumables : MonoBehaviour {
         }
         if (Input.GetKey(KeyCode.Space))
         {
-            if (absorbedFruit[0] != null)
+            
+            if (absorbedFruit[0] != null && Vector3.Distance(transform.position, absorbedFruit[0].transform.position) < 1.5f)
             {
+                Debug.Log(Vector3.Distance(transform.position, absorbedFruit[0].transform.position));
                 Debug.Log(absorbedFruit[0]);
                 absorbedFruit[0].transform.position = Vector3.MoveTowards(absorbedFruit[0].transform.position, player.position, fruitspeed * Time.deltaTime);
             }
@@ -76,6 +78,7 @@ public class Consumables : MonoBehaviour {
             main.loop = false;
             consume.Stop();
             bob.enabled = false;
+            absorbedFruit[0] = null;
         }
 
     }
