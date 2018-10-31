@@ -85,6 +85,14 @@ public class PlayerBullet : MonoBehaviour {
                 transform.localScale *= 1.5f;
                 break;
         }
+
+        switch(effectIndex)
+        {
+            case 3:
+                BoxCollider2D boxCol = GetComponent<BoxCollider2D>();
+                boxCol.isTrigger = true;
+                break;
+        }
     }
 
     public void tracking()
@@ -122,18 +130,20 @@ public class PlayerBullet : MonoBehaviour {
         if (collision.gameObject.GetComponent<Enemy>() != null)
         {
             Enemy tempEnemy = collision.gameObject.GetComponent<Enemy>();
-            tempEnemy.health -= damage;
+            tempEnemy.takeDamage(damage);
             switch (effectIndex)
             {
                 //Take 1dmg/tick.
                 case 1:
-                    tempEnemy.currentStatus = 1;
-                    tempEnemy.ticksRemaining = 10;
-                    tempEnemy.tickrate = 1f;
+                    //tempEnemy.currentStatus = 1;
+                    //tempEnemy.ticksRemaining = 10;
+                    //tempEnemy.tickrate = 1f;
+                    tempEnemy.setEffect(1);
                     break;
                 //Drop an AoE.
                 case 2:
                     Explosion newExp = Instantiate(e, transform.position, Quaternion.identity);
+                    newExp.dmg = damage;
                     break;
                 //Bounce
                 case 4:
@@ -142,19 +152,30 @@ public class PlayerBullet : MonoBehaviour {
                     break;
                 //Slow the enemy.
                 case 5:
-                    tempEnemy.currentStatus = 5;
-                    tempEnemy.ticksRemaining = 1;
-                    tempEnemy.tickrate = 5f;
+                    //tempEnemy.currentStatus = 5;
+                    //tempEnemy.ticksRemaining = 1;
+                    //tempEnemy.tickrate = 5f;
+                    tempEnemy.setEffect(5);
                     break;
             }
-            if (effectIndex != 3 || effectIndex != 4)
+            if (effectIndex != 3 && effectIndex != 4)
             {
                 Destroy(this.gameObject);
             }
             else
             {
-                Debug.Log("Shouldn't be destroyed");
+                //Debug.Log("Shouldn't be destroyed");
             }
         }
     }
+
+    /*public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (effectIndex == 4)
+        {
+            Enemy tempEnemy = collision.gameObject.GetComponent<Enemy>();
+            tempEnemy.health -= damage;
+            Debug.Log("Damaging");
+        }
+    }*/
 }
