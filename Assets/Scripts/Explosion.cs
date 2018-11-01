@@ -9,7 +9,7 @@ public class Explosion : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        dist = GetComponent<CircleCollider2D>().radius;
+        //dist = GetComponent<CircleCollider2D>().radius;
 	}
 	
 	// Update is called once per frame

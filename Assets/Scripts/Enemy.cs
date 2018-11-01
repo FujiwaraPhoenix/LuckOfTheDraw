@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer, and have a deactivated sprite parented to them for effect icon display
 
     //Is this a boss?
     public bool isBoss = false;
@@ -68,6 +68,9 @@ public class Enemy : MonoBehaviour {
 
     //Feedback Globals
     float flash = 1;
+    public GameObject effectIcon;
+    public SpriteRenderer effectSprites;
+    public Sprite[] effectList = new Sprite[2];
 
     public enum AIType
     {
@@ -140,7 +143,7 @@ public class Enemy : MonoBehaviour {
                     case 1:
                         if (tickTimer <= 0)
                         {
-                            health -= 1;
+                            takeDamage(1);
                             ticksRemaining--;
                             tickTimer = tickrate;
                         }
@@ -154,9 +157,14 @@ public class Enemy : MonoBehaviour {
                         else
                         {
                             ticksRemaining--;
+                            tickTimer = tickrate;
                         }
                         break;
                 }
+            }
+            else
+            {
+                effectIcon.SetActive(false);
             }
             tickTimer -= Time.deltaTime;
         }
@@ -241,7 +249,7 @@ public class Enemy : MonoBehaviour {
             {
                 if (chargeTimer > 0f)
                 {
-                    rb.velocity = inputDir * mvtSpd * 2f * Time.deltaTime;
+                    rb.velocity = inputDir * (mvtSpd * 20f) * Time.deltaTime;
                 }
                 else
                 {
@@ -361,6 +369,45 @@ public class Enemy : MonoBehaviour {
             {
                 Destroy(this.gameObject);
             }
+        }
+    }
+
+    public void setEffect(int type) //Sets a status effect
+    {
+        currentStatus = type; //1 is poison, 5 is slow
+        if(currentStatus == 1)
+        {
+            effectIcon.SetActive(true);
+            effectSprites.sprite = effectList[0];
+            tickrate = 1f;
+            ticksRemaining = 10;
+        }
+        else if (currentStatus == 5)
+        {
+            effectIcon.SetActive(true);
+            effectSprites.sprite = effectList[1];
+            tickrate = 5f;
+            ticksRemaining = 2;
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Hit Something");
+        if(collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Hit a player");
+            Player p = collision.gameObject.GetComponent<Player>();
+            p.getHit(damage);
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision) //Since triggers can only collide on the non-trigger script, this is needed for piercing bullets to work
+    {
+        if (collision.GetComponent<PlayerBullet>() != null)
+        {
+            PlayerBullet pb = collision.GetComponent<PlayerBullet>();
+            takeDamage(pb.damage);
         }
     }
 

@@ -20,6 +20,8 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     public GameObject player1Sprite;
     public GameObject gunSprite;
 
+    Rigidbody2D rb;
+
 
     //Controls how fast the player moves.
     public static float mvtSpd = 2;
@@ -39,6 +41,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
     // Use this for initialization
     void Start () {
+        rb = GetComponent<Rigidbody2D>();
         mySpriteRenderer = player1Sprite.GetComponent<SpriteRenderer>();
         gunSpriteRenderer = gunSprite.GetComponent<SpriteRenderer>();
 
@@ -62,6 +65,8 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     //As the name says, this function will move the player character around. Easy.
     public void movePC()
     {
+        rb.velocity = Vector2.zero;
+
         bool tryUp = Input.GetKey(KeyCode.W);
         bool tryDown = Input.GetKey(KeyCode.S);
         bool tryLeft = Input.GetKey(KeyCode.A);
@@ -89,12 +94,14 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
             gunSpriteRenderer.flipY = false;
         }
         mvtDir.Normalize();
-        transform.position += new Vector3(mvtDir.x * Time.deltaTime * mvtSpd, mvtDir.y * Time.deltaTime * mvtSpd);
+        rb.velocity = new Vector3(mvtDir.x * Time.deltaTime * mvtSpd * 75, mvtDir.y * Time.deltaTime * mvtSpd * 75);
     }
 
     public void getHit(int damage)
     {
+        Debug.Log("Took Damage");
         health -= damage; //Update once we get actual health working
+        publichealth -= damage;
         if(health <= 0)
         {
             alive = false; //If health runs out, the player dies
