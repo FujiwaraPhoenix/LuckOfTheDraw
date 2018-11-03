@@ -51,10 +51,11 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     public ProjectileController shot; //The prefab for the projectile
 
     //Spawner Globals
-    public float spawnCooldown = 1;
+    public float spawnCooldown = 3;
     float spawnTimer = 0;
-    public int spawnMax = 5;
+    public int spawnMax = 3;
     int spawnedEnemies = 0;
+    public GameObject enemyToSpawn;
 
     //Spawned Globals
     bool spawned = false;
@@ -324,8 +325,9 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
         if (spawnedEnemies < spawnMax && spawnTimer >= spawnCooldown)
         {
             spawnTimer = 0;
-            //Enemy e = Instantiate an enemy
-            //e.isSpawned(this.Enemy);
+            GameObject spawned = Instantiate(enemyToSpawn, new Vector3(transform.position.x + .5f, transform.position.y + .5f, transform.position.z), Quaternion.identity);
+            spawned.GetComponent<Enemy>().isSpawned(this);
+            spawnedEnemies++;
 
         }
         else if (spawnedEnemies < spawnMax)
