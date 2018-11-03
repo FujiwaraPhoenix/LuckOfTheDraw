@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     //For detection of player
     public float aggroRadius;
     public Vector3 spawnLoc;
+    public float territoryRadius = 5f;
 
     //If the enemy has BullRush AI pattern:
     public bool dirLocked = false;
@@ -183,6 +184,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
                 playerChase();
                 break;
             case AIType.Territorial:
+                territorialAnger();
                 break;
             case AIType.Sniper:
                 sniperUpdate();
@@ -369,6 +371,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             }
             else
             {
+                Controller.Instance.bossBeaten = true;
                 Destroy(this.gameObject);
             }
         }
@@ -413,4 +416,24 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
         }
     }
 
+    public void territorialAnger()
+    {
+        float distance = Vector3.Distance (transform.position, spawnLoc);
+        if (isPlayerClose(territoryRadius) && (distance < territoryRadius))
+        {
+            Vector3 directionToMove = new Vector3(Player.pc.transform.position.x - transform.position.x, Player.pc.transform.position.y - transform.position.y);
+            directionToMove = directionToMove.normalized;
+            rb.velocity = directionToMove * mvtSpd * Time.deltaTime;
+        }
+        else if (distance > territoryRadius)
+        {
+            Vector3 directionToMove = new Vector3(spawnLoc.x - transform.position.x, spawnLoc.y - transform.position.y);
+            directionToMove = directionToMove.normalized;
+            rb.velocity = directionToMove * mvtSpd * Time.deltaTime;
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
+    }
 }

@@ -171,6 +171,7 @@ public class PlayerShooter : MonoBehaviour {
                 //pb.travelDir = ToVect(actualAngle).normalized;
                 //pb.travelDir = tempDir.normalized;
                 pb.transform.localRotation = gunSprite.transform.localRotation;
+                pb.transform.Rotate(new Vector3(0, 0, Random.Range(-1f * (baseSpread + spreadMod), baseSpread + spreadMod)));
                 pb.travelDir = pb.transform.right;
                 pb.setIndices(InventoryController.ic.gunIndex, InventoryController.ic.shotIndex, InventoryController.ic.effectIndex);
             }
