@@ -229,6 +229,15 @@ MonoBehaviour:
   rock03: {fileID: 1488549965400412, guid: 55d0ae97328943042bcb4b988a97f246, type: 2}
   FruitGen: {fileID: 1529735234251934}
   RockGen: {fileID: 1753490369228746}
+  wanderer: {fileID: 1242324083044464, guid: 8c9a1491cb0ca8142a53b339c8d58bc2, type: 2}
+  territorial: {fileID: 1462683977757464, guid: 079e0261754e19b4c874ae6aaa817e02,
+    type: 2}
+  pursuer: {fileID: 1002381968339126, guid: 6ae65735876c3d64bbe663abe1674feb, type: 2}
+  sniper: {fileID: 1507421268430330, guid: cdd8e825e045d3041b59eaf645a111af, type: 2}
+  spawner: {fileID: 1058395670340818, guid: 3204a0a8eb2265748851683582d8f994, type: 2}
+  bullrush: {fileID: 1861948818577490, guid: 4997d6b9fe9187d40b49a886359cf93f, type: 2}
+  primaryEnemyNumber: 5
+  secondaryEnemyNumber: 3
   amountOfAsset1: 10
   amountOfAsset2: 10
 --- !u!212 &212367946615825124

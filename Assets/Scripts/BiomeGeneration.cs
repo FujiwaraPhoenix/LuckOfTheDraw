@@ -21,6 +21,15 @@ public class BiomeGeneration : MonoBehaviour {
     public GameObject RockGen;
     int RockNumber;
 
+    //Temporary measure for enemy generation
+    public GameObject wanderer;
+    public GameObject territorial;
+    public GameObject pursuer;
+    public GameObject sniper;
+    public GameObject spawner;
+    public GameObject bullrush;
+    public int primaryEnemyNumber = 8;
+    public int secondaryEnemyNumber = 5;
 
     //these floats will determine how many of each asset will populate the world upon the creation of the individual biome
     public float amountOfAsset1;
@@ -181,9 +190,79 @@ public class BiomeGeneration : MonoBehaviour {
 
             }
         }
+
+        //Generating enemies
+        enemyGenerate();
+        
     }
 
     // Update is called once per frame
     void Update() { 
+    }
+
+    void enemyGenerate() //Chooses two enemies to be the enemy types for that biome, and spawns them similarly to the above resources
+    {
+        GameObject enemyOne = wanderer;
+        GameObject enemyTwo = wanderer;
+
+        switch ((int)Random.Range(0, 6))
+        {
+            case 0:
+                enemyOne = wanderer;
+                break;
+            case 1:
+                enemyOne = pursuer;
+                break;
+            case 2:
+                enemyOne = territorial;
+                break;
+            case 3:
+                enemyOne = sniper;
+                break;
+            case 4:
+                enemyOne = bullrush;
+                break;
+            case 5:
+                enemyOne = spawner;
+                break;
+        }
+
+        switch ((int)Random.Range(0, 6))
+        {
+            case 0:
+                enemyTwo = wanderer;
+                break;
+            case 1:
+                enemyTwo = pursuer;
+                break;
+            case 2:
+                enemyTwo = territorial;
+                break;
+            case 3:
+                enemyTwo = sniper;
+                break;
+            case 4:
+                enemyTwo = bullrush;
+                break;
+            case 5:
+                enemyTwo = spawner;
+                break;
+        }
+
+        for(int i = 0; i < primaryEnemyNumber; i++)
+        {
+            spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
+            GameObject e = Instantiate(enemyOne, transform.position, Quaternion.identity);
+            e.transform.SetParent(this.transform);
+            e.transform.localPosition = spawnPosition;
+        }
+
+        for (int i = 0; i < primaryEnemyNumber; i++)
+        {
+            spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
+            GameObject e = Instantiate(enemyTwo, transform.position, Quaternion.identity);
+            e.transform.SetParent(this.transform);
+            e.transform.localPosition = spawnPosition;
+        }
     }
 }
