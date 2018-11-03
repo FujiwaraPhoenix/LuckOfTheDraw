@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     //General Globals
     public int damage = 5; //How much damage the enemy does per collision
     public int health = 10; //How much damage the enemy takes before dying
+    BiomeGeneration homeBiome; //Used for generation and respawning purposes
+    int generationType;
 
     //Spriting Globals
     SpriteRenderer sr;
@@ -359,6 +361,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             {
                 mother.spawnedDied();
             }
+            homeBiome.enemyDied(generationType); //Tell the biome generator that it can spawn another enemy next respawn cycle
             Destroy(this.gameObject); //Destroy itself
         }
         else if (isBoss && health <=0)
@@ -435,5 +438,17 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
         {
             rb.velocity = Vector2.zero;
         }
+    }
+
+    public void setHome(BiomeGeneration h, int t)
+    {
+        homeBiome = h;
+        generationType = t;
+    }
+
+    public void escalate(int cycle)
+    {
+        health += 2 * cycle;
+        damage += 2 * cycle;
     }
 }
