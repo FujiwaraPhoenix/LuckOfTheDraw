@@ -137,7 +137,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   inputDir: {x: 0, y: 0}
   mvtSpd: 40
-  aggroRadius: 20
+  aggroRadius: 10
   spawnLoc: {x: 0, y: 0, z: 0}
   dirLocked: 0
   foundPlayer: 0
@@ -150,8 +150,10 @@ MonoBehaviour:
   wanderCooldownMin: 1
   shootCooldown: 2
   shot: {fileID: 114543821867366166, guid: 45c47889ff28fa54da1d8106cc4196fb, type: 2}
-  spawnCooldown: 1
-  spawnMax: 5
+  spawnCooldown: 3
+  spawnMax: 3
+  enemyToSpawn: {fileID: 1462683977757464, guid: 079e0261754e19b4c874ae6aaa817e02,
+    type: 2}
   currentStatus: 0
   tickrate: 2
   tickTimer: 0
