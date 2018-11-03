@@ -247,11 +247,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed679deaeefcf6f44869955e2ea6a30c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  health: 0
+  speed: 1
+  health: 5
   fruit: {fileID: 1770660905224566, guid: 09793c389e0d408459091f3e7e64c337, type: 2}
   player: {fileID: 288391352}
-  fruitspeed: 4
   bob: {fileID: 133565435}
   consume: {fileID: 2077663255}
 --- !u!58 &133565435
@@ -299,8 +298,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthtext: {fileID: 0}
+  hungerText: {fileID: 0}
+  speedText: {fileID: 0}
   health: 30
-  mvtSpd: 2.5
+  player1Sprite: {fileID: 0}
+  gunSprite: {fileID: 0}
 --- !u!50 &133565438
 Rigidbody2D:
   serializedVersion: 4
@@ -1616,7 +1618,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
