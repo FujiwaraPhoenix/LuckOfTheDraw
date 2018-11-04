@@ -12,6 +12,7 @@ public class Consumables : MonoBehaviour {
     public Transform player;
     float fruitspeed = 1.5f;
     float eatTimer;
+    public Player playerscript;
     //private GameObject absorbedFruit = null;
     private GameObject[] absorbedFruit = new GameObject[1];
     
@@ -46,10 +47,10 @@ public class Consumables : MonoBehaviour {
         {
             //health = FruitProperties.publicHealth;
             Player.publichunger = Player.publichunger + colli.gameObject.GetComponent<FruitProperties>().HungerAmount;
-            Player.publichealth = Player.publichealth + colli.gameObject.GetComponent<FruitProperties>().HealthAmount;
-            if (Player.mvtSpd > 0.3f)
+            playerscript.publichealth = playerscript.publichealth + colli.gameObject.GetComponent<FruitProperties>().HealthAmount;
+            if (playerscript.mvtSpd > 0.3f)
             {
-                Player.mvtSpd = Player.mvtSpd + colli.gameObject.GetComponent<FruitProperties>().SpeedPropety;
+                playerscript.mvtSpd = playerscript.mvtSpd + colli.gameObject.GetComponent<FruitProperties>().SpeedPropety;
             }
             Destroy(colli.gameObject);
             absorbedFruit[0] = null;
@@ -59,9 +60,9 @@ public class Consumables : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-if (Player.mvtSpd < 0.3)
+if (playerscript.mvtSpd < 0.3)
         {
-            Player.mvtSpd = 0.3f;
+            playerscript.mvtSpd = 0.3f;
         }
         ParticleSystem.MainModule main = consume.main;
 

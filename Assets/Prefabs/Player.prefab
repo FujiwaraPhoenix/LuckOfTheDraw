@@ -310,7 +310,7 @@ MonoBehaviour:
   health: 0
   fruit: {fileID: 1770660905224566, guid: 09793c389e0d408459091f3e7e64c337, type: 2}
   player: {fileID: 4160163376876062}
-  fruitspeed: 4
+  playerscript: {fileID: 0}
   bob: {fileID: 58713961611937060}
   consume: {fileID: 198458672602884776}
 --- !u!114 &114444589135969830
@@ -326,10 +326,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthtext: {fileID: 0}
   hungerText: {fileID: 0}
+  speedText: {fileID: 0}
   health: 30
+  publichealth: 30
+  publicspeed: 2
   player1Sprite: {fileID: 1901149348600746}
   gunSprite: {fileID: 1046857137404542}
-  mvtSpd: 2.5
+  mvtSpd: 2
 --- !u!114 &114963532681290974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5106,7 +5109,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b4e8422099fc33e4282436adb6f6180a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 6, y: 6}

@@ -10,9 +10,9 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     public Text hungerText;
     public Text speedText;
     public int health = 30;
-    public static int publichealth = 30;
+    public int publichealth = 30;
     public static float publichunger = 100;
-    public static float publicspeed = 2;
+    public float publicspeed = 2;
     bool alive = true;
 
     private SpriteRenderer mySpriteRenderer;
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
 
     //Controls how fast the player moves.
-    public static float mvtSpd = 2;
+    public float mvtSpd = 0.5f;
 
     public void Awake()
     {
@@ -42,13 +42,15 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
-        mySpriteRenderer = player1Sprite.GetComponent<SpriteRenderer>();
-        gunSpriteRenderer = gunSprite.GetComponent<SpriteRenderer>();
+       // mySpriteRenderer = player1Sprite.GetComponent<SpriteRenderer>(); -- this shit can't be in start, that's why movement wasn't working. 
+       // gunSpriteRenderer = gunSprite.GetComponent<SpriteRenderer>();
 
     }
 
     // Update is called once per frame
     void Update () {
+        mySpriteRenderer = player1Sprite.GetComponent<SpriteRenderer>();
+        gunSpriteRenderer = gunSprite.GetComponent<SpriteRenderer>();
         speedText.text = mvtSpd.ToString();
         health = publichealth;
         hungerText.text = publichunger.ToString("F0");
@@ -90,7 +92,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
         if (tryRight)
         {
             mvtDir += Vector2.right;
-            mySpriteRenderer.flipX = false;
+
             gunSpriteRenderer.flipY = false;
         }
         mvtDir.Normalize();
