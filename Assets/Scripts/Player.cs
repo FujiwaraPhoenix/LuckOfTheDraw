@@ -8,7 +8,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     public static Player pc;
    // public Text healthtext;
   //  public Text hungerText;
-    public Text speedText;
+   // public Text speedText;
     public int health = 30;
     public int publichealth = 30;
     public float publichunger = 100;
@@ -22,6 +22,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     public Slider HbarSlide;
     public int StartHealth = 30;
     public Transform hungerradial;
+    public Transform SpeedChevrons;
 
 
     private SpriteRenderer mySpriteRenderer;
@@ -58,6 +59,8 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
     // Update is called once per frame
     void Update () {
+        //speedui
+        SpeedChevrons.GetComponent<Image>().fillAmount = mvtSpd / 30;
         //hungerradial
         hungerradial.GetComponent<Image>().fillAmount = publichunger / 100;
         //healthbar
@@ -65,7 +68,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
         HbarSlide.value = publichealth;
         mySpriteRenderer = player1Sprite.GetComponent<SpriteRenderer>();
         gunSpriteRenderer = gunSprite.GetComponent<SpriteRenderer>();
-        speedText.text = mvtSpd.ToString();
+        //speedText.text = mvtSpd.ToString();
         health = publichealth;
         //hungerText.text = publichunger.ToString("F0");
         //healthtext.text = health.ToString();

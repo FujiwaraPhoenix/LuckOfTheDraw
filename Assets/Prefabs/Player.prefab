@@ -324,7 +324,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 270b2c3e1ea88ad43bc1e991078e6ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedText: {fileID: 0}
   health: 30
   publichealth: 30
   publichunger: 100
@@ -333,6 +332,7 @@ MonoBehaviour:
   HbarSlide: {fileID: 0}
   StartHealth: 30
   hungerradial: {fileID: 0}
+  SpeedChevrons: {fileID: 0}
   player1Sprite: {fileID: 1901149348600746}
   gunSprite: {fileID: 1046857137404542}
   mvtSpd: 2
@@ -4975,7 +4975,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: bd1775dc3c3eba149b74882f88018c9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 6, y: 6}
   m_AdaptiveModeThreshold: 0.5
