@@ -324,14 +324,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 270b2c3e1ea88ad43bc1e991078e6ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthtext: {fileID: 0}
-  hungerText: {fileID: 0}
   speedText: {fileID: 0}
   health: 30
   publichealth: 30
+  publichunger: 100
   publicspeed: 2
+  StartHunger: 100
   HbarSlide: {fileID: 0}
   StartHealth: 30
+  hungerradial: {fileID: 0}
   player1Sprite: {fileID: 1901149348600746}
   gunSprite: {fileID: 1046857137404542}
   mvtSpd: 2

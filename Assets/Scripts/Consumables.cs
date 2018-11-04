@@ -47,7 +47,7 @@ public class Consumables : MonoBehaviour {
         {
             playerscript.publichealth = Mathf.Clamp(playerscript.publichealth, 0, playerscript.StartHealth);
             //health = FruitProperties.publicHealth;
-            Player.publichunger = Player.publichunger + colli.gameObject.GetComponent<FruitProperties>().HungerAmount;
+            playerscript.publichunger = playerscript.publichunger + colli.gameObject.GetComponent<FruitProperties>().HungerAmount;
             playerscript.publichealth = playerscript.publichealth + colli.gameObject.GetComponent<FruitProperties>().HealthAmount;
            
            playerscript.publichealth = Mathf.Clamp(playerscript.publichealth, 0, playerscript.StartHealth); // same line not sure if it goes after or before

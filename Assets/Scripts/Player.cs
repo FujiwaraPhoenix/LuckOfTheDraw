@@ -6,20 +6,22 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour { //The Player should be tagged as player and have the player layermask
 
     public static Player pc;
-    public Text healthtext;
-    public Text hungerText;
+   // public Text healthtext;
+  //  public Text hungerText;
     public Text speedText;
     public int health = 30;
     public int publichealth = 30;
-    public static float publichunger = 100;
+    public float publichunger = 100;
     public float publicspeed = 2;
     bool alive = true;
+    public float StartHunger = 100;
 
     //UI
 
  
     public Slider HbarSlide;
     public int StartHealth = 30;
+    public Transform hungerradial;
 
 
     private SpriteRenderer mySpriteRenderer;
@@ -56,7 +58,8 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
     // Update is called once per frame
     void Update () {
-
+        //hungerradial
+        hungerradial.GetComponent<Image>().fillAmount = publichunger / 100;
         //healthbar
         publichealth = Mathf.Clamp(publichealth, 0, StartHealth);
         HbarSlide.value = publichealth;
@@ -64,8 +67,9 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
         gunSpriteRenderer = gunSprite.GetComponent<SpriteRenderer>();
         speedText.text = mvtSpd.ToString();
         health = publichealth;
-        hungerText.text = publichunger.ToString("F0");
-        healthtext.text = health.ToString();
+        //hungerText.text = publichunger.ToString("F0");
+        //healthtext.text = health.ToString();
+
 
         publichunger -= 1.0f * Time.deltaTime;
         if (alive) //Make sure the player cannot move if they're out of health
