@@ -13,6 +13,7 @@ public class Consumables : MonoBehaviour {
     float fruitspeed = 1.5f;
     float eatTimer;
     public Player playerscript;
+   // public FruitProperties FP;
     //private GameObject absorbedFruit = null;
     private GameObject[] absorbedFruit = new GameObject[1];
     
@@ -57,13 +58,53 @@ public class Consumables : MonoBehaviour {
             }
             Destroy(colli.gameObject);
             absorbedFruit[0] = null;
-      }
+
+
+            //screen flash colors
+
+           
+            if (colli.gameObject.GetComponent<FruitProperties>().HungerAmount > colli.gameObject.GetComponent<FruitProperties>().HealthAmount && colli.gameObject.GetComponent<FruitProperties>().HungerAmount > colli.gameObject.GetComponent<FruitProperties>().SpeedPropety)
+            {
+                playerscript.EflashR = 255;
+                playerscript.EflashG = 255;
+                playerscript.EflashB = 0;
+
+            }
+
+            if (colli.gameObject.GetComponent<FruitProperties>().HealthAmount > colli.gameObject.GetComponent<FruitProperties>().HungerAmount && colli.gameObject.GetComponent<FruitProperties>().HealthAmount > colli.gameObject.GetComponent<FruitProperties>().SpeedPropety)
+            {
+                playerscript.EflashR = 0;
+                playerscript.EflashG = 255;
+                playerscript.EflashB = 0;
+
+            }
+
+            if (colli.gameObject.GetComponent<FruitProperties>().SpeedPropety > colli.gameObject.GetComponent<FruitProperties>().HungerAmount && colli.gameObject.GetComponent<FruitProperties>().SpeedPropety > colli.gameObject.GetComponent<FruitProperties>().HealthAmount)
+            {
+                playerscript.EflashR = 0;
+                playerscript.EflashG = 0;
+                playerscript.EflashB = 255;
+
+            }
+
+            if (colli.gameObject.GetComponent<FruitProperties>().HealthAmount <= 0)
+            {
+                playerscript.EflashR = 255;
+                playerscript.EflashG = 0;
+                playerscript.EflashB = 0;
+
+            }
+
+            playerscript.StartCoroutine(playerscript.FadeImage(true));
+        }
     }
 
     // Update is called once per frame
     void Update () {
 
-if (playerscript.mvtSpd < 0.3)
+        //effectflash.color = new Color(EflashR, EflashG, EflashB, EflashA);
+
+        if (playerscript.mvtSpd < 0.3)
         {
             playerscript.mvtSpd = 0.3f;
         }

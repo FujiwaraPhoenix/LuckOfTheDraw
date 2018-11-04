@@ -14,11 +14,15 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     public float publichunger = 100;
     public float publicspeed = 2;
     bool alive = true;
+    public float EflashR = 255;
+    public float EflashG = 255;
+    public float EflashB = 255;
+    public float EflashA = 0;
     public float StartHunger = 100;
 
     //UI
 
- 
+    public Image effectflash;
     public Slider HbarSlide;
     public int StartHealth = 30;
     public Transform hungerradial;
@@ -52,13 +56,38 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
-       // mySpriteRenderer = player1Sprite.GetComponent<SpriteRenderer>(); -- this shit can't be in start, that's why movement wasn't working. 
-       // gunSpriteRenderer = gunSprite.GetComponent<SpriteRenderer>();
+        // mySpriteRenderer = player1Sprite.GetComponent<SpriteRenderer>(); -- this shit can't be in start, that's why movement wasn't working. 
+        // gunSpriteRenderer = gunSprite.GetComponent<SpriteRenderer>();
+        effectflash.color = new Color(255, 255, 255, 0);
 
+    }
+
+    public IEnumerator FadeImage(bool fadeAway)
+    {
+        if (fadeAway)
+        {
+            for (float i = 1; i >= 0; i -=Time.deltaTime)
+            {
+                EflashA = i;
+                yield return null;
+
+            }
+        }
+
+        else
+        {
+            for (float i = 0; i <=1; i += Time.deltaTime)
+            {
+                EflashA = i;
+                yield return null;
+            }
+        }
     }
 
     // Update is called once per frame
     void Update () {
+
+        effectflash.color = new Color(EflashR, EflashG, EflashB, EflashA);
         //speedui
         SpeedChevrons.GetComponent<Image>().fillAmount = mvtSpd / 30;
         //hungerradial
@@ -119,6 +148,13 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
     public void getHit(int damage)
     {
+
+        
+            EflashR = 255;
+            EflashG = 0;
+            EflashB = 0;
+        StartCoroutine(FadeImage(true));
+        
         Debug.Log("Took Damage");
         health = Mathf.Clamp(health,0,StartHealth);
         publichealth = Mathf.Clamp(publichealth, 0, StartHealth);

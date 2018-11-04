@@ -328,7 +328,12 @@ MonoBehaviour:
   publichealth: 30
   publichunger: 100
   publicspeed: 2
+  EflashR: 255
+  EflashG: 255
+  EflashB: 255
+  EflashA: 0
   StartHunger: 100
+  effectflash: {fileID: 0}
   HbarSlide: {fileID: 0}
   StartHealth: 30
   hungerradial: {fileID: 0}
