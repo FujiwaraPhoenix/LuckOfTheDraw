@@ -321,7 +321,6 @@ MonoBehaviour:
   fruit: {fileID: 1770660905224566, guid: 09793c389e0d408459091f3e7e64c337, type: 2}
   player: {fileID: 288391352}
   playerscript: {fileID: 133565437}
-  FP: {fileID: 0}
   bob: {fileID: 133565435}
   consume: {fileID: 2077663255}
 --- !u!58 &133565435
@@ -382,6 +381,14 @@ MonoBehaviour:
   StartHealth: 30
   hungerradial: {fileID: 36150705}
   SpeedChevrons: {fileID: 983907622}
+  badnesstimerhealth: 0
+  badnesstimerhunger: 0
+  badnesstimerspeed: 0
+  Hbarfill: {fileID: 1295940302}
+  Hbarfillcolorstart: {r: 0, g: 0, b: 0, a: 0}
+  SpeedImage: {fileID: 983907623}
+  HungerImage: {fileID: 36150706}
+  HungerImageStart: {r: 0, g: 0, b: 0, a: 0}
   player1Sprite: {fileID: 1901149348600746, guid: 645cdabfd5deecf42a403b103d985f21,
     type: 2}
   gunSprite: {fileID: 1046857137404542, guid: 645cdabfd5deecf42a403b103d985f21, type: 2}

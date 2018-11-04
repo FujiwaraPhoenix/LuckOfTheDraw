@@ -338,6 +338,14 @@ MonoBehaviour:
   StartHealth: 30
   hungerradial: {fileID: 0}
   SpeedChevrons: {fileID: 0}
+  badnesstimerhealth: 0
+  badnesstimerhunger: 0
+  badnesstimerspeed: 0
+  Hbarfill: {fileID: 0}
+  Hbarfillcolorstart: {r: 0, g: 0, b: 0, a: 0}
+  SpeedImage: {fileID: 0}
+  HungerImage: {fileID: 0}
+  HungerImageStart: {r: 0, g: 0, b: 0, a: 0}
   player1Sprite: {fileID: 1901149348600746}
   gunSprite: {fileID: 1046857137404542}
   mvtSpd: 2

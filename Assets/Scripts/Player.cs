@@ -27,6 +27,15 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     public int StartHealth = 30;
     public Transform hungerradial;
     public Transform SpeedChevrons;
+    public float badnesstimerhealth = 0; //- frames 
+    public float badnesstimerhunger = 0; //- frames 
+    public float badnesstimerspeed = 0; //- frames 
+    public Image Hbarfill;
+    public Color Hbarfillcolorstart;
+    public Image SpeedImage;
+    public Image HungerImage;
+    public Color HungerImageStart;
+    //
 
 
     private SpriteRenderer mySpriteRenderer;
@@ -59,7 +68,8 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
         // mySpriteRenderer = player1Sprite.GetComponent<SpriteRenderer>(); -- this shit can't be in start, that's why movement wasn't working. 
         // gunSpriteRenderer = gunSprite.GetComponent<SpriteRenderer>();
         effectflash.color = new Color(255, 255, 255, 0);
-
+        Hbarfillcolorstart = Hbarfill.color;
+        HungerImageStart = HungerImage.color;
     }
 
     public IEnumerator FadeImage(bool fadeAway)
@@ -86,6 +96,38 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
     // Update is called once per frame
     void Update () {
+
+        //flash red ui
+        if (badnesstimerhealth > 0)
+        {
+            badnesstimerhealth = badnesstimerhealth - 1;
+            Hbarfill.color = Color.red;
+        }
+        if (badnesstimerhunger > 0)
+        {
+            badnesstimerhunger = badnesstimerhunger - 1;
+            HungerImage.color = Color.red;
+        }
+        if (badnesstimerspeed > 0)
+        {
+            badnesstimerspeed = badnesstimerspeed - 1;
+            SpeedImage.color = Color.red;
+        }
+
+        if (badnesstimerhealth <= 0)
+        {
+            Hbarfill.color = Hbarfillcolorstart;
+        }
+
+        if (badnesstimerspeed <= 0)
+        {
+            SpeedImage.color = new Color(255,255,255);
+        }
+
+        if (badnesstimerhunger <= 0)
+        {
+            HungerImage.color = HungerImageStart;
+        }
 
         effectflash.color = new Color(EflashR, EflashG, EflashB, EflashA);
         //speedui
@@ -154,7 +196,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
             EflashG = 0;
             EflashB = 0;
         StartCoroutine(FadeImage(true));
-        
+        badnesstimerhealth = 20f;
         Debug.Log("Took Damage");
         health = Mathf.Clamp(health,0,StartHealth);
         publichealth = Mathf.Clamp(publichealth, 0, StartHealth);

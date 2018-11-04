@@ -92,7 +92,20 @@ public class Consumables : MonoBehaviour {
                 playerscript.EflashR = 255;
                 playerscript.EflashG = 0;
                 playerscript.EflashB = 0;
+                playerscript.badnesstimerhealth = 20f;
 
+            }
+
+            if (colli.gameObject.GetComponent<FruitProperties>().HungerAmount <= 0)
+            {
+
+                playerscript.badnesstimerhunger = 20f;
+            }
+
+            if (colli.gameObject.GetComponent<FruitProperties>().SpeedPropety <= 0)
+            {
+
+                playerscript.badnesstimerspeed = 20f;
             }
 
             playerscript.StartCoroutine(playerscript.FadeImage(true));
