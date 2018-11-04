@@ -310,7 +310,7 @@ MonoBehaviour:
   health: 0
   fruit: {fileID: 1770660905224566, guid: 09793c389e0d408459091f3e7e64c337, type: 2}
   player: {fileID: 4160163376876062}
-  fruitspeed: 4
+  playerscript: {fileID: 0}
   bob: {fileID: 58713961611937060}
   consume: {fileID: 198458672602884776}
 --- !u!114 &114444589135969830
@@ -324,12 +324,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 270b2c3e1ea88ad43bc1e991078e6ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthtext: {fileID: 0}
-  hungerText: {fileID: 0}
   health: 30
+  publichealth: 30
+  publichunger: 100
+  publicspeed: 2
+  EflashR: 255
+  EflashG: 255
+  EflashB: 255
+  EflashA: 0
+  StartHunger: 100
+  effectflash: {fileID: 0}
+  HbarSlide: {fileID: 0}
+  StartHealth: 30
+  hungerradial: {fileID: 0}
+  SpeedChevrons: {fileID: 0}
+  badnesstimerhealth: 0
+  badnesstimerhunger: 0
+  badnesstimerspeed: 0
+  Hbarfill: {fileID: 0}
+  Hbarfillcolorstart: {r: 0, g: 0, b: 0, a: 0}
+  SpeedImage: {fileID: 0}
+  HungerImage: {fileID: 0}
+  HungerImageStart: {r: 0, g: 0, b: 0, a: 0}
   player1Sprite: {fileID: 1901149348600746}
   gunSprite: {fileID: 1046857137404542}
-  mvtSpd: 2.5
+  mvtSpd: 2
 --- !u!114 &114963532681290974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5106,7 +5125,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b4e8422099fc33e4282436adb6f6180a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 6, y: 6}
