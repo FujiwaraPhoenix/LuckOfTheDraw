@@ -6,14 +6,37 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour { //The Player should be tagged as player and have the player layermask
 
     public static Player pc;
-    public Text healthtext;
-    public Text hungerText;
-    public Text speedText;
+   // public Text healthtext;
+  //  public Text hungerText;
+   // public Text speedText;
     public int health = 30;
-    public static int publichealth = 30;
-    public static float publichunger = 100;
-    public static float publicspeed = 2;
+    public int publichealth = 30;
+    public float publichunger = 100;
+    public float publicspeed = 2;
     bool alive = true;
+    public float EflashR = 255;
+    public float EflashG = 255;
+    public float EflashB = 255;
+    public float EflashA = 0;
+    public float StartHunger = 100;
+
+    //UI
+
+    public Image effectflash;
+    public Slider HbarSlide;
+    public int StartHealth = 30;
+    public Transform hungerradial;
+    public Transform SpeedChevrons;
+    public float badnesstimerhealth = 0; //- frames 
+    public float badnesstimerhunger = 0; //- frames 
+    public float badnesstimerspeed = 0; //- frames 
+    public Image Hbarfill;
+    public Color Hbarfillcolorstart;
+    public Image SpeedImage;
+    public Image HungerImage;
+    public Color HungerImageStart;
+    //
+
 
     private SpriteRenderer mySpriteRenderer;
     private SpriteRenderer gunSpriteRenderer;
@@ -24,7 +47,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
 
     //Controls how fast the player moves.
-    public static float mvtSpd = 2;
+    public float mvtSpd = 0.5f;
 
     public void Awake()
     {
@@ -42,17 +65,85 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
-        mySpriteRenderer = player1Sprite.GetComponent<SpriteRenderer>();
-        gunSpriteRenderer = gunSprite.GetComponent<SpriteRenderer>();
+        // mySpriteRenderer = player1Sprite.GetComponent<SpriteRenderer>(); -- this shit can't be in start, that's why movement wasn't working. 
+        // gunSpriteRenderer = gunSprite.GetComponent<SpriteRenderer>();
+        effectflash.color = new Color(255, 255, 255, 0);
+        Hbarfillcolorstart = Hbarfill.color;
+        HungerImageStart = HungerImage.color;
+    }
 
+    public IEnumerator FadeImage(bool fadeAway)
+    {
+        if (fadeAway)
+        {
+            for (float i = 1; i >= 0; i -=Time.deltaTime)
+            {
+                EflashA = i;
+                yield return null;
+
+            }
+        }
+
+        else
+        {
+            for (float i = 0; i <=1; i += Time.deltaTime)
+            {
+                EflashA = i;
+                yield return null;
+            }
+        }
     }
 
     // Update is called once per frame
     void Update () {
-        speedText.text = mvtSpd.ToString();
+
+        //flash red ui
+        if (badnesstimerhealth > 0)
+        {
+            badnesstimerhealth = badnesstimerhealth - 1;
+            Hbarfill.color = Color.red;
+        }
+        if (badnesstimerhunger > 0)
+        {
+            badnesstimerhunger = badnesstimerhunger - 1;
+            HungerImage.color = Color.red;
+        }
+        if (badnesstimerspeed > 0)
+        {
+            badnesstimerspeed = badnesstimerspeed - 1;
+            SpeedImage.color = Color.red;
+        }
+
+        if (badnesstimerhealth <= 0)
+        {
+            Hbarfill.color = Hbarfillcolorstart;
+        }
+
+        if (badnesstimerspeed <= 0)
+        {
+            SpeedImage.color = new Color(255,255,255);
+        }
+
+        if (badnesstimerhunger <= 0)
+        {
+            HungerImage.color = HungerImageStart;
+        }
+
+        effectflash.color = new Color(EflashR, EflashG, EflashB, EflashA);
+        //speedui
+        SpeedChevrons.GetComponent<Image>().fillAmount = mvtSpd / 30;
+        //hungerradial
+        hungerradial.GetComponent<Image>().fillAmount = publichunger / 100;
+        //healthbar
+        publichealth = Mathf.Clamp(publichealth, 0, StartHealth);
+        HbarSlide.value = publichealth;
+        mySpriteRenderer = player1Sprite.GetComponent<SpriteRenderer>();
+        gunSpriteRenderer = gunSprite.GetComponent<SpriteRenderer>();
+        //speedText.text = mvtSpd.ToString();
         health = publichealth;
-        hungerText.text = publichunger.ToString("F0");
-        healthtext.text = health.ToString();
+        //hungerText.text = publichunger.ToString("F0");
+        //healthtext.text = health.ToString();
+
 
         publichunger -= 1.0f * Time.deltaTime;
         if (alive) //Make sure the player cannot move if they're out of health
@@ -90,7 +181,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
         if (tryRight)
         {
             mvtDir += Vector2.right;
-            mySpriteRenderer.flipX = false;
+
             gunSpriteRenderer.flipY = false;
         }
         mvtDir.Normalize();
@@ -99,10 +190,21 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
     public void getHit(int damage)
     {
+
+        
+            EflashR = 255;
+            EflashG = 0;
+            EflashB = 0;
+        StartCoroutine(FadeImage(true));
+        badnesstimerhealth = 20f;
         Debug.Log("Took Damage");
+        health = Mathf.Clamp(health,0,StartHealth);
+        publichealth = Mathf.Clamp(publichealth, 0, StartHealth);
         health -= damage; //Update once we get actual health working
         publichealth -= damage;
-        if(health <= 0)
+        health = Mathf.Clamp(health, 0, StartHealth);
+        publichealth = Mathf.Clamp(publichealth, 0, StartHealth);
+        if (health <= 0)
         {
             alive = false; //If health runs out, the player dies
         }

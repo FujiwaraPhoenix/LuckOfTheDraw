@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 60877427990189978}
   - component: {fileID: 50858488990656736}
   - component: {fileID: 114450362674434418}
+  - component: {fileID: 114814612576636652}
   m_Layer: 14
   m_Name: FruitPreFab1
   m_TagString: Fruit
@@ -165,6 +166,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1030967904792742, guid: 645cdabfd5deecf42a403b103d985f21, type: 2}
   fruitspeed: 5
+--- !u!114 &114814612576636652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1827675667707388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4b4b783e09aec449513b79a70a0061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFruit: 1
+  modifierNum: 0
 --- !u!212 &212907243174294482
 SpriteRenderer:
   m_ObjectHideFlags: 1

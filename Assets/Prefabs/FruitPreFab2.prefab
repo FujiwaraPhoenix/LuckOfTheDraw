@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 60478080133369848}
   - component: {fileID: 50393224940723962}
   - component: {fileID: 114249789963277828}
+  - component: {fileID: 114030223542884346}
   m_Layer: 14
   m_Name: FruitPreFab2
   m_TagString: Fruit
@@ -136,6 +137,19 @@ PolygonCollider2D:
       - {x: 0.28, y: -1.27}
       - {x: 0.47, y: -1.1999999}
       - {x: 0.63, y: -1.12}
+--- !u!114 &114030223542884346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1071184279236714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4b4b783e09aec449513b79a70a0061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFruit: 1
+  modifierNum: 0
 --- !u!114 &114249789963277828
 MonoBehaviour:
   m_ObjectHideFlags: 1
