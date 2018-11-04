@@ -36,7 +36,7 @@ public class Consumables : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == "Fruit" && absorbedFruit[0] == null )
+        if (coll.gameObject.GetComponent<Resource>().isFruit == true && absorbedFruit[0] == null )
         {
             absorbedFruit[0] = coll.gameObject;
         }
@@ -44,7 +44,7 @@ public class Consumables : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D colli)
     {
-       if (colli.gameObject.tag == "Fruit" && colli.gameObject == absorbedFruit[0])
+       if (colli.gameObject.GetComponent<Resource>().isFruit == true && colli.gameObject == absorbedFruit[0])
         {
             playerscript.publichealth = Mathf.Clamp(playerscript.publichealth, 0, playerscript.StartHealth);
             //health = FruitProperties.publicHealth;
