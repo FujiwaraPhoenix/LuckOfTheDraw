@@ -72,6 +72,7 @@ public class RockGenerator : MonoBehaviour {
         Rock03 = RockList[2];
         Rock04 = RockList[3];
         Rock05 = RockList[4];
+        Debug.Log(RockList[0]);
     }
 
     // Update is called once per frame
