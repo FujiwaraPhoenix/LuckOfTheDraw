@@ -15,6 +15,13 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     public float publicspeed = 2;
     bool alive = true;
 
+    //UI
+
+ 
+    public Slider HbarSlide;
+    public int StartHealth = 30;
+
+
     private SpriteRenderer mySpriteRenderer;
     private SpriteRenderer gunSpriteRenderer;
     public GameObject player1Sprite;
@@ -49,6 +56,10 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
     // Update is called once per frame
     void Update () {
+
+        //healthbar
+        publichealth = Mathf.Clamp(publichealth, 0, StartHealth);
+        HbarSlide.value = publichealth;
         mySpriteRenderer = player1Sprite.GetComponent<SpriteRenderer>();
         gunSpriteRenderer = gunSprite.GetComponent<SpriteRenderer>();
         speedText.text = mvtSpd.ToString();
@@ -102,9 +113,13 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     public void getHit(int damage)
     {
         Debug.Log("Took Damage");
+        health = Mathf.Clamp(health,0,StartHealth);
+        publichealth = Mathf.Clamp(publichealth, 0, StartHealth);
         health -= damage; //Update once we get actual health working
         publichealth -= damage;
-        if(health <= 0)
+        health = Mathf.Clamp(health, 0, StartHealth);
+        publichealth = Mathf.Clamp(publichealth, 0, StartHealth);
+        if (health <= 0)
         {
             alive = false; //If health runs out, the player dies
         }

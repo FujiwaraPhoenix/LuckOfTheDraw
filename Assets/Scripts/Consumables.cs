@@ -45,9 +45,12 @@ public class Consumables : MonoBehaviour {
     {
        if (colli.gameObject.tag == "Fruit" && colli.gameObject == absorbedFruit[0])
         {
+            playerscript.publichealth = Mathf.Clamp(playerscript.publichealth, 0, playerscript.StartHealth);
             //health = FruitProperties.publicHealth;
             Player.publichunger = Player.publichunger + colli.gameObject.GetComponent<FruitProperties>().HungerAmount;
             playerscript.publichealth = playerscript.publichealth + colli.gameObject.GetComponent<FruitProperties>().HealthAmount;
+           
+           playerscript.publichealth = Mathf.Clamp(playerscript.publichealth, 0, playerscript.StartHealth); // same line not sure if it goes after or before
             if (playerscript.mvtSpd > 0.3f)
             {
                 playerscript.mvtSpd = playerscript.mvtSpd + colli.gameObject.GetComponent<FruitProperties>().SpeedPropety;
