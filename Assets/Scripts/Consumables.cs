@@ -55,6 +55,7 @@ public class Consumables : MonoBehaviour {
             if (playerscript.mvtSpd > 0.3f)
             {
                 playerscript.mvtSpd = playerscript.mvtSpd + colli.gameObject.GetComponent<FruitProperties>().SpeedPropety;
+                playerscript.mvtSpd = Mathf.Clamp(playerscript.mvtSpd, 0, 6f);
             }
             Destroy(colli.gameObject);
             absorbedFruit[0] = null;
