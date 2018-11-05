@@ -136,8 +136,8 @@ MonoBehaviour:
   health: 4
   rb: {fileID: 0}
   inputDir: {x: 0, y: 0}
-  mvtSpd: 40
-  aggroRadius: 6
+  mvtSpd: 30
+  aggroRadius: 3
   spawnLoc: {x: 0, y: 0, z: 0}
   territoryRadius: 10
   dirLocked: 0

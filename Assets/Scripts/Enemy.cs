@@ -95,7 +95,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
         spawnLoc = new Vector3(transform.position.x, transform.position.y);
         if(isBoss) //Set health depending on enemy type
         {
-            health = 50; //Update this once we decide on the actual value
+            //health = 50; //Update this once we decide on the actual value
             hpBarsLeft = 3;
         }
     }
@@ -110,7 +110,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             flash += 0.2f;
         }
 
-        runAI(enemyBehavior);
+        
         if (enemyBehavior != AIType.BullRush && enemyBehavior != AIType.Pursuer && enemyBehavior != AIType.Territorial)
         {
             //Move about normally.
@@ -131,6 +131,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
                     enemyBehavior = AIType.BullRush;
                     break;
                 case 2:
+                    Debug.Log("Phase 2");
                     enemyBehavior = AIType.Sniper;
                     break;
                 case 3:
@@ -138,6 +139,9 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
                     break;
             }
         }
+
+        runAI(enemyBehavior);
+
         if (currentStatus != 0)
         {
             if (ticksRemaining > 0)
