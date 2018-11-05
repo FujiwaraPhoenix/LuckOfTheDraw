@@ -1285,6 +1285,19 @@ Prefab:
       propertyPath: damage
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 4319885166939254, guid: 1c4d67b0497f69742b6510002ecfbce2, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319885166939254, guid: 1c4d67b0497f69742b6510002ecfbce2, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114532812013664058, guid: 1c4d67b0497f69742b6510002ecfbce2,
+        type: 2}
+      propertyPath: mvtSpd
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c4d67b0497f69742b6510002ecfbce2, type: 2}
   m_IsPrefabAsset: 0
@@ -2223,11 +2236,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTarget: {fileID: 288391352}
-  box1width: 1
-  box1height: 1
-  box2width: 2
-  box2height: 2
-  box1lerp: 0.02
+  box1width: 0.25
+  box1height: 0.25
+  box2width: 0.5
+  box2height: 0.5
+  box1lerp: 0.01
 --- !u!114 &1638336832
 MonoBehaviour:
   m_ObjectHideFlags: 0
