@@ -29,7 +29,15 @@ public class BiomeGeneration : MonoBehaviour {
     public GameObject spawner;
     public GameObject bullrush;
     public int primaryEnemyNumber = 8;
+    int primaryEnemyCount = 0;
     public int secondaryEnemyNumber = 5;
+    int secondaryEnemyCount = 0;
+    GameObject enemyOne;
+    GameObject enemyTwo;
+
+    float respawnTimer = 0;
+    float respawnCooldown = 60;
+    int escalation = 0;
 
     //these floats will determine how many of each asset will populate the world upon the creation of the individual biome
     public float amountOfAsset1;
@@ -48,7 +56,7 @@ public class BiomeGeneration : MonoBehaviour {
     float biomeNumber;
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         biomeNumber = Random.Range(0f, 3f);
         //this will ensure that the biome has a randomly picked color upon activation
         if (biomeNumber >= 0 && biomeNumber < 1f)
@@ -199,6 +207,17 @@ public class BiomeGeneration : MonoBehaviour {
     }
     // Update is called once per frame
     void Update() { 
+        if(respawnTimer >= respawnCooldown) //Respawn enemies every minute, and make them stronger for each spawn cycle
+        {
+            respawnTimer = 0;
+            escalation++;
+            spawnEnemies();
+        }
+        else
+        {
+            respawnTimer += Time.deltaTime;
+        }
+
     }
 
     void enemyGenerate() //Chooses two enemies to be the enemy types for that biome, and spawns them similarly to the above resources
@@ -266,4 +285,86 @@ public class BiomeGeneration : MonoBehaviour {
             e.transform.localPosition = spawnPosition;
         }
     }
-}
+
+    void spawnEnemies()
+    {
+        for (int i = primaryEnemyCount; i < primaryEnemyNumber; i++) //Spawn enemies, tell them which biome generator created them, tell them how strong they should be, and increment relevant enemy count
+        {
+            spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
+            GameObject e = Instantiate(enemyOne, transform.position, Quaternion.identity);
+            e.transform.SetParent(this.transform);
+            e.transform.localPosition = spawnPosition;
+            e.GetComponent<Enemy>().setHome(this, 1);
+            e.GetComponent<Enemy>().escalate(escalation);
+            primaryEnemyCount++;
+        }
+
+        for (int i = secondaryEnemyCount; i < primaryEnemyNumber; i++)
+        {
+            spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
+            GameObject e = Instantiate(enemyTwo, transform.position, Quaternion.identity);
+            e.transform.SetParent(this.transform);
+            e.transform.localPosition = spawnPosition;
+            e.GetComponent<Enemy>().setHome(this, 2);
+            e.GetComponent<Enemy>().escalate(escalation);
+            secondaryEnemyCount++;
+        }
+    }
+
+    public void enemyDied(int type) //Called by Enemies when they die, decrement the count of spawned enemies
+    {
+        if(type == 1)
+        {
+            primaryEnemyCount--;
+        }
+        else if (type == 2)
+        {
+            secondaryEnemyCount--;
+        }
+    }
+
+    /*public void enemyGenerate() //Chooses two enemies to be the enemy types for that biome, and spawns them similarly to the above resources. Obsolete version.
+    {
+    enemyOne = wanderer;
+    enemyTwo = wanderer;
+    switch ((int)Random.Range(0, 6))
+    {
+        case 0:
+            enemyTwo = wanderer;
+            break;
+        case 1:
+            enemyTwo = pursuer;
+            break;
+        case 2:
+            enemyTwo = territorial;
+            break;
+        case 3:
+            enemyTwo = sniper;
+            break;
+        case 4:
+            enemyTwo = bullrush;
+            break;
+        case 5:
+            enemyTwo = spawner;
+            break;
+    }
+
+    for (int i = primaryEnemyCount; i < primaryEnemyNumber; i++)
+    {
+        spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
+        GameObject e = Instantiate(enemyOne, transform.position, Quaternion.identity);
+        e.transform.SetParent(this.transform);
+        e.transform.localPosition = spawnPosition;
+        e.GetComponent<Enemy>().setHome(this, 1);
+        primaryEnemyCount++;
+    }
+
+    for (int i = secondaryEnemyCount; i < primaryEnemyNumber; i++)
+    {
+        spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
+        GameObject e = Instantiate(enemyTwo, transform.position, Quaternion.identity);
+        e.transform.SetParent(this.transform);
+        e.transform.localPosition = spawnPosition;
+        e.GetComponent<Enemy>().setHome(this, 2);
+        secondaryEnemyCount++;
+    }*/}

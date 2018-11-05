@@ -133,12 +133,13 @@ MonoBehaviour:
   hpBarsLeft: 3
   hpReset: 50
   damage: 5
-  health: 10
+  health: 4
   rb: {fileID: 0}
   inputDir: {x: 0, y: 0}
   mvtSpd: 40
-  aggroRadius: 10
+  aggroRadius: 6
   spawnLoc: {x: 0, y: 0, z: 0}
+  territoryRadius: 10
   dirLocked: 0
   foundPlayer: 0
   charging: 0
