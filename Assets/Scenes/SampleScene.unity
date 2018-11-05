@@ -2223,11 +2223,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTarget: {fileID: 288391352}
-  box1width: 1
-  box1height: 1
-  box2width: 2
-  box2height: 2
-  box1lerp: 0.02
+  box1width: 0.25
+  box1height: 0.25
+  box2width: 0.5
+  box2height: 0.5
+  box1lerp: 0.01
 --- !u!114 &1638336832
 MonoBehaviour:
   m_ObjectHideFlags: 0
