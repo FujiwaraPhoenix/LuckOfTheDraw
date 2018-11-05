@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 50393224940723962}
   - component: {fileID: 114249789963277828}
   - component: {fileID: 114030223542884346}
+  - component: {fileID: 58681915051822028}
   m_Layer: 14
   m_Name: FruitPreFab2
   m_TagString: Fruit
@@ -64,7 +65,22 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 3
+--- !u!58 &58681915051822028
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1071184279236714}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3
 --- !u!60 &60478080133369848
 PolygonCollider2D:
   m_ObjectHideFlags: 1
