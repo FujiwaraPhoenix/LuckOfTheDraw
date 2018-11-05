@@ -36,7 +36,7 @@ public class Consumables : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D coll)
     {
-        if ((coll.tag == "Fruit" || coll.tag == "Resource") && coll.gameObject.GetComponent<Resource>().isFruit == true && absorbedFruit[0] == null )
+        if (coll.gameObject.tag == "Fruit" && absorbedFruit[0] == null )
         {
             absorbedFruit[0] = coll.gameObject;
         }
@@ -44,7 +44,7 @@ public class Consumables : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D colli)
     {
-       if (colli.gameObject.tag == "Fruit" && colli.gameObject.GetComponent<Resource>().isFruit == true && colli.gameObject == absorbedFruit[0])
+       if (colli.gameObject.tag == "Fruit" && colli.gameObject == absorbedFruit[0])
         {
             playerscript.publichealth = Mathf.Clamp(playerscript.publichealth, 0, playerscript.StartHealth);
             //health = FruitProperties.publicHealth;
@@ -79,7 +79,7 @@ public class Consumables : MonoBehaviour {
 
             }
 
-            if (colli.gameObject.GetComponent<FruitProperties>().SpeedPropety > colli.gameObject.GetComponent<FruitProperties>().HungerAmount && colli.gameObject.GetComponent<FruitProperties>().SpeedPropety > colli.gameObject.GetComponent<FruitProperties>().HealthAmount)
+            if (colli.gameObject.GetComponent<FruitProperties>().SpeedPropety > 0.5f)
             {
                 playerscript.EflashR = 0;
                 playerscript.EflashG = 0;
@@ -117,9 +117,9 @@ public class Consumables : MonoBehaviour {
 
         //effectflash.color = new Color(EflashR, EflashG, EflashB, EflashA);
 
-        if (playerscript.mvtSpd < 0.3)
+        if (playerscript.mvtSpd < 0.5)
         {
-            playerscript.mvtSpd = 0.3f;
+            playerscript.mvtSpd = 0.5f;
         }
         ParticleSystem.MainModule main = consume.main;
 

@@ -177,11 +177,12 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
             mvtDir += Vector2.left;
             mySpriteRenderer.flipX = true;
             gunSpriteRenderer.flipY = true;
+            player1Sprite.transform.localScale = new Vector3(-0.5f,0.5f,1);
         }
         if (tryRight)
         {
             mvtDir += Vector2.right;
-
+            player1Sprite.transform.localScale = new Vector3(0.5f, 0.5f, 1);
             gunSpriteRenderer.flipY = false;
         }
         mvtDir.Normalize();
