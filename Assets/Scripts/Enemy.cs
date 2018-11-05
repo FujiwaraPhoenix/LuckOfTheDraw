@@ -426,13 +426,13 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     /*public void territorialAnger()
     {
         float distance = Vector3.Distance (transform.position, spawnLoc);
-        if (isPlayerClose(territoryRadius) && (distance < territoryRadius))
+        if (isPlayerClose(aggroRadius) && (distance < territoryRadius))
         {
             Vector3 directionToMove = new Vector3(Player.pc.transform.position.x - transform.position.x, Player.pc.transform.position.y - transform.position.y);
             directionToMove = directionToMove.normalized;
             rb.velocity = directionToMove * mvtSpd * Time.deltaTime;
         }
-        else if (distance > territoryRadius)
+        else if (!isPlayerClose(aggroRadius))
         {
             Vector3 directionToMove = new Vector3(spawnLoc.x - transform.position.x, spawnLoc.y - transform.position.y);
             directionToMove = directionToMove.normalized;
