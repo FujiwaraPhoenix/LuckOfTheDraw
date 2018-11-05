@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     //General Globals
     public int damage = 5; //How much damage the enemy does per collision
     public int health = 10; //How much damage the enemy takes before dying
-    BiomeGeneration homeBiome; //Used for generation and respawning purposes
+    public BiomeGeneration homeBiome; //Used for generation and respawning purposes
     int generationType;
 
     //Spriting Globals
@@ -258,7 +258,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             {
                 if (chargeTimer > 0f)
                 {
-                    rb.velocity = inputDir * (mvtSpd * 20f) * Time.deltaTime;
+                    rb.velocity = inputDir * mvtSpd * Time.deltaTime;
                 }
                 else
                 {
@@ -353,6 +353,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     {
         spawned = true;
         mother = e;
+        
     }
 
     public void takeDamage(int d) //Method for taking damage, pass the damage dealt as a parameter
@@ -365,8 +366,13 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             {
                 mother.spawnedDied();
             }
-            homeBiome.enemyDied(generationType); //Tell the biome generator that it can spawn another enemy next respawn cycle
+            Debug.Log("DIE.");
+            if (!spawned)
+            {
+                homeBiome.enemyDied(generationType); //Tell the biome generator that it can spawn another enemy next respawn cycle
+            }
             Destroy(this.gameObject); //Destroy itself
+            
         }
         else if (isBoss && health <=0)
         {
@@ -426,13 +432,13 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     /*public void territorialAnger()
     {
         float distance = Vector3.Distance (transform.position, spawnLoc);
-        if (isPlayerClose(territoryRadius) && (distance < territoryRadius))
+        if (isPlayerClose(aggroRadius) && (distance < territoryRadius))
         {
             Vector3 directionToMove = new Vector3(Player.pc.transform.position.x - transform.position.x, Player.pc.transform.position.y - transform.position.y);
             directionToMove = directionToMove.normalized;
             rb.velocity = directionToMove * mvtSpd * Time.deltaTime;
         }
-        else if (distance > territoryRadius)
+        else if (!isPlayerClose(aggroRadius))
         {
             Vector3 directionToMove = new Vector3(spawnLoc.x - transform.position.x, spawnLoc.y - transform.position.y);
             directionToMove = directionToMove.normalized;

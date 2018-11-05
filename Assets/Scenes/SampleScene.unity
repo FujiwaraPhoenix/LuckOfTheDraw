@@ -280,7 +280,7 @@ MonoBehaviour:
   barrel: {fileID: 611182788}
   gunSprite: {fileID: 835098103}
   shotTimer: 0
-  rof: 2
+  rof: 1
   rofMod: 0
   damage: 1
   dmgMod: 0
@@ -392,7 +392,7 @@ MonoBehaviour:
   player1Sprite: {fileID: 1901149348600746, guid: 645cdabfd5deecf42a403b103d985f21,
     type: 2}
   gunSprite: {fileID: 1046857137404542, guid: 645cdabfd5deecf42a403b103d985f21, type: 2}
-  mvtSpd: 2
+  mvtSpd: 1
 --- !u!50 &133565438
 Rigidbody2D:
   serializedVersion: 4
@@ -1284,6 +1284,19 @@ Prefab:
         type: 2}
       propertyPath: damage
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319885166939254, guid: 1c4d67b0497f69742b6510002ecfbce2, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319885166939254, guid: 1c4d67b0497f69742b6510002ecfbce2, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114532812013664058, guid: 1c4d67b0497f69742b6510002ecfbce2,
+        type: 2}
+      propertyPath: mvtSpd
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c4d67b0497f69742b6510002ecfbce2, type: 2}
@@ -2223,11 +2236,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTarget: {fileID: 288391352}
-  box1width: 1
-  box1height: 1
-  box2width: 2
-  box2height: 2
-  box1lerp: 0.02
+  box1width: 0.25
+  box1height: 0.25
+  box2width: 0.5
+  box2height: 0.5
+  box1lerp: 0.01
 --- !u!114 &1638336832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2349,7 +2362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.40392157}
+  m_Color: {r: 0, g: 0.16973758, b: 1, a: 0.40392157}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

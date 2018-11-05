@@ -160,6 +160,7 @@ public class PlayerBullet : MonoBehaviour {
             }
             if (effectIndex != 3 && effectIndex != 4)
             {
+                Debug.Log("Destroying bullet");
                 Destroy(this.gameObject);
             }
             else
