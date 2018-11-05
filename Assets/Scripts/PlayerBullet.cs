@@ -167,6 +167,14 @@ public class PlayerBullet : MonoBehaviour {
                 //Debug.Log("Shouldn't be destroyed");
             }
         }
+        else if (collision.gameObject.tag.Equals("Hexs"))
+        {
+            if (effectIndex == 4)
+            {
+                Vector3 newDirection = (Vector3.Reflect(travelDir, collision.contacts[0].normal));
+                travelDir = (Vector2)newDirection;
+            }
+        }
     }
 
     /*public void OnTriggerEnter2D(Collider2D collision)
