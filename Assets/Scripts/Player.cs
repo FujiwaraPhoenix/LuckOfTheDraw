@@ -131,7 +131,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
         effectflash.color = new Color(EflashR, EflashG, EflashB, EflashA);
         //speedui
-        SpeedChevrons.GetComponent<Image>().fillAmount = mvtSpd / 30;
+        SpeedChevrons.GetComponent<Image>().fillAmount = mvtSpd / 5;
         //hungerradial
         hungerradial.GetComponent<Image>().fillAmount = publichunger / 100;
         //healthbar
