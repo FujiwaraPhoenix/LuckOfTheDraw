@@ -470,7 +470,7 @@ Transform:
   m_GameObject: {fileID: 133565431}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -18.214178, y: -4.479617, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 2077663257}
   - {fileID: 1279829289}
@@ -1280,6 +1280,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114532812013664058, guid: 1c4d67b0497f69742b6510002ecfbce2,
+        type: 2}
+      propertyPath: damage
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c4d67b0497f69742b6510002ecfbce2, type: 2}
   m_IsPrefabAsset: 0
@@ -1893,7 +1898,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c2b2a67e8644e7143bbfb8ec149ed0b7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2218,10 +2223,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTarget: {fileID: 288391352}
-  box1width: 2
-  box1height: 2
-  box2width: 4
-  box2height: 4
+  box1width: 1
+  box1height: 1
+  box2width: 2
+  box2height: 2
   box1lerp: 0.02
 --- !u!114 &1638336832
 MonoBehaviour:
