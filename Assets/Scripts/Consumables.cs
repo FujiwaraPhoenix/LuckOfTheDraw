@@ -121,6 +121,12 @@ public class Consumables : MonoBehaviour {
         {
             playerscript.mvtSpd = 0.5f;
         }
+
+        if (playerscript.mvtSpd > 5)
+        {
+            playerscript.mvtSpd = 5;
+        }
+
         ParticleSystem.MainModule main = consume.main;
 
         if (Input.GetKeyDown(KeyCode.Space))
