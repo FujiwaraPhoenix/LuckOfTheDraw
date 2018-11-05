@@ -13,6 +13,8 @@ public class GateControl : MonoBehaviour {
     public float zoomAmount; //How far the camera should zoom
     public float zoomSpeed; //How fast the camera should zoom
 
+    public GameObject bossPrefab; //The prefab for instantiating the boss
+
     public TestCameraZoom cam; //What you call to activateZoom. Replace this with the actual camera script.
 
     bool closeGate = false;
@@ -42,6 +44,8 @@ public class GateControl : MonoBehaviour {
             {
                 cam.activateZoom(cameraPos, zoomAmount, zoomSpeed);
             }
+
+            Instantiate(bossPrefab, new Vector3(cameraPos.transform.position.x, cameraPos.transform.position.y, -1), Quaternion.identity);
         }
     }
 }

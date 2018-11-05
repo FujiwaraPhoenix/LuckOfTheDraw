@@ -71,7 +71,8 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     public int ticksRemaining;
 
     //Feedback Globals
-    float flash = 1;
+    //float flash = 1;
+    float maxHealth;
     public GameObject effectIcon;
     public SpriteRenderer effectSprites;
     public Sprite[] effectList = new Sprite[2];
@@ -98,17 +99,18 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             //health = 50; //Update this once we decide on the actual value
             hpBarsLeft = 3;
         }
+        maxHealth = health;
     }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 
         //Flashes red when damage is taken
-        sr.color = new Color(1, flash, flash);
-        if(flash < 1)
+        sr.color = new Color(1, (health/maxHealth), (health/maxHealth));
+        /*if(flash < 1)
         {
             flash += 0.2f;
-        }
+        }*/
 
         
         if (enemyBehavior != AIType.BullRush && enemyBehavior != AIType.Pursuer && enemyBehavior != AIType.Territorial)
@@ -359,7 +361,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     public void takeDamage(int d) //Method for taking damage, pass the damage dealt as a parameter
     {
         health -= d; //Takes damage
-        flash = 0;
+        //flash = 0;
         if(health <= 0 && !isBoss)
         {
             if(spawned) //If it's a spawned enemy, tell the spawner that it's spawned count is one less

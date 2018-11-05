@@ -57,8 +57,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1345805793923374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.055961, y: 0.008327246, z: -1}
-  m_LocalScale: {x: 0.75649506, y: 0.75649506, z: 5.0433}
+  m_LocalPosition: {x: 0.055961475, y: 0.008327246, z: -1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 5.0433}
   m_Children:
   - {fileID: 4570132829413466}
   m_Father: {fileID: 0}
@@ -238,10 +238,11 @@ MonoBehaviour:
   hpReset: 20
   damage: 15
   health: 20
+  homeBiome: {fileID: 0}
   rb: {fileID: 0}
   inputDir: {x: 0, y: 0}
-  mvtSpd: 30
-  aggroRadius: 5
+  mvtSpd: 40
+  aggroRadius: 40
   spawnLoc: {x: 0, y: 0, z: 0}
   territoryRadius: 5
   dirLocked: 0
