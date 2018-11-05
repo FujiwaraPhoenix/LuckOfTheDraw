@@ -258,7 +258,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             {
                 if (chargeTimer > 0f)
                 {
-                    rb.velocity = inputDir * (mvtSpd * 20f) * Time.deltaTime;
+                    rb.velocity = inputDir * mvtSpd * Time.deltaTime;
                 }
                 else
                 {
@@ -353,6 +353,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     {
         spawned = true;
         mother = e;
+        
     }
 
     public void takeDamage(int d) //Method for taking damage, pass the damage dealt as a parameter
@@ -366,7 +367,10 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
                 mother.spawnedDied();
             }
             Debug.Log("DIE.");
-            homeBiome.enemyDied(generationType); //Tell the biome generator that it can spawn another enemy next respawn cycle
+            if (!spawned)
+            {
+                homeBiome.enemyDied(generationType); //Tell the biome generator that it can spawn another enemy next respawn cycle
+            }
             Destroy(this.gameObject); //Destroy itself
             
         }

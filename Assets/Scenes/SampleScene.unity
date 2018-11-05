@@ -280,7 +280,7 @@ MonoBehaviour:
   barrel: {fileID: 611182788}
   gunSprite: {fileID: 835098103}
   shotTimer: 0
-  rof: 2
+  rof: 1
   rofMod: 0
   damage: 1
   dmgMod: 0

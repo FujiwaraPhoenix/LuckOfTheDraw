@@ -50,7 +50,7 @@ public class PlayerShooter : MonoBehaviour {
 	void Update () {
         if (InventoryController.ic.gunIndex == 1)
         {
-            rofMod = -1f;
+            rofMod = -.75f;
         }
         else
         {
