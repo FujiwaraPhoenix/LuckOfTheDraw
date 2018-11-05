@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     //General Globals
     public int damage = 5; //How much damage the enemy does per collision
     public int health = 10; //How much damage the enemy takes before dying
-    BiomeGeneration homeBiome; //Used for generation and respawning purposes
+    public BiomeGeneration homeBiome; //Used for generation and respawning purposes
     int generationType;
 
     //Spriting Globals
@@ -365,8 +365,10 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             {
                 mother.spawnedDied();
             }
+            Debug.Log("DIE.");
             homeBiome.enemyDied(generationType); //Tell the biome generator that it can spawn another enemy next respawn cycle
             Destroy(this.gameObject); //Destroy itself
+            
         }
         else if (isBoss && health <=0)
         {

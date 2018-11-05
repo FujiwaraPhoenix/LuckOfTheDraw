@@ -274,6 +274,7 @@ public class BiomeGeneration : MonoBehaviour {
             spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
             GameObject e = Instantiate(enemyOne, transform.position, Quaternion.identity);
             e.transform.SetParent(this.transform);
+            e.GetComponent<Enemy>().setHome(this, 1);
             e.transform.localPosition = spawnPosition;
         }
 
@@ -282,6 +283,7 @@ public class BiomeGeneration : MonoBehaviour {
             spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
             GameObject e = Instantiate(enemyTwo, transform.position, Quaternion.identity);
             e.transform.SetParent(this.transform);
+            e.GetComponent<Enemy>().setHome(this, 2);
             e.transform.localPosition = spawnPosition;
         }
     }
@@ -367,4 +369,5 @@ public class BiomeGeneration : MonoBehaviour {
         e.transform.localPosition = spawnPosition;
         e.GetComponent<Enemy>().setHome(this, 2);
         secondaryEnemyCount++;
-    }*/}
+    }*/
+}
