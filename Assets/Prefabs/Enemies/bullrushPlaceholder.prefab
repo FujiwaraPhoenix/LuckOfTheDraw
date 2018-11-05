@@ -53,8 +53,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1776347099659478}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 0.14999998, y: 0.14999998, z: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: -1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4354235572233150}
   m_RootOrder: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   tickTimer: 0
   ticksRemaining: 0
   effectIcon: {fileID: 1776347099659478}
-  effectSprites: {fileID: 0}
+  effectSprites: {fileID: 212194555524581008}
   effectList:
   - {fileID: 21300000, guid: 13ea8b93c37bf974794010bc411b6a5d, type: 3}
   - {fileID: 21300000, guid: 10bbdf0f0f396674bb988872c32940a3, type: 3}
