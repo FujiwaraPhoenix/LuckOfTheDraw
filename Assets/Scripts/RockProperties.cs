@@ -6,7 +6,7 @@ public class RockProperties : MonoBehaviour {
     public int RockGenNumber;
 	// Use this for initialization
 	void Start () {
-        RockGenNumber = Random.Range(0,6);
+        RockGenNumber = Random.Range(1,6);
 	}
 	
 	// Update is called once per frame
