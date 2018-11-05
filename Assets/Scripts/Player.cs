@@ -9,8 +9,8 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
    // public Text healthtext;
   //  public Text hungerText;
    // public Text speedText;
-    public int health = 30;
-    public int publichealth = 30;
+    public float health = 30;
+    public float publichealth = 30;
     public float publichunger = 100;
     public float publicspeed = 2;
     bool alive = true;
@@ -97,6 +97,13 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     // Update is called once per frame
     void Update () {
 
+        if (publichunger <= 0 ) 
+        {
+            HungerImage.color = Color.red;
+            badnesstimerhunger = 20f;
+            publichealth = publichealth - 0.006f;
+        }
+
         //flash red ui
         if (badnesstimerhealth > 0)
         {
@@ -131,7 +138,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
         effectflash.color = new Color(EflashR, EflashG, EflashB, EflashA);
         //speedui
-        SpeedChevrons.GetComponent<Image>().fillAmount = mvtSpd / 30;
+        SpeedChevrons.GetComponent<Image>().fillAmount = mvtSpd / 5;
         //hungerradial
         hungerradial.GetComponent<Image>().fillAmount = publichunger / 100;
         //healthbar
