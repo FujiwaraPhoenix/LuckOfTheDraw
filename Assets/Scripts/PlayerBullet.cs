@@ -13,6 +13,7 @@ public class PlayerBullet : MonoBehaviour {
     public bool isTracking = false;
     public Enemy trackingTarget;
     public Explosion e;
+    public GameObject explosionPreFab;
 
     int gunIndex;
     int shotIndex;
@@ -143,6 +144,7 @@ public class PlayerBullet : MonoBehaviour {
                 //Drop an AoE.
                 case 2:
                     Explosion newExp = Instantiate(e, transform.position, Quaternion.identity);
+                    //GameObject newExp = (GameObject)Instantiate(explosionPreFab, transform.position, Quaternion.identity);
                     newExp.dmg = damage;
                     break;
                 //Bounce
