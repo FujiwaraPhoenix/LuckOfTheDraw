@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour { //The Player should be tagged as player and have the player layermask
 
@@ -35,6 +36,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     public Image SpeedImage;
     public Image HungerImage;
     public Color HungerImageStart;
+    public Text loseText;
     //
 
 
@@ -70,6 +72,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
         effectflash.color = new Color(255, 255, 255, 0);
         Hbarfillcolorstart = Hbarfill.color;
         HungerImageStart = HungerImage.color;
+        loseText.gameObject.SetActive(false);
     }
 
     public IEnumerator FadeImage(bool fadeAway)
@@ -157,6 +160,20 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
         {
             movePC();
           //  healthtext.text = health.ToString();
+        }
+
+        if (!alive) //If the player is dead, say they lost and freeze time
+        {
+            loseText.gameObject.SetActive(true);
+            Time.timeScale = 0;
+            this.gameObject.SetActive(false);
+        }
+
+        if(Input.GetKey(KeyCode.P)) //Resets the game
+        {
+            Destroy(this.gameObject, .001f);
+            Destroy(Controller.Instance, .001f);
+            SceneManager.LoadScene("SampleScene");
         }
 	}
 
