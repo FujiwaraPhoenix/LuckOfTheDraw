@@ -346,6 +346,7 @@ MonoBehaviour:
   SpeedImage: {fileID: 0}
   HungerImage: {fileID: 0}
   HungerImageStart: {r: 0, g: 0, b: 0, a: 0}
+  loseText: {fileID: 0}
   player1Sprite: {fileID: 1901149348600746}
   gunSprite: {fileID: 1046857137404542}
   mvtSpd: 2

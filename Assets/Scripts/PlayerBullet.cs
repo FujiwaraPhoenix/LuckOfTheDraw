@@ -160,11 +160,20 @@ public class PlayerBullet : MonoBehaviour {
             }
             if (effectIndex != 3 && effectIndex != 4)
             {
+                Debug.Log("Destroying bullet");
                 Destroy(this.gameObject);
             }
             else
             {
                 //Debug.Log("Shouldn't be destroyed");
+            }
+        }
+        else if (collision.gameObject.tag.Equals("Hexs"))
+        {
+            if (effectIndex == 4)
+            {
+                Vector3 newDirection = (Vector3.Reflect(travelDir, collision.contacts[0].normal));
+                travelDir = (Vector2)newDirection;
             }
         }
     }
