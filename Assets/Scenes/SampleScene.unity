@@ -624,6 +624,13 @@ MonoBehaviour:
   fruit: {fileID: 1770660905224566, guid: 09793c389e0d408459091f3e7e64c337, type: 2}
   player: {fileID: 288391352}
   playerscript: {fileID: 133565437}
+  playerSprite: {fileID: 1279829288}
+  eatingEffect: {fileID: 1029245349479110, guid: 25aa35c505eff034ab5e503c68b971c2,
+    type: 2}
+  healthUpColor: {r: 0, g: 1, b: 0, a: 1}
+  healthDownColor: {r: 1, g: 0, b: 0, a: 1}
+  speedUpColor: {r: 0, g: 0, b: 1, a: 1}
+  hungerUpColor: {r: 1, g: 1, b: 0, a: 1}
   bob: {fileID: 133565435}
   consume: {fileID: 2077663255}
 --- !u!58 &133565435
