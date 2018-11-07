@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour { //The Player should be tagged as player and have the player layermask
 
@@ -166,6 +167,13 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
             loseText.gameObject.SetActive(true);
             Time.timeScale = 0;
             this.gameObject.SetActive(false);
+        }
+
+        if(Input.GetKey(KeyCode.P)) //Resets the game
+        {
+            Destroy(this.gameObject, .001f);
+            Destroy(Controller.Instance, .001f);
+            SceneManager.LoadScene("SampleScene");
         }
 	}
 
