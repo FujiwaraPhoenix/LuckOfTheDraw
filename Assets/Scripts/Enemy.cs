@@ -131,6 +131,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             {
                 case 1:
                     enemyBehavior = AIType.BullRush;
+                    mvtSpd = 250;
                     break;
                 case 2:
                     Debug.Log("Phase 2");
