@@ -13,7 +13,16 @@ public class Consumables : MonoBehaviour {
     float fruitspeed = 1.5f;
     float eatTimer;
     public Player playerscript;
-   // public FruitProperties FP;
+    public GameObject playerSprite;
+    public GameObject eatingEffect;
+    ParticleSystem effectSystem;
+    ParticleSystem.MainModule effectSystemMain;
+    public Color healthUpColor;
+    public Color healthDownColor;
+    public Color speedUpColor;
+    public Color hungerUpColor;
+
+    //public FruitProperties FP;
     //private GameObject absorbedFruit = null;
     private GameObject[] absorbedFruit = new GameObject[1];
     
@@ -31,7 +40,7 @@ public class Consumables : MonoBehaviour {
 
 
     void Start () {
-       
+
     }
 
     void OnTriggerStay2D(Collider2D coll)
@@ -46,6 +55,30 @@ public class Consumables : MonoBehaviour {
     {
        if (colli.gameObject.tag == "Fruit" && colli.gameObject == absorbedFruit[0])
         {
+            GameObject crumbs = (GameObject)Instantiate(eatingEffect, playerSprite.transform.position, transform.rotation);
+            crumbs.transform.SetParent(playerSprite.transform);
+            crumbs.transform.localPosition = new Vector3(0, 0, -1f);
+            effectSystem = crumbs.GetComponent<ParticleSystem>();
+            effectSystemMain = effectSystem.main;
+            if (colli.gameObject.GetComponent<FruitProperties>().HungerAmount > colli.gameObject.GetComponent<FruitProperties>().HealthAmount 
+            && colli.gameObject.GetComponent<FruitProperties>().HungerAmount > colli.gameObject.GetComponent<FruitProperties>().SpeedPropety)
+            {
+                effectSystemMain.startColor = hungerUpColor;
+            }
+            if (colli.gameObject.GetComponent<FruitProperties>().HealthAmount > colli.gameObject.GetComponent<FruitProperties>().HungerAmount 
+            && colli.gameObject.GetComponent<FruitProperties>().HealthAmount > colli.gameObject.GetComponent<FruitProperties>().SpeedPropety)
+            {
+                effectSystemMain.startColor = healthUpColor;
+            }
+            if (colli.gameObject.GetComponent<FruitProperties>().HealthAmount <= 0)
+            {
+                effectSystemMain.startColor = healthDownColor;
+            }
+            if (colli.gameObject.GetComponent<FruitProperties>().SpeedPropety > 0.5f)
+            {
+                effectSystemMain.startColor = speedUpColor;
+            }
+
             playerscript.publichealth = Mathf.Clamp(playerscript.publichealth, 0, playerscript.StartHealth);
             //health = FruitProperties.publicHealth;
             playerscript.publichunger = playerscript.publichunger + colli.gameObject.GetComponent<FruitProperties>().HungerAmount;
