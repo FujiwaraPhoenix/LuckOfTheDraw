@@ -20,6 +20,8 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     public float EflashB = 255;
     public float EflashA = 0;
     public float StartHunger = 100;
+    public float invulnTimer = 0;
+    public float invulnReset = 1f;
 
     //UI
 
@@ -175,6 +177,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
             Destroy(Controller.Instance, .001f);
             SceneManager.LoadScene("SampleScene");
         }
+        invulnTimer -= Time.deltaTime;
 	}
 
     //As the name says, this function will move the player character around. Easy.
@@ -233,5 +236,6 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
         {
             alive = false; //If health runs out, the player dies
         }
+        invulnTimer = invulnReset;
     }
 }
