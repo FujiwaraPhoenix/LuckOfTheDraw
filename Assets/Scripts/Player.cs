@@ -171,12 +171,12 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
             this.gameObject.SetActive(false);
         }
 
-        if(Input.GetKey(KeyCode.P)) //Resets the game
+        /*if(Input.GetKey(KeyCode.P)) //Resets the game
         {
             Destroy(this.gameObject, .001f);
             Destroy(Controller.Instance, .001f);
             SceneManager.LoadScene("SampleScene");
-        }
+        }*/
         invulnTimer -= Time.deltaTime;
 	}
 
