@@ -339,6 +339,8 @@ MonoBehaviour:
   EflashB: 255
   EflashA: 0
   StartHunger: 100
+  invulnTimer: 0
+  invulnReset: 1
   effectflash: {fileID: 0}
   HbarSlide: {fileID: 0}
   StartHealth: 30
