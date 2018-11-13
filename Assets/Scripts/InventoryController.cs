@@ -26,6 +26,31 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
     public Image shotImage;
     public Image effectImage;
 
+    //guns
+
+    public Image RateOfFire;
+    public Image Damage;
+    public Image Accuracy;
+    public Image Multishot;
+    public Image Burst;
+
+
+    // Shots
+
+    public Image Speed;
+    public Image Acceleration;
+    public Image Range;
+    public Image Homing;
+    public Image Size;
+
+    //Possible Effect Variables
+
+    public Image DoT;
+    public Image AoE;
+    public Image Pierce;
+    public Image Bounce;
+    public Image Slow;
+
     //Workarounds for using input.getKey in a trigger method
     bool pressOne = false;
     bool pressTwo = false;
@@ -49,6 +74,10 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
 
     // Use this for initialization
     void Start () {
+
+        RateOfFire.gameObject.SetActive(false);
+      
+
 		
 	}
 	
@@ -114,8 +143,74 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                 }
                 gunResource = r.gameObject;
                 gunIndex = r.pickup();
-                gunImage.sprite = r.giveSprite();
-                gunImage.color = r.giveColor();
+                switch(gunIndex)
+                {
+                    case 0: //default
+
+                        RateOfFire.gameObject.SetActive(false);
+                        Damage.gameObject.SetActive(false);
+                        Accuracy.gameObject.SetActive(false);
+                        Multishot.gameObject.SetActive(false);
+                        Burst.enabled = false;
+
+
+
+                        break;
+
+                    case 1: //fire rate
+
+                        RateOfFire.gameObject.SetActive(true);
+                        Damage.gameObject.SetActive(false);
+                        Accuracy.gameObject.SetActive(false);
+                        Multishot.gameObject.SetActive(false);
+                        Burst.gameObject.SetActive(false);
+
+                        break;
+
+                    case 2: //Damage
+
+                        RateOfFire.gameObject.SetActive(false);
+                        Damage.gameObject.SetActive(true);
+                        Accuracy.gameObject.SetActive(false);
+                        Multishot.gameObject.SetActive(false);
+                        Burst.gameObject.SetActive(false);
+
+                        break;
+
+                    case 3: //Accuracy
+
+                        RateOfFire.gameObject.SetActive(false);
+                        Damage.gameObject.SetActive(false);
+                        Accuracy.gameObject.SetActive(true);
+                        Multishot.gameObject.SetActive(false);
+                        Burst.gameObject.SetActive(false);
+
+                        break;
+
+                    case 4: //Multishot
+
+                        RateOfFire.gameObject.SetActive(false);
+                        Damage.gameObject.SetActive(false);
+                        Accuracy.gameObject.SetActive(false);
+                        Multishot.gameObject.SetActive(true);
+                        Burst.gameObject.SetActive(false);
+
+                        break;
+
+                    case 5: //Burst
+
+                        RateOfFire.gameObject.SetActive(false);
+                        Damage.gameObject.SetActive(false);
+                        Accuracy.gameObject.SetActive(false);
+                        Multishot.gameObject.SetActive(false);
+                        Burst.gameObject.SetActive(true);
+
+                        break;
+
+                }
+
+                //gunImage.sprite = r.giveSprite();
+              //  gunImage.color = r.giveColor();
                 haveGun = true;
                 cooldown = 0.5f;
             }
@@ -129,8 +224,74 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                 }
                 shotResource = r.gameObject;
                 shotIndex = r.pickup();
-                shotImage.sprite = r.giveSprite();
-                shotImage.color = r.giveColor();
+                //shotImage.sprite = r.giveSprite();
+
+                switch (shotIndex)
+                {
+                    case 0: //default
+
+                        Speed.gameObject.SetActive(false);
+                        Acceleration.gameObject.SetActive(false);
+                        Range.gameObject.SetActive(false);
+                        Homing.gameObject.SetActive(false);
+                        Size.gameObject.SetActive(false);
+
+
+
+                        break;
+
+                    case 1: //Speed
+
+                        Speed.gameObject.SetActive(true);
+                        Acceleration.gameObject.SetActive(false);
+                        Range.gameObject.SetActive(false);
+                        Homing.gameObject.SetActive(false);
+                        Size.gameObject.SetActive(false);
+
+                        break;
+
+                    case 2: //Acceleration
+
+                        Speed.gameObject.SetActive(false);
+                        Acceleration.gameObject.SetActive(true);
+                        Range.gameObject.SetActive(false);
+                        Homing.gameObject.SetActive(false);
+                        Size.gameObject.SetActive(false);
+
+                        break;
+
+                    case 3: //Range
+
+                        Speed.gameObject.SetActive(false);
+                        Acceleration.gameObject.SetActive(false);
+                        Range.gameObject.SetActive(true);
+                        Homing.gameObject.SetActive(false);
+                        Size.gameObject.SetActive(false);
+
+                        break;
+
+                    case 4: //Homing
+
+                        Speed.gameObject.SetActive(false);
+                        Acceleration.gameObject.SetActive(false);
+                        Range.gameObject.SetActive(false);
+                        Homing.gameObject.SetActive(true);
+                        Size.gameObject.SetActive(false);
+
+                        break;
+
+                    case 5: //Size
+
+                        Speed.gameObject.SetActive(false);
+                        Acceleration.gameObject.SetActive(false);
+                        Range.gameObject.SetActive(false);
+                        Homing.gameObject.SetActive(false);
+                        Size.gameObject.SetActive(true);
+
+                        break;
+
+                }
+               // shotImage.color = r.giveColor();
                 haveShot = true;
                 cooldown = 0.5f;
             }
@@ -144,8 +305,74 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                 }
                 effectResource = r.gameObject;
                 effectIndex = r.pickup();
-                effectImage.sprite = r.giveSprite();
-                effectImage.color = r.giveColor();
+                // effectImage.sprite = r.giveSprite();
+
+
+                switch (effectIndex)
+                {
+                    case 0: //default
+
+                        DoT.gameObject.SetActive(false);
+                        AoE.gameObject.SetActive(false);
+                        Pierce.gameObject.SetActive(false);
+                        Bounce.gameObject.SetActive(false);
+                        Slow.gameObject.SetActive(false);
+
+
+                        break;
+
+                    case 1: //DoT
+
+                        DoT.gameObject.SetActive(true);
+                        AoE.gameObject.SetActive(false);
+                        Pierce.gameObject.SetActive(false);
+                        Bounce.gameObject.SetActive(false);
+                        Slow.gameObject.SetActive(false);
+
+                        break;
+
+                    case 2: //AoE
+
+                        DoT.gameObject.SetActive(false);
+                        AoE.gameObject.SetActive(true);
+                        Pierce.gameObject.SetActive(false);
+                        Bounce.gameObject.SetActive(false);
+                        Slow.gameObject.SetActive(false);
+
+                        break;
+
+                    case 3: //Pierce
+
+                        DoT.gameObject.SetActive(false);
+                        AoE.gameObject.SetActive(false);
+                        Pierce.gameObject.SetActive(true);
+                        Bounce.gameObject.SetActive(false);
+                        Slow.gameObject.SetActive(false);
+
+                        break;
+
+                    case 4: //Bounce
+
+                        DoT.gameObject.SetActive(false);
+                        AoE.gameObject.SetActive(false);
+                        Pierce.gameObject.SetActive(false);
+                        Bounce.gameObject.SetActive(true);
+                        Slow.gameObject.SetActive(false);
+
+                        break;
+
+                    case 5: //Slow
+
+                        DoT.gameObject.SetActive(false);
+                        AoE.gameObject.SetActive(false);
+                        Pierce.gameObject.SetActive(false);
+                        Bounce.gameObject.SetActive(false);
+                        Slow.gameObject.SetActive(true);
+
+                        break;
+
+                }
+                //effectImage.color = r.giveColor();
                 haveEffect = true;
                 cooldown = 0.5f;
             }
