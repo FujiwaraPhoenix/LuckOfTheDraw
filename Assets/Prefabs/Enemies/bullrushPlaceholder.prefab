@@ -127,7 +127,7 @@ MonoBehaviour:
   homeBiome: {fileID: 0}
   rb: {fileID: 0}
   inputDir: {x: 0, y: 0}
-  mvtSpd: 25
+  mvtSpd: 50
   aggroRadius: 4
   spawnLoc: {x: 0, y: 0, z: 0}
   territoryRadius: 5

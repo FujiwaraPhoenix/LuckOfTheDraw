@@ -131,6 +131,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             {
                 case 1:
                     enemyBehavior = AIType.BullRush;
+                    mvtSpd = 250;
                     break;
                 case 2:
                     Debug.Log("Phase 2");
@@ -418,7 +419,24 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
         {
             Debug.Log("Hit a player");
             Player p = collision.gameObject.GetComponent<Player>();
-            p.getHit(damage);
+            if (p.invulnTimer <= 0)
+            {
+                p.getHit(damage);
+            }
+        }
+    }
+
+    public void OnCollisionStay2D(Collision2D collision)
+    {
+        Debug.Log("Hit Something");
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Hit a player");
+            Player p = collision.gameObject.GetComponent<Player>();
+            if (p.invulnTimer <= 0)
+            {
+                p.getHit(damage);
+            }
         }
     }
 

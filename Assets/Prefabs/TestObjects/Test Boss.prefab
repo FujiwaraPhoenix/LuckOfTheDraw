@@ -235,9 +235,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 1
   hpBarsLeft: 3
-  hpReset: 20
+  hpReset: 40
   damage: 15
-  health: 20
+  health: 40
   homeBiome: {fileID: 0}
   rb: {fileID: 0}
   inputDir: {x: 0, y: 0}

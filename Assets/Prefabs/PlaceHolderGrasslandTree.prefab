@@ -52,7 +52,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f1ffdc1e3cbb344b9b280de115b501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FruitGenerator: {fileID: 0}
   Fruit: {fileID: 1770660905224566, guid: 09793c389e0d408459091f3e7e64c337, type: 2}
+  trunk01: {fileID: 0}
+  trunk02: {fileID: 0}
+  trunk03: {fileID: 0}
 --- !u!212 &212029223181369392
 SpriteRenderer:
   m_ObjectHideFlags: 1

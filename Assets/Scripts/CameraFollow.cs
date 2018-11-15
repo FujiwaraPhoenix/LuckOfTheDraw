@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraFollow : MonoBehaviour //Many thanks to Diego for making this script
 {
@@ -57,6 +58,14 @@ public class CameraFollow : MonoBehaviour //Many thanks to Diego for making this
         }
 
         transform.position = new Vector3(myXpos, myYpos, -10f);
+
+        if(Input.GetKey(KeyCode.P))
+        {
+            //Reset
+            Destroy(myTarget.gameObject);
+            Destroy(Controller.Instance);
+            SceneManager.LoadScene("SampleScene");
+        }
 
     }
 
