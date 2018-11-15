@@ -249,6 +249,7 @@ MonoBehaviour:
   foundPlayer: 0
   charging: 0
   stationaryTimer: 0
+  stationaryReset: 3
   chargeTimer: 0
   wanderTimerMax: 4
   wanderTimerMin: 0.5
@@ -258,7 +259,8 @@ MonoBehaviour:
   shot: {fileID: 114543821867366166, guid: 45c47889ff28fa54da1d8106cc4196fb, type: 2}
   spawnCooldown: 1
   spawnMax: 5
-  enemyToSpawn: {fileID: 0}
+  enemyToSpawn: {fileID: 1879524734226852, guid: 6ae65735876c3d64bbe663abe1674feb,
+    type: 2}
   currentStatus: 0
   tickrate: 2
   tickTimer: 0
@@ -268,7 +270,7 @@ MonoBehaviour:
   effectList:
   - {fileID: 21300000, guid: 13ea8b93c37bf974794010bc411b6a5d, type: 3}
   - {fileID: 21300000, guid: 10bbdf0f0f396674bb988872c32940a3, type: 3}
-  enemyBehavior: 2
+  enemyBehavior: 4
 --- !u!212 &212271230787122122
 SpriteRenderer:
   m_ObjectHideFlags: 1
