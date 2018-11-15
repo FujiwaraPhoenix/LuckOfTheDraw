@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     public bool foundPlayer = false;
     public bool charging = false;
     public float stationaryTimer;
+    public float stationaryReset = 3f;
     public float chargeTimer;
 
     //Wander Globals
@@ -131,14 +132,15 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             {
                 case 1:
                     enemyBehavior = AIType.BullRush;
+                    stationaryReset = 1f;
                     mvtSpd = 250;
                     break;
                 case 2:
-                    Debug.Log("Phase 2");
                     enemyBehavior = AIType.Sniper;
+                    shootCooldown = .5f;
                     break;
                 case 3:
-                    enemyBehavior = AIType.Pursuer;
+                    enemyBehavior = AIType.Spawner;
                     break;
             }
         }
@@ -265,7 +267,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
                 }
                 else
                 {
-                    stationaryTimer = 3f;
+                    stationaryTimer = stationaryReset;
                     charging = !charging;
                 }
             }
@@ -338,6 +340,10 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             spawnTimer = 0;
             GameObject spawned = Instantiate(enemyToSpawn, new Vector3(transform.position.x + .5f, transform.position.y + .5f, transform.position.z), Quaternion.identity);
             spawned.GetComponent<Enemy>().isSpawned(this);
+            if (isBoss)
+            {
+                spawned.GetComponent<Enemy>().mvtSpd *= 1.25f;
+            }
             spawnedEnemies++;
 
         }
@@ -428,7 +434,6 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
 
     public void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log("Hit Something");
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("Hit a player");
