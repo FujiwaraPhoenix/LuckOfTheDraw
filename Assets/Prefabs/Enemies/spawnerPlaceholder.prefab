@@ -145,6 +145,7 @@ MonoBehaviour:
   foundPlayer: 0
   charging: 0
   stationaryTimer: 0
+  stationaryReset: 3
   chargeTimer: 0
   wanderTimerMax: 4
   wanderTimerMin: 0.5

@@ -28,6 +28,8 @@ public class BiomeGeneration : MonoBehaviour {
     public GameObject sniper;
     public GameObject spawner;
     public GameObject bullrush;
+    public GameObject beehive;
+    public GameObject superRush;
     public int primaryEnemyNumber = 8;
     int primaryEnemyCount = 0;
     public int secondaryEnemyNumber = 5;
@@ -225,7 +227,7 @@ public class BiomeGeneration : MonoBehaviour {
         GameObject enemyOne = wanderer;
         GameObject enemyTwo = wanderer;
 
-        switch ((int)Random.Range(0, 6))
+        switch ((int)Random.Range(0, 8))
         {
             case 0:
                 enemyOne = wanderer;
@@ -245,9 +247,15 @@ public class BiomeGeneration : MonoBehaviour {
             case 5:
                 enemyOne = spawner;
                 break;
+            case 6:
+                enemyOne = beehive;
+                break;
+            case 7:
+                enemyOne = superRush;
+                break;
         }
 
-        switch ((int)Random.Range(0, 6))
+        switch ((int)Random.Range(0, 8))
         {
             case 0:
                 enemyTwo = wanderer;
@@ -266,6 +274,12 @@ public class BiomeGeneration : MonoBehaviour {
                 break;
             case 5:
                 enemyTwo = spawner;
+                break;
+            case 6:
+                enemyOne = beehive;
+                break;
+            case 7:
+                enemyOne = superRush;
                 break;
         }
 
