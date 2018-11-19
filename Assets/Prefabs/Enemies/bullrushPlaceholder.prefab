@@ -123,7 +123,7 @@ MonoBehaviour:
   hpBarsLeft: 3
   hpReset: 50
   damage: 5
-  health: 6
+  health: 3
   homeBiome: {fileID: 0}
   rb: {fileID: 0}
   inputDir: {x: 0, y: 0}
@@ -135,6 +135,7 @@ MonoBehaviour:
   foundPlayer: 0
   charging: 0
   stationaryTimer: 0
+  stationaryReset: 3
   chargeTimer: 0
   wanderTimerMax: 4
   wanderTimerMin: 0.5
