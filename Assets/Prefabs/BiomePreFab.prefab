@@ -80,7 +80,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1052040696418678}
   m_LocalRotation: {x: -0, y: -0, z: -0.258819, w: 0.9659259}
-  m_LocalPosition: {x: -18.437346, y: -10.65942, z: 0}
+  m_LocalPosition: {x: -27.61311, y: -3.6750684, z: 1.5205599}
   m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children:
   - {fileID: 4297595458801788}
@@ -180,10 +180,10 @@ MonoBehaviour:
   bullrush: {fileID: 1861948818577490, guid: 4997d6b9fe9187d40b49a886359cf93f, type: 2}
   beehive: {fileID: 1058395670340818, guid: 8a875e9b550cf0140a7dd9a8bd9d9e87, type: 2}
   superRush: {fileID: 1861948818577490, guid: 9ec4f9a4a61effb4087217dd93b57724, type: 2}
-  primaryEnemyNumber: 5
-  secondaryEnemyNumber: 3
-  amountOfAsset1: 10
-  amountOfAsset2: 10
+  primaryEnemyNumber: 0
+  secondaryEnemyNumber: 0
+  AmountofTrees: 5
+  AmountofRocks: 0
 --- !u!212 &212367946615825124
 SpriteRenderer:
   m_ObjectHideFlags: 1
