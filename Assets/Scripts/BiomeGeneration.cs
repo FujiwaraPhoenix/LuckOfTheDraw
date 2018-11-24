@@ -15,6 +15,8 @@ public class BiomeGeneration : MonoBehaviour {
     public GameObject rock01;
     public GameObject rock02;
     public GameObject rock03;
+    public GameObject rock04;
+    public GameObject rock05;
     int rockGenNumber;
 
     public GameObject FruitGen;
@@ -94,7 +96,7 @@ public class BiomeGeneration : MonoBehaviour {
             }
             for (int i = 0; i < AmountofRocks; i++)
             {
-                rockGenNumber = Random.Range(0, 3);
+                rockGenNumber = Random.Range(0, 5);
                 //RockNumber = Random.Range(0, 5);
                 spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
                 //Debug.Log(RockGen.GetComponent<RockGenerator>().RockList[RockNumber]);
@@ -117,6 +119,18 @@ public class BiomeGeneration : MonoBehaviour {
                 if (rockGenNumber == 2)
                 {
                     GameObject Rock = (GameObject)Instantiate(rock03, transform.position, Quaternion.identity);
+                    Rock.transform.SetParent(this.transform);
+                    Rock.transform.localPosition = spawnPosition;
+                }
+                if (rockGenNumber == 3)
+                {
+                    GameObject Rock = (GameObject)Instantiate(rock04, transform.position, Quaternion.identity);
+                    Rock.transform.SetParent(this.transform);
+                    Rock.transform.localPosition = spawnPosition;
+                }
+                if (rockGenNumber == 4)
+                {
+                    GameObject Rock = (GameObject)Instantiate(rock05, transform.position, Quaternion.identity);
                     Rock.transform.SetParent(this.transform);
                     Rock.transform.localPosition = spawnPosition;
                 }
@@ -135,7 +149,7 @@ public class BiomeGeneration : MonoBehaviour {
             }
             for (int i = 0; i < AmountofRocks; i++)
             {
-                rockGenNumber = Random.Range(0, 3);
+                rockGenNumber = Random.Range(0, 5);
                 //RockNumber = Random.Range(0, 5);
                 spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
                 //Debug.Log(RockGen.GetComponent<RockGenerator>().RockList[RockNumber]);
@@ -158,6 +172,18 @@ public class BiomeGeneration : MonoBehaviour {
                 if (rockGenNumber == 2)
                 {
                     GameObject Rock = (GameObject)Instantiate(rock03, transform.position, Quaternion.identity);
+                    Rock.transform.SetParent(this.transform);
+                    Rock.transform.localPosition = spawnPosition;
+                }
+                if (rockGenNumber == 3)
+                {
+                    GameObject Rock = (GameObject)Instantiate(rock04, transform.position, Quaternion.identity);
+                    Rock.transform.SetParent(this.transform);
+                    Rock.transform.localPosition = spawnPosition;
+                }
+                if (rockGenNumber == 4)
+                {
+                    GameObject Rock = (GameObject)Instantiate(rock05, transform.position, Quaternion.identity);
                     Rock.transform.SetParent(this.transform);
                     Rock.transform.localPosition = spawnPosition;
                 }
@@ -176,7 +202,7 @@ public class BiomeGeneration : MonoBehaviour {
             }
             for (int i = 0; i < AmountofRocks; i++)
             {
-                rockGenNumber = Random.Range(0, 3);
+                rockGenNumber = Random.Range(0, 5);
                 //RockNumber = Random.Range(0, 5);
                 spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
                 //Debug.Log(RockGen.GetComponent<RockGenerator>().RockList[RockNumber]);
@@ -199,6 +225,18 @@ public class BiomeGeneration : MonoBehaviour {
                 if (rockGenNumber == 2)
                 {
                     GameObject Rock = (GameObject)Instantiate(rock03, transform.position, Quaternion.identity);
+                    Rock.transform.SetParent(this.transform);
+                    Rock.transform.localPosition = spawnPosition;
+                }
+                if (rockGenNumber == 3)
+                {
+                    GameObject Rock = (GameObject)Instantiate(rock04, transform.position, Quaternion.identity);
+                    Rock.transform.SetParent(this.transform);
+                    Rock.transform.localPosition = spawnPosition;
+                }
+                if (rockGenNumber == 4)
+                {
+                    GameObject Rock = (GameObject)Instantiate(rock05, transform.position, Quaternion.identity);
                     Rock.transform.SetParent(this.transform);
                     Rock.transform.localPosition = spawnPosition;
                 }
