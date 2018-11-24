@@ -42,10 +42,10 @@ public class BiomeGeneration : MonoBehaviour {
     int escalation = 0;
 
     //these floats will determine how many of each asset will populate the world upon the creation of the individual biome
-    public float amountOfAsset1;
+    public float AmountofTrees;
     public static int asset1Richness;
     float asset1Concentration;
-    public float amountOfAsset2;
+    public float AmountofRocks;
     public static int asset2Richness;
     float asset2Concentration;
 
@@ -83,7 +83,7 @@ public class BiomeGeneration : MonoBehaviour {
         //randomized size as well.
         if (isDesert)
         {
-            for (int i = 0; i < amountOfAsset1; i++)
+            for (int i = 0; i < AmountofTrees; i++)
             {
                 spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
                 GameObject Tree = (GameObject)Instantiate(desertTerrainAsset1, transform.position, Quaternion.identity);
@@ -92,7 +92,7 @@ public class BiomeGeneration : MonoBehaviour {
                 Tree.GetComponent<TreeProperties>().FruitGenerator = FruitGen;
 
             }
-            for (int i = 0; i < amountOfAsset2; i++)
+            for (int i = 0; i < AmountofRocks; i++)
             {
                 rockGenNumber = Random.Range(0, 3);
                 //RockNumber = Random.Range(0, 5);
@@ -124,7 +124,7 @@ public class BiomeGeneration : MonoBehaviour {
         }
         if (isGrass)
         {
-            for (int i = 0; i < amountOfAsset1; i++)
+            for (int i = 0; i < AmountofTrees; i++)
             {
                 spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
                 GameObject Tree = (GameObject)Instantiate(grassTerrainAsset1, transform.position, Quaternion.identity);
@@ -133,7 +133,7 @@ public class BiomeGeneration : MonoBehaviour {
                 Tree.GetComponent<TreeProperties>().FruitGenerator = FruitGen;
 
             }
-            for (int i = 0; i < amountOfAsset2; i++)
+            for (int i = 0; i < AmountofRocks; i++)
             {
                 rockGenNumber = Random.Range(0, 3);
                 //RockNumber = Random.Range(0, 5);
@@ -165,7 +165,7 @@ public class BiomeGeneration : MonoBehaviour {
         }
         if (isIce)
         {
-            for (int i = 0; i < amountOfAsset1; i++)
+            for (int i = 0; i < AmountofTrees; i++)
             {
                 spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
                 GameObject Tree = (GameObject)Instantiate(iceTerrainAsset1, transform.position, Quaternion.identity);
@@ -174,7 +174,7 @@ public class BiomeGeneration : MonoBehaviour {
                 Tree.GetComponent<TreeProperties>().FruitGenerator = FruitGen;
 
             }
-            for (int i = 0; i < amountOfAsset2; i++)
+            for (int i = 0; i < AmountofRocks; i++)
             {
                 rockGenNumber = Random.Range(0, 3);
                 //RockNumber = Random.Range(0, 5);
