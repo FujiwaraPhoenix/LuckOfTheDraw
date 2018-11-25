@@ -132,9 +132,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FruitGenerator: {fileID: 0}
   Fruit: {fileID: 1770660905224566, guid: 09793c389e0d408459091f3e7e64c337, type: 2}
-  trunk01: {fileID: 21300000, guid: d2b093adf16f4f34da9d254dea3d83b0, type: 3}
-  trunk02: {fileID: 21300000, guid: 08c78dd3294d5d54b9ef050c7c3acfe8, type: 3}
-  trunk03: {fileID: 21300000, guid: 5dad352624812bd4bbc763109119b8bb, type: 3}
+  trunk01: {fileID: 21300000, guid: 3035dfe950a398143b9ff94857a56f70, type: 3}
+  trunk02: {fileID: 21300000, guid: e5f3bffef3272914eb37525e151abdd4, type: 3}
+  trunk03: {fileID: 21300000, guid: 86aad93605b5314458fb3e2ac3ed3525, type: 3}
 --- !u!114 &114428113362965526
 MonoBehaviour:
   m_ObjectHideFlags: 1
