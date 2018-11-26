@@ -53,6 +53,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     public float shootCooldown = 2; //How long it waits before shooting
     float shotTimer = 0; //Timer for shooting
     public ProjectileController shot; //The prefab for the projectile
+    public float bearing = 0;
 
     //Spawner Globals
     public float spawnCooldown = 3;
@@ -509,5 +510,41 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     {
         health += 2 * cycle;
         damage += 2 * cycle;
+    }
+
+    public void moveAndShoot()
+    {
+        playerChase();
+        sniperUpdate();
+    }
+
+    public void sprinklerShot()
+    {
+        if (isPlayerClose(aggroRadius)) //If the player is in range
+        {
+            if (shotTimer >= shootCooldown)
+            {
+                shotTimer = 0;
+                //This is where we start changing things from the regular sniper shot.
+                //We instantiate 4 bullets, starting from the bearing, and rotate that around by 90 degrees for every iteration.
+                float tempDir = bearing;
+                for (int i = 0; i < 4; i++)
+                {
+                    ProjectileController p = Instantiate(shot, transform.position + new Vector3(inputDir.x * .1f, inputDir.y * .1f, 0), Quaternion.identity); //Instantiate a bullet
+                    p.target(ToVect(tempDir + (90 * i)), damage);
+                }
+                //And we rotate bearing to the right by x degrees.
+                bearing += 10;
+            }
+            else
+            {
+                shotTimer += Time.deltaTime;
+            }
+        }
+    }
+
+    public static Vector3 ToVect(float a)
+    {
+        return new Vector3(Mathf.Cos(a * Mathf.Deg2Rad), Mathf.Sin(a * Mathf.Deg2Rad), 0);
     }
 }
