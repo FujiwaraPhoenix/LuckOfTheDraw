@@ -86,7 +86,9 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
         Territorial,
         Sniper,
         Spawner,
-        BullRush
+        BullRush,
+        AoEShot,
+        MoveShoot
     }
 
     public AIType enemyBehavior;
@@ -207,6 +209,12 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             case AIType.BullRush:
                 blindRage();
                 break;
+            case AIType.AoEShot:
+                sprinklerShot();
+                break;
+            case AIType.MoveShoot:
+                moveAndShoot();
+                break;
         }
     }
 
@@ -244,10 +252,6 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     void blindRage()
     {
         if (isPlayerClose(aggroRadius))
-        {
-            foundPlayer = true;
-        }
-        if (foundPlayer)
         {
             //Locks in the current location of the player...
             if (!dirLocked)
