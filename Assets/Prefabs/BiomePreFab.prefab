@@ -43,7 +43,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1529735234251934
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   primaryEnemyNumber: 5
   secondaryEnemyNumber: 3
   AmountofTrees: 5
-  AmountofRocks: 0
+  AmountofRocks: 5
 --- !u!212 &212367946615825124
 SpriteRenderer:
   m_ObjectHideFlags: 1
