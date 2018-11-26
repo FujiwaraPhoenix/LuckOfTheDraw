@@ -58,9 +58,11 @@ public class BiomeGeneration : MonoBehaviour {
     bool isIce = false;
 
     float biomeNumber;
+    GameObject Player;
 
     // Use this for initialization
     void Start() {
+        Player = GameObject.Find("PlayerWithoutCamera");
         biomeNumber = Random.Range(0f, 3f);
         //this will ensure that the biome has a randomly picked color upon activation
         if (biomeNumber >= 0 && biomeNumber < 1f)
@@ -97,13 +99,7 @@ public class BiomeGeneration : MonoBehaviour {
             for (int i = 0; i < AmountofRocks; i++)
             {
                 rockGenNumber = Random.Range(0, 5);
-                //RockNumber = Random.Range(0, 5);
                 spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
-                //Debug.Log(RockGen.GetComponent<RockGenerator>().RockList[RockNumber]);
-                //rock03 = RockGen.GetComponent<RockGenerator>().RockList[RockNumber];
-                //GameObject Rock = (GameObject)Instantiate(rock03, transform.position, Quaternion.identity);
-                //Rock.transform.SetParent(this.transform);
-                //Rock.transform.localPosition = spawnPosition;
                 if (rockGenNumber == 0)
                 {
                     GameObject Rock = (GameObject)Instantiate(rock01, transform.position, Quaternion.identity);
@@ -150,13 +146,7 @@ public class BiomeGeneration : MonoBehaviour {
             for (int i = 0; i < AmountofRocks; i++)
             {
                 rockGenNumber = Random.Range(0, 5);
-                //RockNumber = Random.Range(0, 5);
                 spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
-                //Debug.Log(RockGen.GetComponent<RockGenerator>().RockList[RockNumber]);
-                //rock03 = RockGen.GetComponent<RockGenerator>().RockList[RockNumber];
-                //GameObject Rock = (GameObject)Instantiate(rock03, transform.position, Quaternion.identity);
-                //Rock.transform.SetParent(this.transform);
-                //Rock.transform.localPosition = spawnPosition;
                 if (rockGenNumber == 0)
                 {
                     GameObject Rock = (GameObject)Instantiate(rock01, transform.position, Quaternion.identity);
@@ -203,13 +193,7 @@ public class BiomeGeneration : MonoBehaviour {
             for (int i = 0; i < AmountofRocks; i++)
             {
                 rockGenNumber = Random.Range(0, 5);
-                //RockNumber = Random.Range(0, 5);
                 spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
-                //Debug.Log(RockGen.GetComponent<RockGenerator>().RockList[RockNumber]);
-                //rock03 = RockGen.GetComponent<RockGenerator>().RockList[RockNumber];
-                //GameObject Rock = (GameObject)Instantiate(rock03, transform.position, Quaternion.identity);
-                //Rock.transform.SetParent(this.transform);
-                //Rock.transform.localPosition = spawnPosition;
                 if (rockGenNumber == 0)
                 {
                     GameObject Rock = (GameObject)Instantiate(rock01, transform.position, Quaternion.identity);
@@ -246,8 +230,8 @@ public class BiomeGeneration : MonoBehaviour {
         enemyGenerate();
     }
     // Update is called once per frame
-    void Update() { 
-        if(respawnTimer >= respawnCooldown) //Respawn enemies every minute, and make them stronger for each spawn cycle
+    void Update() {
+        if (respawnTimer >= respawnCooldown) //Respawn enemies every minute, and make them stronger for each spawn cycle
         {
             respawnTimer = 0;
             escalation++;
@@ -257,7 +241,6 @@ public class BiomeGeneration : MonoBehaviour {
         {
             respawnTimer += Time.deltaTime;
         }
-
     }
 
     void enemyGenerate() //Chooses two enemies to be the enemy types for that biome, and spawns them similarly to the above resources
