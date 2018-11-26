@@ -23,7 +23,9 @@ public class BiomeRenderDistance : MonoBehaviour {
     public GameObject OuterBiome11;
     public GameObject OuterBiome12;
 
+    float renderDistance = 25f;
 
+    GameObject[] lostFruit;
     // Use this for initialization
     void Start () {
 		
@@ -31,78 +33,159 @@ public class BiomeRenderDistance : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Vector2.Distance(player.transform.position, InnerBiome1.transform.position) > 200f)
+        Debug.Log(Vector2.Distance(player.transform.position, InnerBiome1.transform.position));
+		if(Vector2.Distance(player.transform.position, InnerBiome1.transform.position) > renderDistance)
         {
             InnerBiome1.gameObject.SetActive(false);
         }
-        if (Vector2.Distance(player.transform.position, InnerBiome2.transform.position) > 200f)
+        else
+        {
+            InnerBiome1.gameObject.SetActive(true);
+        }
+        if (Vector2.Distance(player.transform.position, InnerBiome2.transform.position) > renderDistance)
         {
             InnerBiome2.gameObject.SetActive(false);
         }
-        if (Vector2.Distance(player.transform.position, InnerBiome3.transform.position) > 200f)
+        else
+        {
+            InnerBiome2.gameObject.SetActive(true);
+        }
+        if (Vector2.Distance(player.transform.position, InnerBiome3.transform.position) > renderDistance)
         {
             InnerBiome3.gameObject.SetActive(false);
         }
-        if (Vector2.Distance(player.transform.position, InnerBiome4.transform.position) > 200f)
+        else
+        {
+            InnerBiome3.gameObject.SetActive(true);
+        }
+        if (Vector2.Distance(player.transform.position, InnerBiome4.transform.position) > renderDistance)
         {
             InnerBiome4.gameObject.SetActive(false);
         }
-        if (Vector2.Distance(player.transform.position, InnerBiome5.transform.position) > 200f)
+        else
+        {
+            InnerBiome4.gameObject.SetActive(true);
+        }
+        if (Vector2.Distance(player.transform.position, InnerBiome5.transform.position) > renderDistance)
         {
             InnerBiome5.gameObject.SetActive(false);
         }
-        if (Vector2.Distance(player.transform.position, InnerBiome6.transform.position) > 200f)
+        else
+        {
+            InnerBiome5.gameObject.SetActive(true);
+        }
+        if (Vector2.Distance(player.transform.position, InnerBiome6.transform.position) > renderDistance)
         {
             InnerBiome6.gameObject.SetActive(false);
         }
-        if (Vector2.Distance(player.transform.position, OuterBiome1.transform.position) > 200f)
+        else
+        {
+            InnerBiome6.gameObject.SetActive(true);
+        }
+        if (Vector2.Distance(player.transform.position, OuterBiome1.transform.position) > renderDistance)
         {
             OuterBiome1.gameObject.SetActive(false);
         }
-        if (Vector2.Distance(player.transform.position, OuterBiome2.transform.position) > 200f)
+        else
+        {
+            OuterBiome1.gameObject.SetActive(true);
+        }
+        if (Vector2.Distance(player.transform.position, OuterBiome2.transform.position) > renderDistance)
         {
             OuterBiome2.gameObject.SetActive(false);
         }
-        if (Vector2.Distance(player.transform.position, OuterBiome3.transform.position) > 200f)
+        else
+        {
+            OuterBiome2.gameObject.SetActive(true);
+        }
+        if (Vector2.Distance(player.transform.position, OuterBiome3.transform.position) > renderDistance)
         {
             OuterBiome3.gameObject.SetActive(false);
         }
-        if (Vector2.Distance(player.transform.position, OuterBiome4.transform.position) > 200f)
+        else
+        {
+            OuterBiome3.gameObject.SetActive(true);
+        }
+        if (Vector2.Distance(player.transform.position, OuterBiome4.transform.position) > renderDistance)
         {
             OuterBiome4.gameObject.SetActive(false);
         }
-        if (Vector2.Distance(player.transform.position, OuterBiome5.transform.position) > 200f)
+        else
+        {
+            OuterBiome4.gameObject.SetActive(true);
+        }
+        if (Vector2.Distance(player.transform.position, OuterBiome5.transform.position) > renderDistance)
         {
             OuterBiome5.gameObject.SetActive(false);
         }
-        if (Vector2.Distance(player.transform.position, OuterBiome6.transform.position) > 200f)
+        else
+        {
+            OuterBiome5.gameObject.SetActive(true);
+        }
+        if (Vector2.Distance(player.transform.position, OuterBiome6.transform.position) > renderDistance)
         {
             OuterBiome6.gameObject.SetActive(false);
         }
-        if (Vector2.Distance(player.transform.position, OuterBiome7.transform.position) > 200f)
+        else
+        {
+            OuterBiome6.gameObject.SetActive(true);
+        }
+        if (Vector2.Distance(player.transform.position, OuterBiome7.transform.position) > renderDistance)
         {
             OuterBiome7.gameObject.SetActive(false);
         }
-        if (Vector2.Distance(player.transform.position, OuterBiome8.transform.position) > 200f)
+        else
+        {
+            OuterBiome7.gameObject.SetActive(true);
+        }
+        if (Vector2.Distance(player.transform.position, OuterBiome8.transform.position) > renderDistance)
         {
             OuterBiome8.gameObject.SetActive(false);
         }
-        if (Vector2.Distance(player.transform.position, OuterBiome9.transform.position) > 200f)
+        else
+        {
+            OuterBiome8.gameObject.SetActive(true);
+        }
+        if (Vector2.Distance(player.transform.position, OuterBiome9.transform.position) > renderDistance)
         {
             OuterBiome9.gameObject.SetActive(false);
         }
-        if (Vector2.Distance(player.transform.position, OuterBiome10.transform.position) > 200f)
+        else
+        {
+            OuterBiome9.gameObject.SetActive(true);
+        }
+        if (Vector2.Distance(player.transform.position, OuterBiome10.transform.position) > renderDistance)
         {
             OuterBiome10.gameObject.SetActive(false);
         }
-        if (Vector2.Distance(player.transform.position, OuterBiome11.transform.position) > 200f)
+        else
+        {
+            OuterBiome10.gameObject.SetActive(true);
+        }
+        if (Vector2.Distance(player.transform.position, OuterBiome11.transform.position) > renderDistance)
         {
             OuterBiome11.gameObject.SetActive(false);
         }
-        if (Vector2.Distance(player.transform.position, OuterBiome12.transform.position) > 200f)
+        else
+        {
+            OuterBiome11.gameObject.SetActive(true);
+        }
+        if (Vector2.Distance(player.transform.position, OuterBiome12.transform.position) > renderDistance)
         {
             OuterBiome12.gameObject.SetActive(false);
         }
+        else
+        {
+            OuterBiome12.gameObject.SetActive(true);
+        }
+
+        GameObject lostFruit1 = GameObject.Find("FruitPreFab1(Clone)");
+        GameObject lostFruit2 = GameObject.Find("FruitPreFab2(Clone)");
+        GameObject lostFruit3 = GameObject.Find("FruitPreFab3(Clone)");
+        Destroy(lostFruit1);
+        Destroy(lostFruit2);
+        Destroy(lostFruit3);
+
 
     }
 }
