@@ -32,6 +32,8 @@ public class BiomeGeneration : MonoBehaviour {
     public GameObject bullrush;
     public GameObject beehive;
     public GameObject superRush;
+    public GameObject aoeShot;
+    public GameObject moveShoot;
     public int primaryEnemyNumber = 8;
     int primaryEnemyCount = 0;
     public int secondaryEnemyNumber = 5;
@@ -252,7 +254,7 @@ public class BiomeGeneration : MonoBehaviour {
             GameObject enemyTwo = wanderer;
             GameObject enemyThree = wanderer;
 
-        switch ((int)Random.Range(0, 8))
+        switch ((int)Random.Range(0, 10))
         {
             case 0:
                 enemyOne = wanderer;
@@ -278,9 +280,15 @@ public class BiomeGeneration : MonoBehaviour {
             case 7:
                 enemyOne = superRush;
                 break;
+            case 8:
+                enemyOne = aoeShot;
+                break;
+            case 9:
+                enemyOne = moveShoot;
+                    break;
         }
 
-        switch ((int)Random.Range(0, 8))
+        switch ((int)Random.Range(0, 10))
         {
             case 0:
                 enemyTwo = wanderer;
@@ -306,8 +314,14 @@ public class BiomeGeneration : MonoBehaviour {
             case 7:
                 enemyOne = superRush;
                 break;
+            case 8:
+                enemyTwo = aoeShot;
+                break;
+            case 9:
+                enemyTwo = moveShoot;
+                break;
         }
-        switch ((int)Random.Range(0, 8))
+        switch ((int)Random.Range(0, 10))
         {
             case 0:
                 enemyThree = wanderer;
@@ -328,10 +342,16 @@ public class BiomeGeneration : MonoBehaviour {
                 enemyThree = spawner;
                 break;
             case 6:
-                enemyOne = beehive;
+                enemyThree = beehive;
                 break;
             case 7:
-                enemyOne = superRush;
+                enemyThree = superRush;
+                break;
+            case 8:
+                enemyThree = aoeShot;
+                break;
+            case 9:
+                enemyThree = moveShoot;
                 break;
         }
 

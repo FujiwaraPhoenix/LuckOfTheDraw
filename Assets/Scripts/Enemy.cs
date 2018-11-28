@@ -329,6 +329,10 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             {
                 shotTimer = 0;
                 ProjectileController p = Instantiate(shot, transform.position + new Vector3(inputDir.x * .1f, inputDir.y * .1f, 0), Quaternion.identity); //Instantiate a bullet
+                if (enemyBehavior == AIType.MoveShoot)
+                {
+                    p.slow();
+                }
                 p.target(Player.pc.transform.position, damage); //Tell the bullet where to go
             }
             else
@@ -535,7 +539,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
                 for (int i = 0; i < 4; i++)
                 {
                     ProjectileController p = Instantiate(shot, transform.position + new Vector3(inputDir.x * .1f, inputDir.y * .1f, 0), Quaternion.identity); //Instantiate a bullet
-                    p.target(ToVect(tempDir + (90 * i)), damage);
+                    p.aim(ToVect(tempDir + (90 * i)), damage);
                 }
                 //And we rotate bearing to the right by x degrees.
                 bearing += 10;
@@ -547,8 +551,8 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
         }
     }
 
-    public static Vector3 ToVect(float a)
+    public static Vector2 ToVect(float a)
     {
-        return new Vector3(Mathf.Cos(a * Mathf.Deg2Rad), Mathf.Sin(a * Mathf.Deg2Rad), 0);
+        return new Vector2 (Mathf.Cos(a * Mathf.Deg2Rad), Mathf.Sin(a * Mathf.Deg2Rad));
     }
 }

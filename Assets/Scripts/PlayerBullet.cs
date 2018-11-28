@@ -61,7 +61,7 @@ public class PlayerBullet : MonoBehaviour {
 
         switch (gunIndex)
         {
-            case 2:
+            case 3:
                 //Hard coding rn for the sake of testing.
                 damage = 3;
                 break;
@@ -69,27 +69,27 @@ public class PlayerBullet : MonoBehaviour {
 
         switch(shotIndex)
         {
-            case 1:
+            case 3:
                 mvtSpd = 20;
                 break;
             case 2: //Temporary; sine wave otherwise. Currently acceleration.
                 mvtSpd = 5;
                 break;
-            case 3:
+            case 1:
                 lifetime = 7.5f;
                 break;
-            case 4:
+            case 6:
                 //Set tracking true.
                 isTracking = true;
                 break;
-            case 5:
+            case 4:
                 transform.localScale *= 1.5f;
                 break;
         }
 
         switch(effectIndex)
         {
-            case 3:
+            case 4:
                 BoxCollider2D boxCol = GetComponent<BoxCollider2D>();
                 boxCol.isTrigger = true;
                 break;
@@ -135,32 +135,32 @@ public class PlayerBullet : MonoBehaviour {
             switch (effectIndex)
             {
                 //Take 1dmg/tick.
-                case 1:
+                case 3:
                     //tempEnemy.currentStatus = 1;
                     //tempEnemy.ticksRemaining = 10;
                     //tempEnemy.tickrate = 1f;
                     tempEnemy.setEffect(1);
                     break;
                 //Drop an AoE.
-                case 2:
+                case 5:
                     Explosion newExp = Instantiate(e, transform.position, Quaternion.identity);
                     //GameObject newExp = (GameObject)Instantiate(explosionPreFab, transform.position, Quaternion.identity);
                     newExp.dmg = damage;
                     break;
                 //Bounce
-                case 4:
+                case 1:
                     Vector3 newDirection = (Vector3.Reflect(travelDir, collision.contacts[0].normal));
                     travelDir = (Vector2)newDirection;
                     break;
                 //Slow the enemy.
-                case 5:
+                case 2:
                     //tempEnemy.currentStatus = 5;
                     //tempEnemy.ticksRemaining = 1;
                     //tempEnemy.tickrate = 5f;
                     tempEnemy.setEffect(5);
                     break;
             }
-            if (effectIndex != 3 && effectIndex != 4)
+            if (effectIndex != 1 && effectIndex != 4)
             {
                 Debug.Log("Destroying bullet");
                 Destroy(this.gameObject);
@@ -169,10 +169,15 @@ public class PlayerBullet : MonoBehaviour {
             {
                 //Debug.Log("Shouldn't be destroyed");
             }
+            if(gunIndex == 6 && Player.pc.health < 30) //Lifesteal, EDIT THE IF STATEMENT IF THE PLAYER GETS A MAX HEALTH VARIABLE
+            {
+                Player.pc.health++;
+                //Potentially edit if we have a method for healing instead of manually changing the value
+            }
         }
-        else if (collision.gameObject.tag.Equals("Hexs"))
+        else if (collision.gameObject.tag.Equals("Hexs")) //Bounce
         {
-            if (effectIndex == 4)
+            if (effectIndex == 1)
             {
                 Vector3 newDirection = (Vector3.Reflect(travelDir, collision.contacts[0].normal));
                 travelDir = (Vector2)newDirection;
