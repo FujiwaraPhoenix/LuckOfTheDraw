@@ -7356,6 +7356,8 @@ GameObject:
   - component: {fileID: 1638336833}
   - component: {fileID: 1638336832}
   - component: {fileID: 1638336831}
+  - component: {fileID: 1638336836}
+  - component: {fileID: 1638336837}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7454,6 +7456,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1638336836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1638336830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 07cd0278871f91b4995e4f5d072755e7, type: 2}
+--- !u!114 &1638336837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1638336830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f6fc50f086bf884593aa67a504f5f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 133565437}
+  vignetteamount: 0
+  PPP: {fileID: 11400000, guid: 07cd0278871f91b4995e4f5d072755e7, type: 2}
 --- !u!4 &1674490302 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4809503487709012, guid: 12f98b705c36ed842964a1f9d06b6e4f,
