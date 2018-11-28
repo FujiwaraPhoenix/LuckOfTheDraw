@@ -178,14 +178,5 @@ public class BiomeRenderDistance : MonoBehaviour {
         {
             OuterBiome12.gameObject.SetActive(true);
         }
-
-        GameObject lostFruit1 = GameObject.Find("FruitPreFab1(Clone)");
-        GameObject lostFruit2 = GameObject.Find("FruitPreFab2(Clone)");
-        GameObject lostFruit3 = GameObject.Find("FruitPreFab3(Clone)");
-        Destroy(lostFruit1);
-        Destroy(lostFruit2);
-        Destroy(lostFruit3);
-
-
     }
 }
