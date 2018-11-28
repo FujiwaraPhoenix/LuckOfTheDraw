@@ -48,7 +48,7 @@ public class PlayerShooter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (InventoryController.ic.gunIndex == 1)
+        if (InventoryController.ic.gunIndex == 2)
         {
             rofMod = -.75f;
         }
@@ -56,7 +56,7 @@ public class PlayerShooter : MonoBehaviour {
         {
             rofMod = 0f;
         }
-        if (InventoryController.ic.gunIndex == 3)
+        if (InventoryController.ic.gunIndex == 1)
         {
             spreadMod = -2.5f;
         }

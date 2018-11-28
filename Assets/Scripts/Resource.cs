@@ -6,7 +6,12 @@ public class Resource : MonoBehaviour
 {
     public bool isFruit; //Whether or not the resource is a fruit, and can thus be eaten.
 
-    public int modifierNum; //The number corresponding to what the resource does when put in a slot
+    //public int modifierNum;
+
+    //The number corresponding to what the resource does when put in a slot
+    public int gunModifier;
+    public int shotModifier;
+    public int effectModifier;
 
     bool isGone = false; //Whether or not the resource has been picked up and should delete itself
 
@@ -29,11 +34,17 @@ public class Resource : MonoBehaviour
         }
     }
 
-    public int pickup() //When picked up, tell the caller how it affects it the modularity and tell the resource to remove itself
+    public int pickup(int slot) //When picked up, tell the caller how it affects it the modularity and tell the resource to remove itself, slot corresponds to where it is slotted in
     {
         //isGone = true;
         gameObject.SetActive(false); //Due to issues with references, resources should be deactivated when put into slots and reactivated when dropped back on the ground
-        return modifierNum;
+        if (slot == 1) //Gun
+            return gunModifier;
+        else if (slot == 2) //Shot
+            return shotModifier;
+        else if (slot == 3) //Effect
+            return effectModifier;
+        return 0; //Error somewhere, returning the default value
     }
 
     public Sprite giveSprite() //Give a copy of whatever sprite the resource uses

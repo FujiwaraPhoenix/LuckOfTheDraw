@@ -191,7 +191,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                     gunResource.transform.position = transform.position;
                 }
                 gunResource = r.gameObject;
-                gunIndex = r.pickup();
+                gunIndex = r.pickup(1);
                 switch(gunIndex)
                 {
                     case 0: //default
@@ -206,7 +206,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
 
                         break;
 
-                    case 1: //fire rate
+                    case 2: //fire rate
 
                         RateOfFire.gameObject.SetActive(true);
                         Damage.gameObject.SetActive(false);
@@ -216,7 +216,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
 
                         break;
 
-                    case 2: //Damage
+                    case 3: //Damage
 
                         RateOfFire.gameObject.SetActive(false);
                         Damage.gameObject.SetActive(true);
@@ -226,7 +226,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
 
                         break;
 
-                    case 3: //Accuracy
+                    case 1: //Accuracy
 
                         RateOfFire.gameObject.SetActive(false);
                         Damage.gameObject.SetActive(false);
@@ -256,6 +256,19 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
 
                         break;
 
+                    case 6: //Lifesteal
+
+                        RateOfFire.gameObject.SetActive(false);
+                        Damage.gameObject.SetActive(false);
+                        Accuracy.gameObject.SetActive(false);
+                        Multishot.gameObject.SetActive(false);
+                        Burst.gameObject.SetActive(false);
+                        //Lifesteal.gameObject.SetActive(true);
+
+
+
+                        break;
+
                 }
 
                 //gunImage.sprite = r.giveSprite();
@@ -272,7 +285,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                     shotResource.transform.position = transform.position;
                 }
                 shotResource = r.gameObject;
-                shotIndex = r.pickup();
+                shotIndex = r.pickup(2);
                 //shotImage.sprite = r.giveSprite();
 
                 switch (shotIndex)
@@ -289,7 +302,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
 
                         break;
 
-                    case 1: //Speed
+                    case 3: //Speed
 
                         Speed.gameObject.SetActive(true);
                         Acceleration.gameObject.SetActive(false);
@@ -309,7 +322,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
 
                         break;
 
-                    case 3: //Range
+                    case 1: //Range
 
                         Speed.gameObject.SetActive(false);
                         Acceleration.gameObject.SetActive(false);
@@ -319,7 +332,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
 
                         break;
 
-                    case 4: //Homing
+                    case 6: //Homing
 
                         Speed.gameObject.SetActive(false);
                         Acceleration.gameObject.SetActive(false);
@@ -329,13 +342,26 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
 
                         break;
 
-                    case 5: //Size
+                    case 4: //Size
 
                         Speed.gameObject.SetActive(false);
                         Acceleration.gameObject.SetActive(false);
                         Range.gameObject.SetActive(false);
                         Homing.gameObject.SetActive(false);
                         Size.gameObject.SetActive(true);
+
+                        break;
+
+                    case 5: //Fire Trail
+
+                        Speed.gameObject.SetActive(false);
+                        Acceleration.gameObject.SetActive(false);
+                        Range.gameObject.SetActive(false);
+                        Homing.gameObject.SetActive(false);
+                        Size.gameObject.SetActive(false);
+                        //FireTrail.gameObject.SetActive(true);
+
+
 
                         break;
 
@@ -353,7 +379,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                     effectResource.transform.position = transform.position;
                 }
                 effectResource = r.gameObject;
-                effectIndex = r.pickup();
+                effectIndex = r.pickup(3);
                 // effectImage.sprite = r.giveSprite();
 
 
@@ -370,7 +396,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
 
                         break;
 
-                    case 1: //DoT
+                    case 3: //DoT
 
                         DoT.gameObject.SetActive(true);
                         AoE.gameObject.SetActive(false);
@@ -380,7 +406,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
 
                         break;
 
-                    case 2: //AoE
+                    case 5: //AoE
 
                         DoT.gameObject.SetActive(false);
                         AoE.gameObject.SetActive(true);
@@ -390,7 +416,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
 
                         break;
 
-                    case 3: //Pierce
+                    case 4: //Pierce
 
                         DoT.gameObject.SetActive(false);
                         AoE.gameObject.SetActive(false);
@@ -400,7 +426,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
 
                         break;
 
-                    case 4: //Bounce
+                    case 1: //Bounce
 
                         DoT.gameObject.SetActive(false);
                         AoE.gameObject.SetActive(false);
@@ -410,13 +436,25 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
 
                         break;
 
-                    case 5: //Slow
+                    case 2: //Slow
 
                         DoT.gameObject.SetActive(false);
                         AoE.gameObject.SetActive(false);
                         Pierce.gameObject.SetActive(false);
                         Bounce.gameObject.SetActive(false);
                         Slow.gameObject.SetActive(true);
+
+                        break;
+
+                    case 6: //Stun
+
+                        DoT.gameObject.SetActive(false);
+                        AoE.gameObject.SetActive(false);
+                        Pierce.gameObject.SetActive(false);
+                        Bounce.gameObject.SetActive(false);
+                        Slow.gameObject.SetActive(false);
+                        //Stun.gameobject.SetActive(true);
+
 
                         break;
 

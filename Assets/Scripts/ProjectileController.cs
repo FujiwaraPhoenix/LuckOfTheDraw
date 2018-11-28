@@ -46,5 +46,15 @@ public class ProjectileController : MonoBehaviour {
         GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle))*speed;
     }
 
+    public void aim(Vector2 direction, int d) //Sets the direction and stats of the projectile
+    {
+        damage = d;
+        GetComponent<Rigidbody2D>().velocity = direction * speed;
+    }
+
+    public void slow()
+    {
+        speed = 2;
+    }
 
 }

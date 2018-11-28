@@ -182,8 +182,13 @@ MonoBehaviour:
   bullrush: {fileID: 1861948818577490, guid: 4997d6b9fe9187d40b49a886359cf93f, type: 2}
   beehive: {fileID: 1058395670340818, guid: 8a875e9b550cf0140a7dd9a8bd9d9e87, type: 2}
   superRush: {fileID: 1861948818577490, guid: 9ec4f9a4a61effb4087217dd93b57724, type: 2}
+  aoeShot: {fileID: 1921986373877926, guid: cbf906e9686cd9e419000a62ba02cbe3, type: 2}
+  moveShoot: {fileID: 1734787849211096, guid: ddf7a57cf0d23364abef0f4f31bc0ffd, type: 2}
   primaryEnemyNumber: 5
   secondaryEnemyNumber: 3
+  tertiaryEnemyNumber: 3
+  InnerRim: 0
+  OuterRim: 0
   AmountofTrees: 5
   AmountofRocks: 5
 --- !u!212 &212367946615825124
