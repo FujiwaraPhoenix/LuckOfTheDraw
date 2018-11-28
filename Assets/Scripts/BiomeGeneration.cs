@@ -36,12 +36,17 @@ public class BiomeGeneration : MonoBehaviour {
     int primaryEnemyCount = 0;
     public int secondaryEnemyNumber = 5;
     int secondaryEnemyCount = 0;
+    public int tertiaryEnemyNumber = 3;
+    int tertiaryEnemyCount = 0;
     GameObject enemyOne;
     GameObject enemyTwo;
+    GameObject enemyThree;
 
     float respawnTimer = 0;
     float respawnCooldown = 60;
     int escalation = 0;
+    public bool InnerRim;
+    public bool OuterRim;
 
     //these floats will determine how many of each asset will populate the world upon the creation of the individual biome
     public float AmountofTrees;
@@ -58,11 +63,9 @@ public class BiomeGeneration : MonoBehaviour {
     bool isIce = false;
 
     float biomeNumber;
-    GameObject Player;
 
     // Use this for initialization
     void Start() {
-        Player = GameObject.Find("PlayerWithoutCamera");
         biomeNumber = Random.Range(0f, 3f);
         //this will ensure that the biome has a randomly picked color upon activation
         if (biomeNumber >= 0 && biomeNumber < 1f)
@@ -245,8 +248,9 @@ public class BiomeGeneration : MonoBehaviour {
 
     void enemyGenerate() //Chooses two enemies to be the enemy types for that biome, and spawns them similarly to the above resources
     {
-        GameObject enemyOne = wanderer;
-        GameObject enemyTwo = wanderer;
+            GameObject enemyOne = wanderer;
+            GameObject enemyTwo = wanderer;
+            GameObject enemyThree = wanderer;
 
         switch ((int)Random.Range(0, 8))
         {
@@ -303,8 +307,35 @@ public class BiomeGeneration : MonoBehaviour {
                 enemyOne = superRush;
                 break;
         }
+        switch ((int)Random.Range(0, 8))
+        {
+            case 0:
+                enemyThree = wanderer;
+                break;
+            case 1:
+                enemyThree = pursuer;
+                break;
+            case 2:
+                enemyThree = territorial;
+                break;
+            case 3:
+                enemyThree = sniper;
+                break;
+            case 4:
+                enemyThree = bullrush;
+                break;
+            case 5:
+                enemyThree = spawner;
+                break;
+            case 6:
+                enemyOne = beehive;
+                break;
+            case 7:
+                enemyOne = superRush;
+                break;
+        }
 
-        for(int i = 0; i < primaryEnemyNumber; i++)
+        for (int i = 0; i < primaryEnemyNumber; i++)
         {
             spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
             GameObject e = Instantiate(enemyOne, transform.position, Quaternion.identity);
@@ -313,13 +344,24 @@ public class BiomeGeneration : MonoBehaviour {
             e.transform.localPosition = spawnPosition;
         }
 
-        for (int i = 0; i < primaryEnemyNumber; i++)
+        for (int i = 0; i < secondaryEnemyNumber; i++)
         {
             spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
             GameObject e = Instantiate(enemyTwo, transform.position, Quaternion.identity);
             e.transform.SetParent(this.transform);
             e.GetComponent<Enemy>().setHome(this, 2);
             e.transform.localPosition = spawnPosition;
+        }
+        if (OuterRim)
+        {
+            for (int i = 0; i < tertiaryEnemyNumber; i++)
+            {
+                spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
+                GameObject e = Instantiate(enemyThree, transform.position, Quaternion.identity);
+                e.transform.SetParent(this.transform);
+                e.GetComponent<Enemy>().setHome(this, 2);
+                e.transform.localPosition = spawnPosition;
+            }
         }
     }
 
@@ -336,7 +378,7 @@ public class BiomeGeneration : MonoBehaviour {
             primaryEnemyCount++;
         }
 
-        for (int i = secondaryEnemyCount; i < primaryEnemyNumber; i++)
+        for (int i = secondaryEnemyCount; i < secondaryEnemyNumber; i++)
         {
             spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
             GameObject e = Instantiate(enemyTwo, transform.position, Quaternion.identity);
@@ -345,6 +387,19 @@ public class BiomeGeneration : MonoBehaviour {
             e.GetComponent<Enemy>().setHome(this, 2);
             e.GetComponent<Enemy>().escalate(escalation);
             secondaryEnemyCount++;
+        }
+        if (OuterRim)
+        {
+            for (int i = tertiaryEnemyCount; i < tertiaryEnemyNumber; i++)
+            {
+                spawnPosition = new Vector3(Random.Range(-4f, 2f), Random.Range(-3f, 3f), -1f);
+                GameObject e = Instantiate(enemyThree, transform.position, Quaternion.identity);
+                e.transform.SetParent(this.transform);
+                e.transform.localPosition = spawnPosition;
+                e.GetComponent<Enemy>().setHome(this, 2);
+                e.GetComponent<Enemy>().escalate(escalation);
+                tertiaryEnemyCount++;
+            }
         }
     }
 
@@ -357,6 +412,10 @@ public class BiomeGeneration : MonoBehaviour {
         else if (type == 2)
         {
             secondaryEnemyCount--;
+        }
+        else if (type == 3)
+        {
+            tertiaryEnemyCount--;
         }
     }
 
