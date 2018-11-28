@@ -18,7 +18,10 @@ public class FruitProperties : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        if(this.transform.parent == null)
+        {
+            Destroy(this.gameObject);
+        }
 
     }
 }
