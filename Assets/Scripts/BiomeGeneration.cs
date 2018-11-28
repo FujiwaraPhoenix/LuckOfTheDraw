@@ -110,6 +110,21 @@ public class BiomeGeneration : MonoBehaviour {
                     GameObject Rock = (GameObject)Instantiate(rock01, transform.position, Quaternion.identity);
                     Rock.transform.SetParent(this.transform);
                     Rock.transform.localPosition = spawnPosition;
+                    //if (OuterRim)
+                    //{
+                    //    if (Rock.GetComponent<Resource>().shotModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().shotModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().gunModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().gunModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().effectModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().effectModifier = Random.Range(3, 7);
+                    //    }
+                    //}
                 }
                 if (rockGenNumber == 1)
                 {
@@ -122,18 +137,63 @@ public class BiomeGeneration : MonoBehaviour {
                     GameObject Rock = (GameObject)Instantiate(rock03, transform.position, Quaternion.identity);
                     Rock.transform.SetParent(this.transform);
                     Rock.transform.localPosition = spawnPosition;
+                    //if (OuterRim)
+                    //{
+                    //    if (Rock.GetComponent<Resource>().shotModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().shotModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().gunModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().gunModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().effectModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().effectModifier = Random.Range(3, 7);
+                    //    }
+                    //}
                 }
                 if (rockGenNumber == 3)
                 {
                     GameObject Rock = (GameObject)Instantiate(rock04, transform.position, Quaternion.identity);
                     Rock.transform.SetParent(this.transform);
                     Rock.transform.localPosition = spawnPosition;
+                    //if (OuterRim)
+                    //{
+                    //    if (Rock.GetComponent<Resource>().shotModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().shotModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().gunModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().gunModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().effectModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().effectModifier = Random.Range(3, 7);
+                    //    }
+                    //}
                 }
                 if (rockGenNumber == 4)
                 {
                     GameObject Rock = (GameObject)Instantiate(rock05, transform.position, Quaternion.identity);
                     Rock.transform.SetParent(this.transform);
                     Rock.transform.localPosition = spawnPosition;
+                    //if (OuterRim)
+                    //{
+                    //    if (Rock.GetComponent<Resource>().shotModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().shotModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().gunModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().gunModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().effectModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().effectModifier = Random.Range(3, 7);
+                    //    }
+                    //}
                 }
             }
         }
@@ -157,30 +217,105 @@ public class BiomeGeneration : MonoBehaviour {
                     GameObject Rock = (GameObject)Instantiate(rock01, transform.position, Quaternion.identity);
                     Rock.transform.SetParent(this.transform);
                     Rock.transform.localPosition = spawnPosition;
+                    //if (OuterRim)
+                    //{
+                    //    if (Rock.GetComponent<Resource>().shotModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().shotModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().gunModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().gunModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().effectModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().effectModifier = Random.Range(3, 7);
+                    //    }
+                    //}
                 }
                 if (rockGenNumber == 1)
                 {
                     GameObject Rock = (GameObject)Instantiate(rock02, transform.position, Quaternion.identity);
                     Rock.transform.SetParent(this.transform);
                     Rock.transform.localPosition = spawnPosition;
+                    //if (OuterRim)
+                    //{
+                    //    if (Rock.GetComponent<Resource>().shotModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().shotModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().gunModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().gunModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().effectModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().effectModifier = Random.Range(3, 7);
+                    //    }
+                    //}
                 }
                 if (rockGenNumber == 2)
                 {
                     GameObject Rock = (GameObject)Instantiate(rock03, transform.position, Quaternion.identity);
                     Rock.transform.SetParent(this.transform);
                     Rock.transform.localPosition = spawnPosition;
+                    //if (OuterRim)
+                    //{
+                    //    if (Rock.GetComponent<Resource>().shotModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().shotModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().gunModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().gunModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().effectModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().effectModifier = Random.Range(3, 7);
+                    //    }
+                    //}
                 }
                 if (rockGenNumber == 3)
                 {
                     GameObject Rock = (GameObject)Instantiate(rock04, transform.position, Quaternion.identity);
                     Rock.transform.SetParent(this.transform);
                     Rock.transform.localPosition = spawnPosition;
+                    //if (OuterRim)
+                    //{
+                    //    if (Rock.GetComponent<Resource>().shotModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().shotModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().gunModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().gunModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().effectModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().effectModifier = Random.Range(3, 7);
+                    //    }
+                    //}
                 }
                 if (rockGenNumber == 4)
                 {
                     GameObject Rock = (GameObject)Instantiate(rock05, transform.position, Quaternion.identity);
                     Rock.transform.SetParent(this.transform);
                     Rock.transform.localPosition = spawnPosition;
+                    //if (OuterRim)
+                    //{
+                    //    if (Rock.GetComponent<Resource>().shotModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().shotModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().gunModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().gunModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().effectModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().effectModifier = Random.Range(3, 7);
+                    //    }
+                    //}
                 }
             }
         }
@@ -204,30 +339,105 @@ public class BiomeGeneration : MonoBehaviour {
                     GameObject Rock = (GameObject)Instantiate(rock01, transform.position, Quaternion.identity);
                     Rock.transform.SetParent(this.transform);
                     Rock.transform.localPosition = spawnPosition;
+                    //if (OuterRim)
+                    //{
+                    //    if(Rock.GetComponent<Resource>().shotModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().shotModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().gunModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().gunModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().effectModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().effectModifier = Random.Range(3, 7);
+                    //    }
+                    //}
                 }
                 if (rockGenNumber == 1)
                 {
                     GameObject Rock = (GameObject)Instantiate(rock02, transform.position, Quaternion.identity);
                     Rock.transform.SetParent(this.transform);
                     Rock.transform.localPosition = spawnPosition;
+                    //if (OuterRim)
+                    //{
+                    //    if (Rock.GetComponent<Resource>().shotModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().shotModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().gunModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().gunModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().effectModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().effectModifier = Random.Range(3, 7);
+                    //    }
+                    //}
                 }
                 if (rockGenNumber == 2)
                 {
                     GameObject Rock = (GameObject)Instantiate(rock03, transform.position, Quaternion.identity);
                     Rock.transform.SetParent(this.transform);
                     Rock.transform.localPosition = spawnPosition;
+                    //if (OuterRim)
+                    //{
+                    //    if (Rock.GetComponent<Resource>().shotModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().shotModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().gunModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().gunModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().effectModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().effectModifier = Random.Range(3, 7);
+                    //    }
+                    //}
                 }
                 if (rockGenNumber == 3)
                 {
                     GameObject Rock = (GameObject)Instantiate(rock04, transform.position, Quaternion.identity);
                     Rock.transform.SetParent(this.transform);
                     Rock.transform.localPosition = spawnPosition;
+                    //if (OuterRim)
+                    //{
+                    //    if (Rock.GetComponent<Resource>().shotModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().shotModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().gunModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().gunModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().effectModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().effectModifier = Random.Range(3, 7);
+                    //    }
+                    //}
                 }
                 if (rockGenNumber == 4)
                 {
                     GameObject Rock = (GameObject)Instantiate(rock05, transform.position, Quaternion.identity);
                     Rock.transform.SetParent(this.transform);
                     Rock.transform.localPosition = spawnPosition;
+                    //if (OuterRim)
+                    //{
+                    //    if (Rock.GetComponent<Resource>().shotModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().shotModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().gunModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().gunModifier = Random.Range(3, 7);
+                    //    }
+                    //    if (Rock.GetComponent<Resource>().effectModifier < 3)
+                    //    {
+                    //        Rock.GetComponent<Resource>().effectModifier = Random.Range(3, 7);
+                    //    }
+                    //}
                 }
             }
         }
