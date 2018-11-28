@@ -24,9 +24,18 @@ public class RockProperties : MonoBehaviour {
          * 
          * 
          */
-        GunGenNumber = Random.Range(1,7);
-        ShotGenNumber = Random.Range(1, 7);
-        EffectGenNumber = Random.Range(1, 7);
+        if (transform.parent.gameObject.GetComponent<BiomeGeneration>().OuterRim == true)
+        {
+            GunGenNumber = Random.Range(3, 7);
+            ShotGenNumber = Random.Range(3, 7);
+            EffectGenNumber = Random.Range(3, 7);
+        }
+        if (transform.parent.gameObject.GetComponent<BiomeGeneration>().InnerRim == true)
+        {
+            GunGenNumber = Random.Range(1, 7);
+            ShotGenNumber = Random.Range(1, 7);
+            EffectGenNumber = Random.Range(1, 7);
+        }
     }
 	
 	// Update is called once per frame
