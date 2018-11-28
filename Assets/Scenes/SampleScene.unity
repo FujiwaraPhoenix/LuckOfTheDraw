@@ -739,6 +739,10 @@ MonoBehaviour:
   Pierce: {fileID: 977682208}
   Bounce: {fileID: 504946227}
   Slow: {fileID: 1696242519}
+  WhichPart: 0
+  Part1: {fileID: 1894681928}
+  Part2: {fileID: 1147002404}
+  Part3: {fileID: 816941080}
 --- !u!114 &133565434
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -51,6 +51,12 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
     public Image Bounce;
     public Image Slow;
 
+    //WhichPartIsSelected
+    public int WhichPart = 0;
+    public Image Part1;
+    public Image Part2;
+    public Image Part3;
+
     //Workarounds for using input.getKey in a trigger method
     bool pressOne = false;
     bool pressTwo = false;
@@ -83,41 +89,84 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
 	
 	// Update is called once per frame
 	void Update () {
-		if(cooldown > 0)
+
+        //mousewheel
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f) //forward
+        {
+            WhichPart = WhichPart - 1;
+        }
+
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f) //backward
+        {
+            WhichPart = WhichPart + 1;
+        }
+
+        if (WhichPart >=4)
+        {
+            WhichPart = 0;
+        }
+
+        if (WhichPart <= -1)
+        {
+            WhichPart = 3;
+        }
+        if (cooldown > 0)
         {
             cooldown -= Time.deltaTime;
         }
 
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        //which part selected
+
+        if (WhichPart == 0)
+        {
+            Part1.color = Color.white;
+            Part2.color = Color.black;
+            Part3.color = Color.black;
+        }
+        if (WhichPart == 1)
+        {
+            Part1.color = Color.black;
+            Part2.color = Color.white;
+            Part3.color = Color.black;
+        }
+
+        if (WhichPart == 2)
+        {
+            Part1.color = Color.black;
+            Part2.color = Color.black;
+            Part3.color = Color.white;
+        }
+
+        if (WhichPart == 0 && Input.GetMouseButtonDown(1))
         {
             pressOne = true;
             pressTwo = false;
             pressThree = false;
         }
-        else if (Input.GetKeyUp(KeyCode.Alpha1))
+        //too much time elapsed
+        else if (Input.GetMouseButtonUp(1))
         {
             pressOne = false;
+            pressTwo = false;
+            pressThree = false;
+            Debug.Log("Right button is up");
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (WhichPart == 1 && Input.GetMouseButtonDown(1))
         {
             pressOne = false;
             pressTwo = true;
             pressThree = false;
         }
-        else if (Input.GetKeyUp(KeyCode.Alpha2))
-        {
-            pressTwo = false;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+
+      
+        else if (WhichPart == 2 && Input.GetMouseButtonDown(1))
         {
             pressOne = false;
             pressTwo = false;
             pressThree = true;
         }
-        else if (Input.GetKeyUp(KeyCode.Alpha3))
-        {
-            pressThree = false;
-        }
+
+    
     }
 
     private void OnTriggerStay2D(Collider2D collision)
