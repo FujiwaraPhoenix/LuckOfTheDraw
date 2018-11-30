@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 212503813175963912}
   - component: {fileID: 114661885048698072}
   - component: {fileID: 50972151505149012}
-  - component: {fileID: 61021062795318244}
+  - component: {fileID: 58541763761041820}
   m_Layer: 11
   m_Name: BeePursuer
   m_TagString: Untagged
@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1879524734226852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.0041, y: -8.0268, z: -1}
+  m_LocalPosition: {x: 0.81599706, y: -11.98028, z: -1}
   m_LocalScale: {x: 0.2539, y: 0.2539, z: 0.2539}
   m_Children:
   - {fileID: 4395293430325238}
@@ -93,8 +93,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61021062795318244
-BoxCollider2D:
+--- !u!58 &58541763761041820
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -106,18 +106,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
 --- !u!114 &114661885048698072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -153,6 +143,7 @@ MonoBehaviour:
   wanderCooldownMin: 1
   shootCooldown: 2
   shot: {fileID: 114543821867366166, guid: 45c47889ff28fa54da1d8106cc4196fb, type: 2}
+  bearing: 0
   spawnCooldown: 1
   spawnMax: 5
   enemyToSpawn: {fileID: 0}

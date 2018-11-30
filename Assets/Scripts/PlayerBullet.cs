@@ -183,6 +183,10 @@ public class PlayerBullet : MonoBehaviour {
                 travelDir = (Vector2)newDirection;
             }
         }
+        else if (collision.gameObject.tag.Equals("BorderWall") || (collision.gameObject.tag.Equals("Tree") && effectIndex != 1))
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     /*public void OnTriggerEnter2D(Collider2D collision)
