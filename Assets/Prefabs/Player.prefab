@@ -317,6 +317,9 @@ MonoBehaviour:
   healthDownColor: {r: 0, g: 0, b: 0, a: 0}
   speedUpColor: {r: 0, g: 0, b: 0, a: 0}
   hungerUpColor: {r: 0, g: 0, b: 0, a: 0}
+  ConsumingFruit: {fileID: 0}
+  speedUp: {fileID: 0}
+  eatSound: {fileID: 0}
   bob: {fileID: 58713961611937060}
   consume: {fileID: 198458672602884776}
 --- !u!114 &114444589135969830
@@ -357,6 +360,7 @@ MonoBehaviour:
   loseText: {fileID: 0}
   player1Sprite: {fileID: 1901149348600746}
   gunSprite: {fileID: 1046857137404542}
+  Walking: {fileID: 0}
   mvtSpd: 2
 --- !u!114 &114963532681290974
 MonoBehaviour:

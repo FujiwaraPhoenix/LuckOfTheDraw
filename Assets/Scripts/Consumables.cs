@@ -22,6 +22,10 @@ public class Consumables : MonoBehaviour {
     public Color speedUpColor;
     public Color hungerUpColor;
 
+    public AudioSource ConsumingFruit;
+    public AudioClip speedUp;
+    public AudioClip eatSound;
+
     //public FruitProperties FP;
     //private GameObject absorbedFruit = null;
     private GameObject[] absorbedFruit = new GameObject[1];
@@ -55,6 +59,7 @@ public class Consumables : MonoBehaviour {
     {
        if (colli.gameObject.tag == "Fruit" && colli.gameObject == absorbedFruit[0])
         {
+            ConsumingFruit.PlayOneShot(eatSound, 1.0f);
             GameObject crumbs = (GameObject)Instantiate(eatingEffect, playerSprite.transform.position, transform.rotation);
             crumbs.transform.SetParent(playerSprite.transform);
             crumbs.transform.localPosition = new Vector3(0, 0, -1f);
@@ -76,6 +81,7 @@ public class Consumables : MonoBehaviour {
             }
             if (colli.gameObject.GetComponent<FruitProperties>().SpeedPropety > 0.5f)
             {
+                ConsumingFruit.PlayOneShot(speedUp,1.0f);
                 effectSystemMain.startColor = speedUpColor;
             }
 
