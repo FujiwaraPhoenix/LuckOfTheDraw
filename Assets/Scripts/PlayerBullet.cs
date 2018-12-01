@@ -5,15 +5,16 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour {
 
     public Vector3 travelDir;
-    public bool isSine = false;
     public int aftereffect = 0;
     public float mvtSpd = 10;
     public int damage = 1;
     public float lifetime = 3;
     public bool isTracking = false;
     public Enemy trackingTarget;
-    public Explosion e;
+    public Explosion e, fire;
     public GameObject explosionPreFab;
+    public float interval = .5f;
+    public float dropTimer = 1f;
 
     int gunIndex;
     int shotIndex;
@@ -38,6 +39,15 @@ public class PlayerBullet : MonoBehaviour {
         if (shotIndex == 2) //If the bullet has acceleration
         {
             mvtSpd += 15 * Time.deltaTime;
+        }
+        if (shotIndex == 5)
+        {
+            if (dropTimer <= 0)
+            {
+                Explosion newExp = Instantiate(fire, transform.position, Quaternion.identity);
+                dropTimer = interval;
+            }
+            dropTimer -= Time.deltaTime;
         }
         if (isTracking)
         {
@@ -182,6 +192,10 @@ public class PlayerBullet : MonoBehaviour {
                 Vector3 newDirection = (Vector3.Reflect(travelDir, collision.contacts[0].normal));
                 travelDir = (Vector2)newDirection;
             }
+        }
+        else if (collision.gameObject.tag.Equals("BorderWall") || (collision.gameObject.tag.Equals("Tree") && effectIndex != 1))
+        {
+            Destroy(this.gameObject);
         }
     }
 

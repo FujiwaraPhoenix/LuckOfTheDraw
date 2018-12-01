@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Explosion : MonoBehaviour {
-    public float sdTimer, checkForObj, dist;
+    public float sdTimer, checkForObj, dist, checksLeft, checkRate;
 
     public int dmg;
 
@@ -22,14 +22,14 @@ public class Explosion : MonoBehaviour {
                 Collider2D currentGO = check[i];
                 if (currentGO.GetComponent<Enemy>() != null)
                 {
-                    currentGO.GetComponent<Enemy>().health -= dmg;
+                    currentGO.GetComponent<Enemy>().takeDamage(dmg);
                 }
                 else if (currentGO.GetComponent<Player>() != null)
                 {
-                    currentGO.GetComponent<Player>().health -= dmg;
+                    currentGO.GetComponent<Player>().getHit(dmg);
                 }
             }
-            checkForObj = 1f;
+            checkForObj = checkRate;
         }
         if (sdTimer < 0)
         {

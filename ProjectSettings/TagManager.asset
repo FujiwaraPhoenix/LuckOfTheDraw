@@ -12,6 +12,7 @@ TagManager:
   - Biome
   - Fruit
   - BorderWall
+  - Tree
   layers:
   - Default
   - TransparentFX
