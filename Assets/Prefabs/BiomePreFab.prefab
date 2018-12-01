@@ -43,7 +43,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1529735234251934
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,9 +115,37 @@ MonoBehaviour:
   number: 0
   size: 0
   colorfluctuation: 0
-  TheScale: {x: 0, y: 0, z: 0}
+  LargeRock: {x: 0, y: 0, z: 0}
+  SmallRock: {x: 0, y: 0, z: 0}
   stretch: 
   Hex: {fileID: 1670316969234202, guid: 176ab802ce0423d47b3d0a5f700998e2, type: 2}
+  Rock_Impassable_1: {fileID: 1271026932200030, guid: fa5e7475613d1b540958aa8c6b12155f,
+    type: 2}
+  Rock_Impassable_2: {fileID: 1715643196570034, guid: ceb8f753523e14a4382b57eea7ce3778,
+    type: 2}
+  Rock_Impassable_3: {fileID: 1398226712543878, guid: ae6bf33a2e97bda4fb69ba1fd5d1bbee,
+    type: 2}
+  Tree_Impassable: {fileID: 1915806116609142, guid: 5eaeaf8c73ae6d04dab83872bd33a9cb,
+    type: 2}
+  Pillar_Impassable_1: {fileID: 1189349052314594, guid: 8ee4c8475ce698f449be6e04a18298b9,
+    type: 2}
+  Pillar_Impassable_2: {fileID: 1145577882504512, guid: ac36fd60b2ea3124ab10aac6dfe2a441,
+    type: 2}
+  Pillar_Impassable_3: {fileID: 1913492684790266, guid: 0790b90a41992fe4fad1c31149c820fe,
+    type: 2}
+  ShortPillar_Impassable_1: {fileID: 1532701019701100, guid: 4341164feb9f4f346b913d6c0417ec63,
+    type: 2}
+  ShortPillar_Impassable_2: {fileID: 1501790215184360, guid: a36c87508d0819944bed9010ad46fb31,
+    type: 2}
+  ShortPillar_Impassable_3: {fileID: 1287243878706078, guid: de1a1fdb6cbcf304899c79f82b3f00b1,
+    type: 2}
+  SkullPillar_Impassable: {fileID: 1745300299125324, guid: e042a816d2b906a43a04714d6efffda5,
+    type: 2}
+  Carcass_Impassable_1: {fileID: 1539554189098160, guid: c038d878ee5272f4b9f7c0583b01e0e6,
+    type: 2}
+  Carcass_Impassable_2: {fileID: 1982279102569066, guid: d4d5790e166c9444896e711c07075dfd,
+    type: 2}
+  terrain: {fileID: 0}
 --- !u!114 &114821673988475140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,6 +188,9 @@ MonoBehaviour:
   desert: {fileID: 21300000, guid: c82cd0f3e55367142a6f60cc47d54be9, type: 3}
   grassland: {fileID: 21300000, guid: 4d40cd41c2a5f034ca9aa98576c34067, type: 3}
   iceTundra: {fileID: 21300000, guid: e372e481a9d30fc49a181b8336f71876, type: 3}
+  ruins: {fileID: 21300000, guid: d3cd7cbd0cca91a4fbcc16b584394886, type: 3}
+  wasteland: {fileID: 21300000, guid: 563832e38659cd340afaf50a31fabb06, type: 3}
+  stoneland: {fileID: 21300000, guid: 9c6102e63b2002341a6df40e024aa149, type: 3}
   desertTerrainAsset1: {fileID: 1051049232834274, guid: 2be60faf6b500a84eb870b22816517e1,
     type: 2}
   grassTerrainAsset1: {fileID: 1051049232834274, guid: 2be60faf6b500a84eb870b22816517e1,
@@ -187,7 +218,7 @@ MonoBehaviour:
   primaryEnemyNumber: 5
   secondaryEnemyNumber: 3
   tertiaryEnemyNumber: 3
-  InnerRim: 0
+  InnerRim: 1
   OuterRim: 0
   AmountofTrees: 5
   AmountofRocks: 5

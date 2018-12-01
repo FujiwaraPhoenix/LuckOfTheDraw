@@ -11,15 +11,31 @@ public class PolyManager : MonoBehaviour {
    // public int cluster; -- for later
     public int colorfluctuation;
     private Color TheColor;
-    public Vector3 TheScale;
+    public Vector3 LargeRock;
+    public Vector3 SmallRock;
     public string stretch;
-    private float RandomSize;
+    private float LargeRockRandomSize;
+    private float SmallRockRandomSize;
 
     private GameObject[] Hexs = new GameObject[20];
     private GameObject[] clusterHexs = new GameObject[60];
     private int listCount = 0;
     public GameObject Hex;
+    public GameObject Rock_Impassable_1;
+    public GameObject Rock_Impassable_2;
+    public GameObject Rock_Impassable_3;
+    public GameObject Tree_Impassable;
+    public GameObject Pillar_Impassable_1;
+    public GameObject Pillar_Impassable_2;
+    public GameObject Pillar_Impassable_3;
+    public GameObject ShortPillar_Impassable_1;
+    public GameObject ShortPillar_Impassable_2;
+    public GameObject ShortPillar_Impassable_3;
+    public GameObject SkullPillar_Impassable;
+    public GameObject Carcass_Impassable_1;
+    public GameObject Carcass_Impassable_2;
 
+    public GameObject terrain;
     Vector3 spawnPosition;
     Vector3 clusterspawnPosition;
 
@@ -57,35 +73,164 @@ public class PolyManager : MonoBehaviour {
         {
             spawnPosition = new Vector3(Random.Range(-8f, 8f), Random.Range(-8f, 8f), -1f);
             float clusterNumber = Random.Range(0f, 3f);
-            GameObject terrain = (GameObject)Instantiate(Hex, transform.position, Quaternion.identity);
-            terrain.transform.SetParent(this.transform);
-            terrain.transform.localPosition = spawnPosition;
-            Hexs[i] = terrain;
-            for (int a = 0; a < clusterNumber; a++)
+            int terrainNumber = Random.Range(0, 13);
+            if(terrainNumber == 0)
             {
-                clusterspawnPosition = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), -1f);
-                GameObject clusterHex = (GameObject)Instantiate(Hex, terrain.transform.position, Quaternion.identity);
-                clusterHex.transform.SetParent(terrain.transform);
-                clusterHex.transform.localPosition = clusterspawnPosition;
-                clusterHex.transform.localScale = new Vector3(RandomSize, RandomSize, RandomSize);
-                clusterHexs[listCount] = clusterHex;
-                listCount += 1;
+                terrain = (GameObject)Instantiate(Rock_Impassable_1, transform.position, Quaternion.identity);
+                terrain.transform.SetParent(this.transform);
+                terrain.transform.localPosition = spawnPosition;
+                Hexs[i] = terrain;
             }
+            if (terrainNumber == 1)
+            {
+                terrain = (GameObject)Instantiate(Rock_Impassable_2, transform.position, Quaternion.identity);
+                terrain.transform.SetParent(this.transform);
+                terrain.transform.localPosition = spawnPosition;
+                Hexs[i] = terrain;
+            }
+            if (terrainNumber == 2)
+            {
+                terrain = (GameObject)Instantiate(Rock_Impassable_3, transform.position, Quaternion.identity);
+                terrain.transform.SetParent(this.transform);
+                terrain.transform.localPosition = spawnPosition;
+                Hexs[i] = terrain;
+            }
+            if (terrainNumber == 3)
+            {
+                terrain = (GameObject)Instantiate(Tree_Impassable, transform.position, Quaternion.identity);
+                terrain.transform.SetParent(this.transform);
+                terrain.transform.localPosition = spawnPosition;
+                Hexs[i] = terrain;
+            }
+            if (terrainNumber == 4)
+            {
+                terrain = (GameObject)Instantiate(Pillar_Impassable_1, transform.position, Quaternion.identity);
+                terrain.transform.SetParent(this.transform);
+                terrain.transform.localPosition = spawnPosition;
+                Hexs[i] = terrain;
+            }
+            if (terrainNumber == 5)
+            {
+                terrain = (GameObject)Instantiate(Pillar_Impassable_2, transform.position, Quaternion.identity);
+                terrain.transform.SetParent(this.transform);
+                terrain.transform.localPosition = spawnPosition;
+                Hexs[i] = terrain;
+            }
+            if (terrainNumber == 6)
+            {
+                terrain = (GameObject)Instantiate(Pillar_Impassable_3, transform.position, Quaternion.identity);
+                terrain.transform.SetParent(this.transform);
+                terrain.transform.localPosition = spawnPosition;
+                Hexs[i] = terrain;
+            }
+            if (terrainNumber == 7)
+            {
+                terrain = (GameObject)Instantiate(ShortPillar_Impassable_1, transform.position, Quaternion.identity);
+                terrain.transform.SetParent(this.transform);
+                terrain.transform.localPosition = spawnPosition;
+                Hexs[i] = terrain;
+            }
+            if (terrainNumber == 8)
+            {
+                terrain = (GameObject)Instantiate(ShortPillar_Impassable_2, transform.position, Quaternion.identity);
+                terrain.transform.SetParent(this.transform);
+                terrain.transform.localPosition = spawnPosition;
+                Hexs[i] = terrain;
+            }
+            if (terrainNumber == 9)
+            {
+                terrain = (GameObject)Instantiate(ShortPillar_Impassable_3, transform.position, Quaternion.identity);
+                terrain.transform.SetParent(this.transform);
+                terrain.transform.localPosition = spawnPosition;
+                Hexs[i] = terrain;
+            }
+            if (terrainNumber == 10)
+            {
+                terrain = (GameObject)Instantiate(SkullPillar_Impassable, transform.position, Quaternion.identity);
+                terrain.transform.SetParent(this.transform);
+                terrain.transform.localPosition = spawnPosition;
+                Hexs[i] = terrain;
+            }
+            if (terrainNumber == 11)
+            {
+                terrain = (GameObject)Instantiate(Carcass_Impassable_1, transform.position, Quaternion.identity);
+                terrain.transform.SetParent(this.transform);
+                terrain.transform.localPosition = spawnPosition;
+                Hexs[i] = terrain;
+            }
+            if (terrainNumber == 12)
+            {
+                terrain = (GameObject)Instantiate(Carcass_Impassable_2, transform.position, Quaternion.identity);
+                terrain.transform.SetParent(this.transform);
+                terrain.transform.localPosition = spawnPosition;
+                Hexs[i] = terrain;
+            }
+            //GameObject terrain = (GameObject)Instantiate(Hex, transform.position, Quaternion.identity);
+            //terrain.transform.SetParent(this.transform);
+            //terrain.transform.localPosition = spawnPosition;
+            //Hexs[i] = terrain;
+
+            if (terrainNumber == 0 || terrainNumber == 1 || terrainNumber == 2)
+            {
+                for (int a = 0; a < clusterNumber; a++)
+                {
+                    clusterspawnPosition = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), -1f);
+                    if (terrainNumber == 0)
+                    {
+                        GameObject clusterHex = (GameObject)Instantiate(Rock_Impassable_1, terrain.transform.position, Quaternion.identity);
+                        clusterHex.transform.SetParent(terrain.transform);
+                        clusterHex.transform.localPosition = clusterspawnPosition;
+                        clusterHex.transform.localScale = new Vector3(LargeRockRandomSize, LargeRockRandomSize, LargeRockRandomSize);
+                        clusterHexs[listCount] = clusterHex;
+                        listCount += 1;
+                    }
+                    if (terrainNumber == 1)
+                    {
+                        GameObject clusterHex = (GameObject)Instantiate(Rock_Impassable_2, terrain.transform.position, Quaternion.identity);
+                        clusterHex.transform.SetParent(terrain.transform);
+                        clusterHex.transform.localPosition = clusterspawnPosition;
+                        clusterHex.transform.localScale = new Vector3(LargeRockRandomSize, LargeRockRandomSize, LargeRockRandomSize);
+                        clusterHexs[listCount] = clusterHex;
+                        listCount += 1;
+                    }
+                    if (terrainNumber == 2)
+                    {
+                        GameObject clusterHex = (GameObject)Instantiate(Rock_Impassable_3, terrain.transform.position, Quaternion.identity);
+                        clusterHex.transform.SetParent(terrain.transform);
+                        clusterHex.transform.localPosition = clusterspawnPosition;
+                        clusterHex.transform.localScale = new Vector3(LargeRockRandomSize, LargeRockRandomSize, LargeRockRandomSize);
+                        clusterHexs[listCount] = clusterHex;
+                        listCount += 1;
+                    }
+                    //GameObject clusterHex = (GameObject)Instantiate(Hex, terrain.transform.position, Quaternion.identity);
+                    //clusterHex.transform.SetParent(terrain.transform);
+                    //clusterHex.transform.localPosition = clusterspawnPosition;
+                    //clusterHex.transform.localScale = new Vector3(RandomSize, RandomSize, RandomSize);
+                    //clusterHexs[listCount] = clusterHex;
+                    //listCount += 1;
+                    //terrain = null;
+                }
+            }
+            terrain = null;
         }
 
         //pick a random size and color
-        RandomSize = Random.Range(0.5f, 1f);
-        TheColor = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1f);
-        TheScale = new Vector3(RandomSize, RandomSize, RandomSize);
+        LargeRockRandomSize = Random.Range(0.2f, 0.4f);
+        SmallRockRandomSize = Random.Range(0.5f, 1f);
+        TheColor = new Color(Random.Range(0.5f, 1f), Random.Range(0.5f, 1f), Random.Range(0.5f, 1f), 1f);
+        LargeRock = new Vector3(LargeRockRandomSize, LargeRockRandomSize, LargeRockRandomSize);
+        SmallRock = new Vector3(SmallRockRandomSize, SmallRockRandomSize, SmallRockRandomSize);
+
         //Hexs = GameObject.FindGameObjectsWithTag("Hexs");
-        
+        Debug.Log(Hexs.Length);
+        Debug.Log(clusterHexs.Length);
 
         foreach(GameObject hex in Hexs)
         {
             if (hex != null)
             {
                 hex.GetComponent<SpriteRenderer>().color = TheColor;
-                hex.GetComponent<Transform>().localScale = TheScale;
+                hex.GetComponent<Transform>().localScale = LargeRock;
             }
         }
         
@@ -94,7 +239,7 @@ public class PolyManager : MonoBehaviour {
             if (clusterhex != null)
             {
                 clusterhex.GetComponent<SpriteRenderer>().color = TheColor;
-                clusterhex.GetComponent<Transform>().localScale = TheScale;
+                clusterhex.GetComponent<Transform>().localScale = SmallRock;
             }
         }
 
