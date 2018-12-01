@@ -33,7 +33,6 @@ public class BiomeRenderDistance : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(Vector2.Distance(player.transform.position, InnerBiome1.transform.position));
 		if(Vector2.Distance(player.transform.position, InnerBiome1.transform.position) > renderDistance)
         {
             InnerBiome1.gameObject.SetActive(false);
