@@ -36,8 +36,3 @@ public class RockProperties : MonoBehaviour {
         this.gameObject.GetComponent<Resource>().effectModifier = EffectGenNumber;
     }
 }
-
-         */
-        GunGenNumber = Random.Range(1,7);
-        ShotGenNumber = Random.Range(1, 7);
-        EffectGenNumber = Random.Range(1, 7);
