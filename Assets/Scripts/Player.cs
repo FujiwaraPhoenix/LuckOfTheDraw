@@ -49,6 +49,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
     Rigidbody2D rb;
 
+    public AudioSource Walking;
 
     //Controls how fast the player moves.
     public float mvtSpd = 0.5f;
@@ -193,14 +194,29 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
         Vector2 mvtDir = Vector2.zero;
         if (tryUp)
         {
+            if (Walking.isPlaying == false)
+            {
+                Walking.pitch = mvtSpd + 0.25f;
+                Walking.Play();
+            }
             mvtDir += Vector2.up;
         }
         if (tryDown)
         {
+            if (Walking.isPlaying == false)
+            {
+                Walking.pitch = mvtSpd + 0.25f;
+                Walking.Play();
+            }
             mvtDir += Vector2.down;
         }
         if (tryLeft)
         {
+            if (Walking.isPlaying == false)
+            {
+                Walking.pitch = mvtSpd + 0.25f;
+                Walking.Play();
+            }
             mvtDir += Vector2.left;
             mySpriteRenderer.flipX = true;
             gunSpriteRenderer.flipY = true;
@@ -208,9 +224,18 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
         }
         if (tryRight)
         {
+            if (Walking.isPlaying == false)
+            {
+                Walking.pitch = mvtSpd + 0.25f;
+                Walking.Play();
+            }
             mvtDir += Vector2.right;
             player1Sprite.transform.localScale = new Vector3(0.5f, 0.5f, 1);
             gunSpriteRenderer.flipY = false;
+        }
+        else if(tryUp == false && tryDown == false && tryRight == false && tryLeft == false)
+        {
+            Walking.Stop();
         }
         mvtDir.Normalize();
         rb.velocity = new Vector3(mvtDir.x * Time.deltaTime * mvtSpd * 75, mvtDir.y * Time.deltaTime * mvtSpd * 75);
