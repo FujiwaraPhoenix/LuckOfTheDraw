@@ -160,7 +160,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
                 switch (currentStatus)
                 {
                     case 1:
-                        if (tickTimer <= 0)
+                        if (tickTimer <= 0) //Poison
                         {
                             takeDamage(1);
                             ticksRemaining--;
@@ -168,10 +168,22 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
                         }
                         break;
                     case 5:
-                        if (tickTimer > 0)
+                        if (tickTimer > 0) //Slow
                         {
                             //This one ticks once, so...
                             rb.velocity *= .5f;
+                        }
+                        else
+                        {
+                            ticksRemaining--;
+                            tickTimer = tickrate;
+                        }
+                        break;
+                    case 6:
+                        if (tickTimer > 0) //Stun
+                        {
+                            //This one ticks once
+                            rb.velocity *= 0f;
                         }
                         else
                         {
@@ -417,19 +429,26 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
 
     public void setEffect(int type) //Sets a status effect
     {
-        currentStatus = type; //1 is poison, 5 is slow
-        if(currentStatus == 1)
+        currentStatus = type; //3 is poison, 2 is slow, 6 is stun
+        if(currentStatus == 3)
         {
             effectIcon.SetActive(true);
             effectSprites.sprite = effectList[0];
             tickrate = 1f;
             ticksRemaining = 10;
         }
-        else if (currentStatus == 5)
+        else if (currentStatus == 2)
         {
             effectIcon.SetActive(true);
             effectSprites.sprite = effectList[1];
             tickrate = 5f;
+            ticksRemaining = 2;
+        }
+        else if (currentStatus == 6)
+        {
+            effectIcon.SetActive(true);
+            effectSprites.sprite = effectList[1];
+            tickrate = .2f;
             ticksRemaining = 2;
         }
     }

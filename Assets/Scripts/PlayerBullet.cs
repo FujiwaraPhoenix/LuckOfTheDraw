@@ -149,7 +149,7 @@ public class PlayerBullet : MonoBehaviour {
                     //tempEnemy.currentStatus = 1;
                     //tempEnemy.ticksRemaining = 10;
                     //tempEnemy.tickrate = 1f;
-                    tempEnemy.setEffect(1);
+                    tempEnemy.setEffect(3);
                     break;
                 //Drop an AoE.
                 case 5:
@@ -167,7 +167,11 @@ public class PlayerBullet : MonoBehaviour {
                     //tempEnemy.currentStatus = 5;
                     //tempEnemy.ticksRemaining = 1;
                     //tempEnemy.tickrate = 5f;
-                    tempEnemy.setEffect(5);
+                    tempEnemy.setEffect(2);
+                    break;
+                //Stun
+                case 6:
+                    tempEnemy.setEffect(6);
                     break;
             }
             if (effectIndex != 1 && effectIndex != 4)
