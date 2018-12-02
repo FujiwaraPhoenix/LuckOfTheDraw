@@ -79,6 +79,9 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     public SpriteRenderer effectSprites;
     public Sprite[] effectList = new Sprite[2];
 
+    public AudioSource EnemySound;
+    public AudioClip Stampede;
+
     public enum AIType
     {
         Wanderer,
@@ -251,6 +254,10 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     //This is a function that tells an enemy to charge in the direction of a player, but not chase them. They simply rush forward until the timer gives, then stop, recalibrate, and rush again.
     void blindRage()
     {
+        if(EnemySound.isPlaying == false)
+        {
+            EnemySound.PlayOneShot(Stampede, 1.0f);
+        }
         if (isPlayerClose(aggroRadius))
         {
             //Locks in the current location of the player...
