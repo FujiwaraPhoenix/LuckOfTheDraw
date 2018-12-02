@@ -66,8 +66,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1861948818577490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.389786, y: -14.670846, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.2838376, y: -7.694, z: -1}
+  m_LocalScale: {x: 0.310188, y: 0.310188, z: 0.310188}
   m_Children:
   - {fileID: 4304530067350756}
   m_Father: {fileID: 0}
@@ -105,9 +105,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00459671, y: 0.0015330315}
+  m_Offset: {x: -0.014831716, y: -0.1110527}
   serializedVersion: 2
-  m_Radius: 0.37742758
+  m_Radius: 1.851295
 --- !u!114 &114594393372138168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,6 +143,7 @@ MonoBehaviour:
   wanderCooldownMin: 1
   shootCooldown: 2
   shot: {fileID: 114543821867366166, guid: 45c47889ff28fa54da1d8106cc4196fb, type: 2}
+  bearing: 0
   spawnCooldown: 1
   spawnMax: 5
   enemyToSpawn: {fileID: 0}
@@ -237,7 +238,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3dbf937f49d020d468728f33d45a6cb9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1d3dac182d05fbb4b9043fc1729c87cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
