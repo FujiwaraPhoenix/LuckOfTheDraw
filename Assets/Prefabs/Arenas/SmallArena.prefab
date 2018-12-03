@@ -1618,4 +1618,10 @@ MonoBehaviour:
   zoom: 1
   zoomAmount: 8
   zoomSpeed: 0.5
+  bossPrefab: {fileID: 0}
   cam: {fileID: 0}
+  leftblack: {fileID: 1942539233566994, guid: 2594320a0b6706048b6d95ea77074e38, type: 2}
+  rightblack: {fileID: 1400910962329562, guid: 8e42d097c3dc06447b9607ca7547ff41, type: 2}
+  topblack: {fileID: 1707293497551292, guid: 11ecec02e8d9f39428a223ef18ad135b, type: 2}
+  bottomblack: {fileID: 1257205324110654, guid: 7ae12a21d0431e643a1bccef708261b9,
+    type: 2}
