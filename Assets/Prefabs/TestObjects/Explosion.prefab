@@ -73,6 +73,8 @@ MonoBehaviour:
   sdTimer: 1
   checkForObj: 0
   dist: 1
+  checksLeft: 1
+  checkRate: 1
   dmg: 1
 --- !u!198 &198070996116528782
 ParticleSystem:
