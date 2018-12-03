@@ -14,6 +14,7 @@ public class Resource : MonoBehaviour
     public int effectModifier;
 
     bool isGone = false; //Whether or not the resource has been picked up and should delete itself
+    bool colorSet = false; //Whether the color of the sprite has been set
 
     Sprite self;
     SpriteRenderer sr;
@@ -28,6 +29,11 @@ public class Resource : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!colorSet) //The first update tick, set its color based on its values
+        {
+            colorCode();
+            colorSet = true;
+        }
         if (isGone)
         {
             Destroy(this.gameObject);
@@ -64,5 +70,13 @@ public class Resource : MonoBehaviour
             //Do the eat stuff. May need to update the return value
             isGone = true;
         }
+    }
+
+    void colorCode()
+    {
+        float colorR;
+        float colorG;
+        float colorB;
+        if()
     }
 }

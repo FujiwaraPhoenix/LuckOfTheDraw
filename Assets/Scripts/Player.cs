@@ -22,6 +22,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     public float StartHunger = 100;
     public float invulnTimer = 0;
     public float invulnReset = 1f;
+    private int lifestealCounter = 0;
 
     //UI
 
@@ -262,5 +263,19 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
             alive = false; //If health runs out, the player dies
         }
         invulnTimer = invulnReset;
+    }
+
+    public void lifesteal()
+    {
+        if(lifestealCounter >= 3)
+        {
+            health++;
+            publichealth++;
+            lifestealCounter = 0;
+        }
+        else
+        {
+            lifestealCounter++;
+        }
     }
 }
