@@ -327,18 +327,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
-        type: 2}
-      propertyPath: RockGen
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_Name
-      value: BiomePreFab (7)
+      value: BiomePreFab8
       objectReference: {fileID: 0}
     - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
         type: 2}
-      propertyPath: OuterRim
+      propertyPath: InnerRim
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -395,12 +394,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_Name
-      value: BiomePreFab (7)
+      value: BiomePreFab17
       objectReference: {fileID: 0}
     - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
         type: 2}
       propertyPath: OuterRim
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
+        type: 2}
+      propertyPath: InnerRim
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
@@ -451,7 +455,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_Name
-      value: BiomePreFab (1)
+      value: BiomePreFab2
       objectReference: {fileID: 0}
     - target: {fileID: 4922887898342896, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_LocalPosition.x
@@ -469,6 +473,11 @@ Prefab:
         type: 2}
       propertyPath: InnerRim
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
+        type: 2}
+      propertyPath: OuterRim
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
@@ -1754,12 +1763,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_Name
-      value: BiomePreFab (2)
+      value: BiomePreFab3
       objectReference: {fileID: 0}
     - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
         type: 2}
       propertyPath: InnerRim
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
+        type: 2}
+      propertyPath: OuterRim
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
@@ -2033,7 +2047,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_Name
-      value: BiomePreFab (1)
+      value: BiomePreFab10
       objectReference: {fileID: 0}
     - target: {fileID: 4922887898342896, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2051,6 +2065,11 @@ Prefab:
         type: 2}
       propertyPath: OuterRim
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
+        type: 2}
+      propertyPath: InnerRim
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
@@ -2101,7 +2120,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_Name
-      value: BiomePreFab (4)
+      value: BiomePreFab6
       objectReference: {fileID: 0}
     - target: {fileID: 4922887898342896, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2123,6 +2142,11 @@ Prefab:
         type: 2}
       propertyPath: InnerRim
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
+        type: 2}
+      propertyPath: OuterRim
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
@@ -2247,7 +2271,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_Name
-      value: BiomePreFab (5)
+      value: BiomePreFab12
       objectReference: {fileID: 0}
     - target: {fileID: 4809503487709012, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -2257,6 +2281,11 @@ Prefab:
         type: 2}
       propertyPath: OuterRim
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
+        type: 2}
+      propertyPath: InnerRim
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
@@ -4021,6 +4050,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
+        type: 2}
+      propertyPath: OuterRim
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
+      propertyPath: m_Name
+      value: BiomePreFab1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
   m_IsPrefabAsset: 0
@@ -4073,6 +4115,15 @@ Prefab:
       propertyPath: OuterRim
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
+        type: 2}
+      propertyPath: InnerRim
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
+      propertyPath: m_Name
+      value: BiomePreFab13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
   m_IsPrefabAsset: 0
@@ -4122,12 +4173,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_Name
-      value: BiomePreFab (6)
+      value: BiomePreFab16
       objectReference: {fileID: 0}
     - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
         type: 2}
       propertyPath: OuterRim
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
+        type: 2}
+      propertyPath: InnerRim
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
@@ -5336,23 +5392,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
-        type: 2}
-      propertyPath: RockGen
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_Name
-      value: BiomePreFab (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4809503487709012, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -30
+      value: BiomePreFab7
       objectReference: {fileID: 0}
     - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
         type: 2}
-      propertyPath: OuterRim
-      value: 1
+      propertyPath: InnerRim
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
@@ -7046,12 +7093,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_Name
-      value: BiomePreFab (2)
+      value: BiomePreFab11
       objectReference: {fileID: 0}
     - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
         type: 2}
       propertyPath: OuterRim
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
+        type: 2}
+      propertyPath: InnerRim
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
@@ -7405,12 +7457,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_Name
-      value: BiomePreFab (2)
+      value: BiomePreFab14
       objectReference: {fileID: 0}
     - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
         type: 2}
       propertyPath: OuterRim
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
+        type: 2}
+      propertyPath: InnerRim
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
@@ -7461,7 +7518,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_Name
-      value: BiomePreFab (4)
+      value: BiomePreFab15
       objectReference: {fileID: 0}
     - target: {fileID: 4922887898342896, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_LocalPosition.x
@@ -7479,6 +7536,11 @@ Prefab:
         type: 2}
       propertyPath: OuterRim
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
+        type: 2}
+      propertyPath: InnerRim
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
@@ -7976,7 +8038,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_Name
-      value: BiomePreFab (6)
+      value: BiomePreFab18
       objectReference: {fileID: 0}
     - target: {fileID: 4922887898342896, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_LocalPosition.x
@@ -7994,6 +8056,11 @@ Prefab:
         type: 2}
       propertyPath: OuterRim
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
+        type: 2}
+      propertyPath: InnerRim
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
@@ -8113,7 +8180,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_Name
-      value: BiomePreFab (8)
+      value: BiomePreFab9
       objectReference: {fileID: 0}
     - target: {fileID: 4922887898342896, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_LocalPosition.x
@@ -8130,6 +8197,15 @@ Prefab:
     - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
         type: 2}
       propertyPath: OuterRim
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
+        type: 2}
+      propertyPath: InnerRim
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8186,7 +8262,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_Name
-      value: BiomePreFab (3)
+      value: BiomePreFab4
       objectReference: {fileID: 0}
     - target: {fileID: 4809503487709012, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -8200,6 +8276,11 @@ Prefab:
         type: 2}
       propertyPath: InnerRim
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
+        type: 2}
+      propertyPath: OuterRim
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
@@ -8989,7 +9070,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1052040696418678, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_Name
-      value: BiomePreFab (5)
+      value: BiomePreFab5
       objectReference: {fileID: 0}
     - target: {fileID: 4809503487709012, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -9003,6 +9084,11 @@ Prefab:
         type: 2}
       propertyPath: InnerRim
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114979129471446582, guid: 12f98b705c36ed842964a1f9d06b6e4f,
+        type: 2}
+      propertyPath: OuterRim
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f98b705c36ed842964a1f9d06b6e4f, type: 2}
