@@ -35,8 +35,9 @@ public class PlayerShooter : MonoBehaviour {
     float burstTimer = 0;
     int burstCount = 0;
     bool inBurst = false;
-    
 
+    public AudioSource GunSoundSource;
+    public AudioClip gunShot;
     //The rest is handled from within the instantiation of each object.
 
 
@@ -82,6 +83,7 @@ public class PlayerShooter : MonoBehaviour {
             }
             else if(burstTimer >= 0.15f)
             {
+                GunSoundSource.PlayOneShot(gunShot, 1.0f);
                 burstTimer = 0;
                 burstCount++;
                 inBurst = true;
@@ -121,6 +123,7 @@ public class PlayerShooter : MonoBehaviour {
             canShoot = false;
             if(InventoryController.ic.gunIndex == 4) //Multishot
             {
+                GunSoundSource.PlayOneShot(gunShot, 1.0f);
                 /*PlayerBullet pb = Instantiate(pBullet, barrel.transform.position, Quaternion.identity);
                 pb.travelDir = generateAngToMouse();
                 PlayerBullet pb1 = Instantiate(pBullet, barrel.transform.position, Quaternion.identity);
@@ -151,6 +154,7 @@ public class PlayerShooter : MonoBehaviour {
             }
             else if (InventoryController.ic.gunIndex == 5) //Burst
             {
+                GunSoundSource.PlayOneShot(gunShot, 1.0f);
                 burstTimer = 0;
                 burstCount = 1;
                 inBurst = true;
@@ -162,6 +166,7 @@ public class PlayerShooter : MonoBehaviour {
             }
             else //Default
             {
+                GunSoundSource.PlayOneShot(gunShot, 1.0f);
                 PlayerBullet pb = Instantiate(pBullet, barrel.transform.position, Quaternion.identity);
                 //Vector2 tempDir = generateAngToMouse();
                 //float angle = ToAng(tempDir);
