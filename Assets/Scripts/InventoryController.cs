@@ -33,6 +33,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
     public Image Accuracy;
     public Image Multishot;
     public Image Burst;
+    public Image LifeSteal;
 
 
     // Shots
@@ -42,6 +43,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
     public Image Range;
     public Image Homing;
     public Image Size;
+    public Image FireTrail;
 
     //Possible Effect Variables
 
@@ -50,6 +52,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
     public Image Pierce;
     public Image Bounce;
     public Image Slow;
+    public Image Stun;
 
     //WhichPartIsSelected
     public int WhichPart = 0;
@@ -201,6 +204,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Accuracy.gameObject.SetActive(false);
                         Multishot.gameObject.SetActive(false);
                         Burst.enabled = false;
+                        LifeSteal.gameObject.SetActive(false);
 
 
 
@@ -213,6 +217,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Accuracy.gameObject.SetActive(false);
                         Multishot.gameObject.SetActive(false);
                         Burst.gameObject.SetActive(false);
+                        LifeSteal.gameObject.SetActive(false);
 
                         break;
 
@@ -223,6 +228,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Accuracy.gameObject.SetActive(false);
                         Multishot.gameObject.SetActive(false);
                         Burst.gameObject.SetActive(false);
+                        LifeSteal.gameObject.SetActive(false);
 
                         break;
 
@@ -233,6 +239,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Accuracy.gameObject.SetActive(true);
                         Multishot.gameObject.SetActive(false);
                         Burst.gameObject.SetActive(false);
+                        LifeSteal.gameObject.SetActive(false);
 
                         break;
 
@@ -243,6 +250,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Accuracy.gameObject.SetActive(false);
                         Multishot.gameObject.SetActive(true);
                         Burst.gameObject.SetActive(false);
+                        LifeSteal.gameObject.SetActive(false);
 
                         break;
 
@@ -253,6 +261,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Accuracy.gameObject.SetActive(false);
                         Multishot.gameObject.SetActive(false);
                         Burst.gameObject.SetActive(true);
+                        LifeSteal.gameObject.SetActive(false);
 
                         break;
 
@@ -263,11 +272,13 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Accuracy.gameObject.SetActive(false);
                         Multishot.gameObject.SetActive(false);
                         Burst.gameObject.SetActive(false);
-                        //Lifesteal.gameObject.SetActive(true);
+                        LifeSteal.gameObject.SetActive(true);
 
 
 
                         break;
+
+                    
 
                 }
 
@@ -297,6 +308,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Range.gameObject.SetActive(false);
                         Homing.gameObject.SetActive(false);
                         Size.gameObject.SetActive(false);
+                        FireTrail.gameObject.SetActive(false);
 
 
 
@@ -309,6 +321,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Range.gameObject.SetActive(false);
                         Homing.gameObject.SetActive(false);
                         Size.gameObject.SetActive(false);
+                        FireTrail.gameObject.SetActive(false);
 
                         break;
 
@@ -319,6 +332,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Range.gameObject.SetActive(false);
                         Homing.gameObject.SetActive(false);
                         Size.gameObject.SetActive(false);
+                        FireTrail.gameObject.SetActive(false);
 
                         break;
 
@@ -329,6 +343,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Range.gameObject.SetActive(true);
                         Homing.gameObject.SetActive(false);
                         Size.gameObject.SetActive(false);
+                        FireTrail.gameObject.SetActive(false);
 
                         break;
 
@@ -339,6 +354,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Range.gameObject.SetActive(false);
                         Homing.gameObject.SetActive(true);
                         Size.gameObject.SetActive(false);
+                        FireTrail.gameObject.SetActive(false);
 
                         break;
 
@@ -349,6 +365,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Range.gameObject.SetActive(false);
                         Homing.gameObject.SetActive(false);
                         Size.gameObject.SetActive(true);
+                        FireTrail.gameObject.SetActive(false);
 
                         break;
 
@@ -359,7 +376,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Range.gameObject.SetActive(false);
                         Homing.gameObject.SetActive(false);
                         Size.gameObject.SetActive(false);
-                        //FireTrail.gameObject.SetActive(true);
+                        FireTrail.gameObject.SetActive(true);
 
 
 
@@ -392,6 +409,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Pierce.gameObject.SetActive(false);
                         Bounce.gameObject.SetActive(false);
                         Slow.gameObject.SetActive(false);
+                        Stun.gameObject.SetActive(false);
 
 
                         break;
@@ -403,6 +421,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Pierce.gameObject.SetActive(false);
                         Bounce.gameObject.SetActive(false);
                         Slow.gameObject.SetActive(false);
+                        Stun.gameObject.SetActive(false);
 
                         break;
 
@@ -413,6 +432,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Pierce.gameObject.SetActive(false);
                         Bounce.gameObject.SetActive(false);
                         Slow.gameObject.SetActive(false);
+                        Stun.gameObject.SetActive(false);
 
                         break;
 
@@ -423,6 +443,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Pierce.gameObject.SetActive(true);
                         Bounce.gameObject.SetActive(false);
                         Slow.gameObject.SetActive(false);
+                        Stun.gameObject.SetActive(false);
 
                         break;
 
@@ -433,6 +454,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Pierce.gameObject.SetActive(false);
                         Bounce.gameObject.SetActive(true);
                         Slow.gameObject.SetActive(false);
+                        Stun.gameObject.SetActive(false);
 
                         break;
 
@@ -443,6 +465,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Pierce.gameObject.SetActive(false);
                         Bounce.gameObject.SetActive(false);
                         Slow.gameObject.SetActive(true);
+                        Stun.gameObject.SetActive(false);
 
                         break;
 
@@ -453,7 +476,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
                         Pierce.gameObject.SetActive(false);
                         Bounce.gameObject.SetActive(false);
                         Slow.gameObject.SetActive(false);
-                        //Stun.gameobject.SetActive(true);
+                        Stun.gameObject.SetActive(true);
 
 
                         break;
