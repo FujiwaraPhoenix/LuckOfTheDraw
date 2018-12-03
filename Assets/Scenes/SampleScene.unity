@@ -807,6 +807,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f3d7acd562b44941bb7a40467cb50f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BCOLR: 0
+  BCOLG: 0
+  BCOLB: 0
+  BulletColor: {fileID: 212968788759103352, guid: adf0fd706459caa4abf441da997cfa17,
+    type: 2}
   gunIndex: 0
   shotIndex: 0
   effectIndex: 0
