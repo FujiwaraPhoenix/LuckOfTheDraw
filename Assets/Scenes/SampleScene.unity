@@ -724,6 +724,8 @@ MonoBehaviour:
   dmgMod: 0
   baseSpread: 5
   spreadMod: 0
+  GunSoundSource: {fileID: 133565441}
+  gunShot: {fileID: 8300000, guid: d7a889965f24184478dd215454c6dd39, type: 3}
 --- !u!114 &133565433
 MonoBehaviour:
   m_ObjectHideFlags: 0
