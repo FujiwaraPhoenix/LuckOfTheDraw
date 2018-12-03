@@ -17,16 +17,40 @@ public class GateControl : MonoBehaviour {
 
     public TestCameraZoom cam; //What you call to activateZoom. Replace this with the actual camera script.
 
+    private GameObject leftblack;
+    private GameObject rightblack;
+    private GameObject topblack;
+    private GameObject bottomblack;
+    private Color alphaColor;
+    private float SpeedOfFade = 2.0f;
+    private bool isentered = false;
+
     bool closeGate = false;
     
 	void Start () {
-        for(int x = 0; x < gate.Length; x++)
+
+        leftblack = GameObject.Find("LeftBossShadow");
+        rightblack = GameObject.Find("rightBossShadow");
+        topblack = GameObject.Find("topBossShadow");
+        bottomblack = GameObject.Find("bottomBossShadow");
+        alphaColor = leftblack.GetComponent<SpriteRenderer>().color;
+        alphaColor.a = 1;
+       
+        for (int x = 0; x < gate.Length; x++)
         {
             gate[x].SetActive(false);
         }
 	}
 	
 	void Update () {
+        if (isentered == true)
+        {
+
+            leftblack.GetComponent<SpriteRenderer>().color = Color.Lerp(leftblack.GetComponent<SpriteRenderer>().color, alphaColor, SpeedOfFade * Time.deltaTime);
+            rightblack.GetComponent<SpriteRenderer>().color = Color.Lerp(rightblack.GetComponent<SpriteRenderer>().color, alphaColor, SpeedOfFade * Time.deltaTime);
+            topblack.GetComponent<SpriteRenderer>().color = Color.Lerp(topblack.GetComponent<SpriteRenderer>().color, alphaColor, SpeedOfFade * Time.deltaTime);
+            bottomblack.GetComponent<SpriteRenderer>().color = Color.Lerp(bottomblack.GetComponent<SpriteRenderer>().color, alphaColor, SpeedOfFade * Time.deltaTime);
+        }
 		
 	}
 
@@ -34,15 +58,20 @@ public class GateControl : MonoBehaviour {
     {
         if (!closeGate && collision.tag == "Player")
         {
+
+            isentered = true;
             closeGate = true;
             for (int x = 0; x < gate.Length; x++)
             {
                 gate[x].SetActive(true);
             }
+
             
-            if(zoom)
+
+            if (zoom)
             {
                 cam.activateZoom(cameraPos, zoomAmount, zoomSpeed);
+                
             }
 
             Instantiate(bossPrefab, new Vector3(cameraPos.transform.position.x, cameraPos.transform.position.y, -1), Quaternion.identity);
