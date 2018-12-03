@@ -80,14 +80,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1052040696418678}
   m_LocalRotation: {x: -0, y: -0, z: -0.258819, w: 0.9659259}
-  m_LocalPosition: {x: -27.61311, y: -3.6750684, z: 1.5205599}
+  m_LocalPosition: {x: -46, y: 6.933658, z: 1.5205599}
   m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children:
   - {fileID: 4297595458801788}
   - {fileID: 4922887898342896}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -30}
 --- !u!4 &4922887898342896
 Transform:
   m_ObjectHideFlags: 1
@@ -219,9 +219,15 @@ MonoBehaviour:
   secondaryEnemyNumber: 3
   tertiaryEnemyNumber: 3
   InnerRim: 1
-  OuterRim: 0
+  OuterRim: 1
   AmountofTrees: 5
   AmountofRocks: 5
+  isDesert: 0
+  isGrass: 0
+  isIce: 0
+  isRuins: 0
+  isWasteland: 0
+  isStoneland: 0
 --- !u!212 &212367946615825124
 SpriteRenderer:
   m_ObjectHideFlags: 1

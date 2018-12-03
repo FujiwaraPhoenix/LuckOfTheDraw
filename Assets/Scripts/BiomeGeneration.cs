@@ -63,50 +63,56 @@ public class BiomeGeneration : MonoBehaviour {
 
     Vector3 spawnPosition;
 
-    bool isDesert = false;
-    bool isGrass = false;
-    bool isIce = false;
-    bool isRuins = false;
-    bool isWasteland = false;
-    bool isStoneland = false;
+    public bool isDesert = false;
+    public bool isGrass = false;
+    public bool isIce = false;
+    public bool isRuins = false;
+    public bool isWasteland = false;
+    public bool isStoneland = false;
 
     float biomeNumber;
 
     // Use this for initialization
     void Start() {
         biomeNumber = Random.Range(0f, 6f);
+        Debug.Log("Setting biome diversity");
         //this will ensure that the biome has a randomly picked color upon activation
         if (biomeNumber >= 0 && biomeNumber < 1f)
         {
             isDesert = true;
+            GetComponentInChildren<PolyManager>().DesertTerrainAssets = true;
             GetComponent<SpriteRenderer>().sprite = desert;
         }
         if (biomeNumber >= 1 && biomeNumber < 2f)
         {
             isGrass = true;
+            GetComponentInChildren<PolyManager>().GrassTerrainAssets = true;
             GetComponent<SpriteRenderer>().sprite = grassland;
         }
         if (biomeNumber >= 2 && biomeNumber < 3f)
         {
             isIce = true;
+            GetComponentInChildren<PolyManager>().IceTerrainAssets = true;
             GetComponent<SpriteRenderer>().sprite = iceTundra;
         }
         if (biomeNumber >= 3 && biomeNumber < 4f)
         {
             isRuins = true;
+            GetComponentInChildren<PolyManager>().RuinsTerrainAssets = true;
             GetComponent<SpriteRenderer>().sprite = ruins;
         }
         if (biomeNumber >= 4 && biomeNumber < 5f)
         {
             isWasteland = true;
+            GetComponentInChildren<PolyManager>().WastelandTerrainAssets = true;
             GetComponent<SpriteRenderer>().sprite = wasteland;
         }
         if (biomeNumber >= 5 && biomeNumber < 6f)
         {
             isStoneland = true;
+            GetComponentInChildren<PolyManager>().StoneTerrainAssets = true;
             GetComponent<SpriteRenderer>().sprite = stoneland;
         }
-        Debug.Log(GetComponent<SpriteRenderer>().sprite);
         //this.GetComponent<MeshRenderer>().material.color = Random.ColorHSV(0f, 1f, 0f, 1f, 0f, 1f);
 
         //these for statements will populate the world accordingly with how mnay of a specific asset you want at randomized locations with 
@@ -393,6 +399,7 @@ public class BiomeGeneration : MonoBehaviour {
                 }
             }
         }
+        GetComponentInChildren<PolyManager>().Generate();
         //Generating enemies
         enemyGenerate();
     }

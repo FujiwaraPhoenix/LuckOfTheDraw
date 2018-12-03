@@ -15,7 +15,7 @@ public class TreeProperties : MonoBehaviour {
     float trunkNumber;
     // Use this for initialization
     void Start () {
-        fruitRichness = Random.Range(1, 5);
+        fruitRichness = Random.Range(1, 4);
         trunkNumber = Random.Range(0f, 3f);
         FruitNumber = Random.Range(0, 5);
 

@@ -38,10 +38,29 @@ public class PolyManager : MonoBehaviour {
     public GameObject terrain;
     Vector3 spawnPosition;
     Vector3 clusterspawnPosition;
+    private float terrainNumber;
+
+    public bool IceTerrainAssets;
+    public bool GrassTerrainAssets;
+    public bool DesertTerrainAssets;
+    public bool WastelandTerrainAssets;
+    public bool RuinsTerrainAssets;
+    public bool StoneTerrainAssets;
+
+    private bool AssetsMade = false;
 
     // Use this for initialization
     void Start () {
-        Generate();
+        //if (GetComponentInParent<BiomeGeneration>().isDesert == true ||
+        //   GetComponentInParent<BiomeGeneration>().isIce == true ||
+        //   GetComponentInParent<BiomeGeneration>().isGrass == true ||
+        //   GetComponentInParent<BiomeGeneration>().isWasteland == true ||
+        //   GetComponentInParent<BiomeGeneration>().isStoneland == true ||
+        //   GetComponentInParent<BiomeGeneration>().isRuins == true)
+        //{
+            //Generate();
+        //}
+        
 		
 	}
 	
@@ -52,11 +71,22 @@ public class PolyManager : MonoBehaviour {
         //{
         //    Generate();
         //}
-		
-	}
+        //if (DesertTerrainAssets == true ||
+        //   IceTerrainAssets == true ||
+        //   GrassTerrainAssets == true ||
+        //   WastelandTerrainAssets == true ||
+        //   StoneTerrainAssets == true ||
+        //   RuinsTerrainAssets == true && 
+        //   AssetsMade == false)
+        //{
+        //Generate();
+        //AssetsMade = true;
+        //}
+        //Debug.Log(AssetsMade);
+    }
 
     //this function makes the hexs
-    void Generate() {
+    public void Generate() {
         //destroy current hexs in the scene
         //GameObject[] destroys = GameObject.FindGameObjectsWithTag("Hexs");
         //foreach(GameObject destroy in destroys)
@@ -71,17 +101,48 @@ public class PolyManager : MonoBehaviour {
 
         for (int i = 0; i < number; i++)
         {
+            
             spawnPosition = new Vector3(Random.Range(-8f, 8f), Random.Range(-8f, 8f), -1f);
             float clusterNumber = Random.Range(0f, 3f);
-            int terrainNumber = Random.Range(0, 13);
-            if(terrainNumber == 0)
+            if (StoneTerrainAssets)
+            {
+                Debug.Log("Stoneland terrain number");
+                terrainNumber = Random.Range(0, 2);
+            }
+            if (IceTerrainAssets)
+            {
+                Debug.Log("Ice terrain number");
+                terrainNumber = Random.Range(2, 5);
+            }
+            if (GrassTerrainAssets)
+            {
+                Debug.Log("grass terrain number");
+                terrainNumber = Random.Range(5, 7);
+            }
+            if (RuinsTerrainAssets)
+            {
+                Debug.Log("ruins terrain number");
+                terrainNumber = Random.Range(7, 9);
+            }
+            if (WastelandTerrainAssets)
+            {
+                Debug.Log("wasteland terrain number");
+                terrainNumber = Random.Range(9, 11);
+            }
+            if (DesertTerrainAssets)
+            {
+                Debug.Log("desert terrain number");
+                terrainNumber = Random.Range(11, 13);
+            }
+            Debug.Log(terrainNumber);
+            if (terrainNumber == 0)
             {
                 terrain = (GameObject)Instantiate(Rock_Impassable_1, transform.position, Quaternion.identity);
                 terrain.transform.SetParent(this.transform);
                 terrain.transform.localPosition = spawnPosition;
                 Hexs[i] = terrain;
             }
-            if (terrainNumber == 1)
+            if (terrainNumber == 11)
             {
                 terrain = (GameObject)Instantiate(Rock_Impassable_2, transform.position, Quaternion.identity);
                 terrain.transform.SetParent(this.transform);
@@ -95,80 +156,76 @@ public class PolyManager : MonoBehaviour {
                 terrain.transform.localPosition = spawnPosition;
                 Hexs[i] = terrain;
             }
-            if (terrainNumber == 3)
+            if (terrainNumber == 5)
             {
                 terrain = (GameObject)Instantiate(Tree_Impassable, transform.position, Quaternion.identity);
                 terrain.transform.SetParent(this.transform);
                 terrain.transform.localPosition = spawnPosition;
                 Hexs[i] = terrain;
             }
-            if (terrainNumber == 4)
+            if (terrainNumber == 1)
             {
                 terrain = (GameObject)Instantiate(Pillar_Impassable_1, transform.position, Quaternion.identity);
                 terrain.transform.SetParent(this.transform);
                 terrain.transform.localPosition = spawnPosition;
                 Hexs[i] = terrain;
             }
-            if (terrainNumber == 5)
+            if (terrainNumber == 3)
             {
                 terrain = (GameObject)Instantiate(Pillar_Impassable_2, transform.position, Quaternion.identity);
                 terrain.transform.SetParent(this.transform);
                 terrain.transform.localPosition = spawnPosition;
                 Hexs[i] = terrain;
             }
-            if (terrainNumber == 6)
+            if (terrainNumber == 7)
             {
                 terrain = (GameObject)Instantiate(Pillar_Impassable_3, transform.position, Quaternion.identity);
                 terrain.transform.SetParent(this.transform);
                 terrain.transform.localPosition = spawnPosition;
                 Hexs[i] = terrain;
             }
-            if (terrainNumber == 7)
+            if (terrainNumber == 12)
             {
                 terrain = (GameObject)Instantiate(ShortPillar_Impassable_1, transform.position, Quaternion.identity);
                 terrain.transform.SetParent(this.transform);
                 terrain.transform.localPosition = spawnPosition;
                 Hexs[i] = terrain;
             }
-            if (terrainNumber == 8)
+            if (terrainNumber == 4)
             {
                 terrain = (GameObject)Instantiate(ShortPillar_Impassable_2, transform.position, Quaternion.identity);
                 terrain.transform.SetParent(this.transform);
                 terrain.transform.localPosition = spawnPosition;
                 Hexs[i] = terrain;
             }
-            if (terrainNumber == 9)
+            if (terrainNumber == 8)
             {
                 terrain = (GameObject)Instantiate(ShortPillar_Impassable_3, transform.position, Quaternion.identity);
                 terrain.transform.SetParent(this.transform);
                 terrain.transform.localPosition = spawnPosition;
                 Hexs[i] = terrain;
             }
-            if (terrainNumber == 10)
+            if (terrainNumber == 9)
             {
                 terrain = (GameObject)Instantiate(SkullPillar_Impassable, transform.position, Quaternion.identity);
                 terrain.transform.SetParent(this.transform);
                 terrain.transform.localPosition = spawnPosition;
                 Hexs[i] = terrain;
             }
-            if (terrainNumber == 11)
+            if (terrainNumber == 6)
             {
                 terrain = (GameObject)Instantiate(Carcass_Impassable_1, transform.position, Quaternion.identity);
                 terrain.transform.SetParent(this.transform);
                 terrain.transform.localPosition = spawnPosition;
                 Hexs[i] = terrain;
             }
-            if (terrainNumber == 12)
+            if (terrainNumber == 10)
             {
                 terrain = (GameObject)Instantiate(Carcass_Impassable_2, transform.position, Quaternion.identity);
                 terrain.transform.SetParent(this.transform);
                 terrain.transform.localPosition = spawnPosition;
                 Hexs[i] = terrain;
             }
-            //GameObject terrain = (GameObject)Instantiate(Hex, transform.position, Quaternion.identity);
-            //terrain.transform.SetParent(this.transform);
-            //terrain.transform.localPosition = spawnPosition;
-            //Hexs[i] = terrain;
 
             if (terrainNumber == 0 || terrainNumber == 1 || terrainNumber == 2)
             {
@@ -202,13 +259,6 @@ public class PolyManager : MonoBehaviour {
                         clusterHexs[listCount] = clusterHex;
                         listCount += 1;
                     }
-                    //GameObject clusterHex = (GameObject)Instantiate(Hex, terrain.transform.position, Quaternion.identity);
-                    //clusterHex.transform.SetParent(terrain.transform);
-                    //clusterHex.transform.localPosition = clusterspawnPosition;
-                    //clusterHex.transform.localScale = new Vector3(RandomSize, RandomSize, RandomSize);
-                    //clusterHexs[listCount] = clusterHex;
-                    //listCount += 1;
-                    //terrain = null;
                 }
             }
             terrain = null;
@@ -222,26 +272,24 @@ public class PolyManager : MonoBehaviour {
         SmallRock = new Vector3(SmallRockRandomSize, SmallRockRandomSize, SmallRockRandomSize);
 
         //Hexs = GameObject.FindGameObjectsWithTag("Hexs");
-        Debug.Log(Hexs.Length);
-        Debug.Log(clusterHexs.Length);
 
-        foreach(GameObject hex in Hexs)
-        {
-            if (hex != null)
-            {
-                hex.GetComponent<SpriteRenderer>().color = TheColor;
-                hex.GetComponent<Transform>().localScale = LargeRock;
-            }
-        }
+        //foreach(GameObject hex in Hexs)
+        //{
+        //    if (hex != null)
+        //    {
+        //        hex.GetComponent<SpriteRenderer>().color = TheColor;
+        //        hex.GetComponent<Transform>().localScale = LargeRock;
+        //    }
+        //}
         
-        foreach (GameObject clusterhex in clusterHexs)
-        {
-            if (clusterhex != null)
-            {
-                clusterhex.GetComponent<SpriteRenderer>().color = TheColor;
-                clusterhex.GetComponent<Transform>().localScale = SmallRock;
-            }
-        }
+        //foreach (GameObject clusterhex in clusterHexs)
+        //{
+        //    if (clusterhex != null)
+        //    {
+        //        clusterhex.GetComponent<SpriteRenderer>().color = TheColor;
+        //        clusterhex.GetComponent<Transform>().localScale = SmallRock;
+        //    }
+        //}
 
 
 
