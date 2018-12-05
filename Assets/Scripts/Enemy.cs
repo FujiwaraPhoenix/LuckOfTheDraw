@@ -80,7 +80,11 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     public Sprite[] effectList = new Sprite[2];
 
     public AudioSource EnemySound;
+    public AudioSource pursueGrowl;
     public AudioClip Stampede;
+    public AudioClip shootSound;
+    public AudioClip territorialGrowl;
+    public AudioClip spawnSound;
 
     public enum AIType
     {
@@ -262,6 +266,13 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     //This is a function that tells an enemy to chase after a player if they are within a certain distance (aggroRadius).
     void playerChase()
     {
+        if (this.gameObject.name != "BeePursuer(Clone)")
+        {
+            if (pursueGrowl.isPlaying == false)
+            {
+                pursueGrowl.Play();
+            }
+        }
         if (isPlayerClose(aggroRadius))
         {
             Vector3 directionToMove = new Vector3(Player.pc.transform.position.x - transform.position.x,  Player.pc.transform.position.y - transform.position.y);
@@ -358,6 +369,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             if (shotTimer >= shootCooldown)
             {
                 shotTimer = 0;
+                EnemySound.PlayOneShot(shootSound, 1.0f);
                 ProjectileController p = Instantiate(shot, transform.position + new Vector3(inputDir.x * .1f, inputDir.y * .1f, 0), Quaternion.identity); //Instantiate a bullet
                 if (enemyBehavior == AIType.MoveShoot)
                 {
@@ -377,6 +389,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
         if (spawnedEnemies < spawnMax && spawnTimer >= spawnCooldown)
         {
             spawnTimer = 0;
+            EnemySound.PlayOneShot(spawnSound, 1.0f);
             GameObject spawned = Instantiate(enemyToSpawn, new Vector3(transform.position.x + .5f, transform.position.y + .5f, transform.position.z), Quaternion.identity);
             spawned.GetComponent<Enemy>().isSpawned(this);
             if (isBoss)
@@ -526,6 +539,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
         if (isPlayerClose(aggroRadius))
         {
             //Debug.Log("Chasing");
+            //EnemySound.PlayOneShot(territorialGrowl, 1.0f);
             Vector3 directionToMove = new Vector3(Player.pc.transform.position.x - transform.position.x, Player.pc.transform.position.y - transform.position.y);
             directionToMove = directionToMove.normalized;
             inputDir = directionToMove;
@@ -575,6 +589,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
                 float tempDir = bearing;
                 for (int i = 0; i < 4; i++)
                 {
+                    EnemySound.PlayOneShot(shootSound, 1.0f);
                     ProjectileController p = Instantiate(shot, transform.position + new Vector3(inputDir.x * .1f, inputDir.y * .1f, 0), Quaternion.identity); //Instantiate a bullet
                     p.aim(ToVect(tempDir + (90 * i)), damage);
                 }
