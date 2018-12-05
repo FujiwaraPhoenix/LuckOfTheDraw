@@ -29,11 +29,6 @@ public class Resource : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!colorSet) //The first update tick, set its color based on its values
-        {
-            colorCode();
-            colorSet = true;
-        }
         if (isGone)
         {
             Destroy(this.gameObject);
@@ -72,11 +67,46 @@ public class Resource : MonoBehaviour
         }
     }
 
-    void colorCode()
+    public void colorCode()
     {
-        float colorR;
-        float colorG;
-        float colorB;
-        if()
+        //Debug.Log("Setting color via modifiers:");
+       //Debug.Log(gunModifier);
+        //Debug.Log(shotModifier);
+        //Debug.Log(effectModifier);
+        float colorR = 1.0f;
+        float colorG = 1.0f;
+        float colorB = 1.0f;
+        if(gunModifier > 4)
+        {
+            colorG -= .5f;
+            colorB -= .5f;
+        }
+        else if (gunModifier > 2)
+        {
+            colorG -= .2f;
+            colorB -= .2f;
+        }
+        if(shotModifier > 4)
+        {
+            colorR -= .5f;
+            colorB -= .5f;
+        }
+        else if (shotModifier > 2)
+        {
+            colorR -= .2f;
+            colorB -= .2f;
+        }
+        if(effectModifier > 4)
+        {
+            colorG -= .5f;
+            colorR -= .5f;
+        }
+        else if (effectModifier > 2)
+        {
+            colorG -= .2f;
+            colorB -= .2f;
+        }
+        sr.color = new Color(colorR, colorG, colorB);
+
     }
 }
