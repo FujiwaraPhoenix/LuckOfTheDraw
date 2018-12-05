@@ -55,6 +55,9 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     //Controls how fast the player moves.
     public float mvtSpd = 0.5f;
 
+    public bool faceLeft = false;
+
+
     public void Awake()
     {
         if (pc == null)
@@ -71,8 +74,8 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
-        // mySpriteRenderer = player1Sprite.GetComponent<SpriteRenderer>(); -- this shit can't be in start, that's why movement wasn't working. 
-        // gunSpriteRenderer = gunSprite.GetComponent<SpriteRenderer>();
+        mySpriteRenderer = player1Sprite.GetComponent<SpriteRenderer>(); //this shit can't be in start, that's why movement wasn't working. 
+        gunSpriteRenderer = gunSprite.GetComponent<SpriteRenderer>();
         effectflash.color = new Color(255, 255, 255, 0);
         Hbarfillcolorstart = Hbarfill.color;
         HungerImageStart = HungerImage.color;
@@ -153,8 +156,8 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
         //healthbar
         publichealth = Mathf.Clamp(publichealth, 0, StartHealth);
         HbarSlide.value = publichealth;
-        mySpriteRenderer = player1Sprite.GetComponent<SpriteRenderer>();
-        gunSpriteRenderer = gunSprite.GetComponent<SpriteRenderer>();
+        //mySpriteRenderer = player1Sprite.GetComponent<SpriteRenderer>();
+        //gunSpriteRenderer = gunSprite.GetComponent<SpriteRenderer>();
         //speedText.text = mvtSpd.ToString();
         health = publichealth;
         //hungerText.text = publichunger.ToString("F0");
@@ -182,7 +185,28 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
             SceneManager.LoadScene("SampleScene");
         }*/
         invulnTimer -= Time.deltaTime;
-	}
+
+    if (Input.mousePosition.x <= Screen.width / 2)
+        {
+            faceLeft = true;
+        } else if (Input.mousePosition.x > Screen.width / 2)
+        {
+            faceLeft = false;
+        }
+
+    if (faceLeft == true)
+        {
+            mySpriteRenderer.flipX = true;
+            gunSpriteRenderer.flipY = true;
+        }
+        else if (faceLeft == false)
+        {
+            mySpriteRenderer.flipX = false;
+            gunSpriteRenderer.flipY = false;
+        }
+
+
+    }
 
     //As the name says, this function will move the player character around. Easy.
     public void movePC()
@@ -221,9 +245,8 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
                 Walking.Play();
             }
             mvtDir += Vector2.left;
-            mySpriteRenderer.flipX = true;
-            gunSpriteRenderer.flipY = true;
-            player1Sprite.transform.localScale = new Vector3(-0.5f,0.5f,1);
+            //player1Sprite.transform.localScale = new Vector3(-0.5f,0.5f,1);
+            
         }
         if (tryRight)
         {
@@ -233,8 +256,8 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
                 Walking.Play();
             }
             mvtDir += Vector2.right;
-            player1Sprite.transform.localScale = new Vector3(0.5f, 0.5f, 1);
-            gunSpriteRenderer.flipY = false;
+            //player1Sprite.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+          
         }
         else if(tryUp == false && tryDown == false && tryRight == false && tryLeft == false)
         {
