@@ -850,6 +850,9 @@ MonoBehaviour:
   Part1: {fileID: 1894681928}
   Part2: {fileID: 1147002404}
   Part3: {fileID: 816941080}
+  UISound: {fileID: 133565441}
+  scrollClick: {fileID: 8300000, guid: 6e49a73a6224b364389bf1939f48e65b, type: 3}
+  modInsert: {fileID: 8300000, guid: 94522eaee58d5e84b83495c335835608, type: 3}
 --- !u!114 &133565434
 MonoBehaviour:
   m_ObjectHideFlags: 0

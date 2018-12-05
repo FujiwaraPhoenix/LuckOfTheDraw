@@ -376,7 +376,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             if (shotTimer >= shootCooldown)
             {
                 shotTimer = 0;
-                EnemySound.PlayOneShot(shootSound, 1.0f);
+                EnemySound.PlayOneShot(shootSound, 0.5f);
                 ProjectileController p = Instantiate(shot, transform.position + new Vector3(inputDir.x * .1f, inputDir.y * .1f, 0), Quaternion.identity); //Instantiate a bullet
                 if (enemyBehavior == AIType.MoveShoot)
                 {
@@ -620,7 +620,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
                 float tempDir = bearing;
                 for (int i = 0; i < 4; i++)
                 {
-                    EnemySound.PlayOneShot(shootSound, 1.0f);
+                    EnemySound.PlayOneShot(shootSound, 0.5f);
                     ProjectileController p = Instantiate(shot, transform.position + new Vector3(inputDir.x * .1f, inputDir.y * .1f, 0), Quaternion.identity); //Instantiate a bullet
                     p.aim(ToVect(tempDir + (90 * i)), damage);
                 }

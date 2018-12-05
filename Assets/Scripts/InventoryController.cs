@@ -72,6 +72,9 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
     bool pressTwo = false;
     bool pressThree = false;
 
+    public AudioSource UISound;
+    public AudioClip scrollClick;
+    public AudioClip modInsert;
     //Cooldown stuff
     float cooldown = 0;
 
@@ -111,10 +114,12 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
         if (Input.GetAxis("Mouse ScrollWheel") > 0f) //forward
         {
             WhichPart = WhichPart - 1;
+            UISound.PlayOneShot(scrollClick,0.5f);
         }
 
         if (Input.GetAxis("Mouse ScrollWheel") < 0f) //backward
         {
+            UISound.PlayOneShot(scrollClick,0.5f);
             WhichPart = WhichPart + 1;
         }
 
@@ -156,6 +161,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
 
         if (WhichPart == 0 && Input.GetMouseButtonDown(1))
         {
+            UISound.PlayOneShot(modInsert, 1.0f);
             pressOne = true;
             pressTwo = false;
             pressThree = false;
@@ -170,6 +176,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
         }
         else if (WhichPart == 1 && Input.GetMouseButtonDown(1))
         {
+            UISound.PlayOneShot(modInsert, 1.0f);
             pressOne = false;
             pressTwo = true;
             pressThree = false;
@@ -178,6 +185,7 @@ public class InventoryController : MonoBehaviour { //Resources must have the "Re
       
         else if (WhichPart == 2 && Input.GetMouseButtonDown(1))
         {
+            UISound.PlayOneShot(modInsert, 1.0f);
             pressOne = false;
             pressTwo = false;
             pressThree = true;

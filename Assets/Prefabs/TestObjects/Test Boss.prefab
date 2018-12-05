@@ -331,9 +331,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBoss: 1
   hpBarsLeft: 6
-  hpReset: 40
+  hpReset: 50
   damage: 15
-  health: 40
+  health: 50
   homeBiome: {fileID: 0}
   rb: {fileID: 0}
   inputDir: {x: 0, y: 0}
@@ -375,12 +375,12 @@ MonoBehaviour:
   shootSound: {fileID: 8300000, guid: b4b77bbaeb43a5e4abf75c1cf80eff5e, type: 3}
   territorialGrowl: {fileID: 0}
   spawnSound: {fileID: 8300000, guid: e3b1e161dbe0e634f89ae06cfce4d75b, type: 3}
-  bossGrowl1: {fileID: 8300000, guid: 94fa5546977fb154f9c88da9c1176594, type: 3}
-  bossGrowl2: {fileID: 8300000, guid: 4bfadba5eccb8e84281e499e8652c07c, type: 3}
-  bossGrowl3: {fileID: 8300000, guid: d688e675e623dac4899d2292c48c7832, type: 3}
-  bossGrowl4: {fileID: 8300000, guid: 5de504185b007bc43ad8d04624869388, type: 3}
-  bossGrowl5: {fileID: 8300000, guid: d318a1bbe994ba046ab33bddc08604a0, type: 3}
-  bossGrowl6: {fileID: 8300000, guid: 5b9b05d684a155a47be12cc0edc3ee8c, type: 3}
+  bossGrowl1: {fileID: 8300000, guid: 9a512f2a7cd9dbf4db6c4b3512dacf3b, type: 3}
+  bossGrowl2: {fileID: 8300000, guid: 9fef62856dbcd7e47be1c369d34a21d7, type: 3}
+  bossGrowl3: {fileID: 8300000, guid: 2d5816ab0aba9b043a16f58d27995850, type: 3}
+  bossGrowl4: {fileID: 8300000, guid: a149e47260e587841a1e4c24abd78da7, type: 3}
+  bossGrowl5: {fileID: 8300000, guid: ad84b369f14026845ade11f81cdcb95a, type: 3}
+  bossGrowl6: {fileID: 8300000, guid: c3f1f52ff1380594fad4cf12730529d8, type: 3}
   enemyBehavior: 4
 --- !u!212 &212271230787122122
 SpriteRenderer:
