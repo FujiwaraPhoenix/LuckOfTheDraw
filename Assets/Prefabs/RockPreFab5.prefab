@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1778590623140540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -56.25568, y: -10.982676, z: 0}
+  m_LocalPosition: {x: 3.3930063, y: -12.307949, z: -1}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,7 +70,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFruit: 0
-  modifierNum: 0
+  gunModifier: 0
+  shotModifier: 0
+  effectModifier: 0
 --- !u!114 &114991362725134424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -82,7 +84,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a98793cc18b83a4bbc354506d64a174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RockGenNumber: 0
+  GunGenNumber: 0
+  ShotGenNumber: 0
+  EffectGenNumber: 0
 --- !u!212 &212775121822087098
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -118,7 +122,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7dc70c090621315408d6f6a7a5bcbbef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 483e637b8f0fa874aa248d1efa8c437c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

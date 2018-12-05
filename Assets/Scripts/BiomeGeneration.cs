@@ -48,7 +48,7 @@ public class BiomeGeneration : MonoBehaviour {
     GameObject enemyThree;
 
     float respawnTimer = 0;
-    float respawnCooldown = 60;
+    float respawnCooldown = 20;
     int escalation = 0;
     public bool InnerRim;
     public bool OuterRim;
@@ -405,7 +405,7 @@ public class BiomeGeneration : MonoBehaviour {
     }
     // Update is called once per frame
     void Update() {
-        if (respawnTimer >= respawnCooldown) //Respawn enemies every minute, and make them stronger for each spawn cycle
+        if (respawnTimer >= respawnCooldown) //Respawn enemies and make them stronger for each spawn cycle
         {
             respawnTimer = 0;
             escalation++;
