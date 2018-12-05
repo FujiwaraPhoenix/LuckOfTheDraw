@@ -110,7 +110,7 @@ MonoBehaviour:
   fire: {fileID: 114596305411925390, guid: 54c5e80268deaeb4c862d6ecee7817a9, type: 2}
   explosionPreFab: {fileID: 0}
   interval: 0.5
-  dropTimer: 1
+  dropTimer: 0.25
 --- !u!212 &212968788759103352
 SpriteRenderer:
   m_ObjectHideFlags: 1
