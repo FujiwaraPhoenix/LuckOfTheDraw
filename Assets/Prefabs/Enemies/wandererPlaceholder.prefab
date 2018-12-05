@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1242324083044464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.714, y: -12.63, z: -1}
+  m_LocalPosition: {x: 4.3666654, y: -13.202903, z: -1}
   m_LocalScale: {x: 0.21182735, y: 0.21182735, z: 0.21182735}
   m_Children:
   - {fileID: 4936391301572408}
@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1942028649355714}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -1}
+  m_LocalPosition: {x: 0, y: 2, z: -1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4482146610366942}
@@ -164,8 +164,11 @@ MonoBehaviour:
   effectIcon: {fileID: 1942028649355714}
   effectSprites: {fileID: 212170275022320648}
   effectList:
-  - {fileID: 21300000, guid: 13ea8b93c37bf974794010bc411b6a5d, type: 3}
-  - {fileID: 21300000, guid: 10bbdf0f0f396674bb988872c32940a3, type: 3}
+  - {fileID: 21300000, guid: b9b98c92d060e6342b9b3cbe92d1efb8, type: 3}
+  - {fileID: 21300000, guid: ac866e06028d38846a364e932607502f, type: 3}
+  - {fileID: 21300000, guid: 3765db23b74cd5745b1bc14a341f6070, type: 3}
+  EnemySound: {fileID: 0}
+  Stampede: {fileID: 0}
   enemyBehavior: 0
 --- !u!212 &212170275022320648
 SpriteRenderer:
@@ -202,7 +205,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 13ea8b93c37bf974794010bc411b6a5d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b9b98c92d060e6342b9b3cbe92d1efb8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

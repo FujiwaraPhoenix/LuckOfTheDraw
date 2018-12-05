@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19507a73861b6d14daa2138a6bfba212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sdTimer: 5
+  sdTimer: 0.5
   checkForObj: 0
   dist: 1
   checksLeft: 1
@@ -83,7 +83,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1826157535357680}
   serializedVersion: 5
-  lengthInSec: 5
+  lengthInSec: 0.5
   simulationSpeed: 1
   stopAction: 0
   looping: 1

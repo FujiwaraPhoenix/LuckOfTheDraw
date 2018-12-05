@@ -109,6 +109,8 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
             HungerImage.color = Color.red;
             badnesstimerhunger = 20f;
             publichealth = publichealth - 0.006f;
+            if (publichealth <= 0)
+                getHit(1); //Should work as a way to kill they player from hunger
         }
 
         //flash red ui
