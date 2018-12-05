@@ -85,6 +85,13 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     public AudioClip shootSound;
     public AudioClip territorialGrowl;
     public AudioClip spawnSound;
+    public AudioClip bossGrowl1;
+    public AudioClip bossGrowl2;
+    public AudioClip bossGrowl3;
+    public AudioClip bossGrowl4;
+    public AudioClip bossGrowl5;
+    public AudioClip bossGrowl6;
+
 
     public enum AIType
     {
@@ -108,7 +115,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
         if(isBoss) //Set health depending on enemy type
         {
             //health = 50; //Update this once we decide on the actual value
-            hpBarsLeft = 3;
+            hpBarsLeft = 6;
         }
         maxHealth = health;
     }
@@ -145,7 +152,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
                     break;
                 case 2:
                     enemyBehavior = AIType.AoEShot;
-                    shootCooldown = 1f;
+                    shootCooldown = 0.25f;
                     break;
                 case 3:
                     enemyBehavior = AIType.Spawner;
@@ -440,6 +447,30 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             //If it's got more than 3 bars lefts...
             if (hpBarsLeft > 1)
             {
+                if (hpBarsLeft == 6)
+                {
+                    EnemySound.PlayOneShot(bossGrowl1);
+                }
+                if (hpBarsLeft == 5)
+                {
+                    EnemySound.PlayOneShot(bossGrowl2);
+                }
+                if (hpBarsLeft == 4)
+                {
+                    EnemySound.PlayOneShot(bossGrowl3);
+                }
+                if (hpBarsLeft == 3)
+                {
+                    EnemySound.PlayOneShot(bossGrowl4);
+                }
+                if (hpBarsLeft == 2)
+                {
+                    EnemySound.PlayOneShot(bossGrowl5);
+                }
+                if (hpBarsLeft == 1)
+                {
+                    EnemySound.PlayOneShot(bossGrowl6);
+                }
                 hpBarsLeft--;
                 health = hpReset;
             }
