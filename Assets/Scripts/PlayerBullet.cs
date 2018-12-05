@@ -198,7 +198,7 @@ public class PlayerBullet : MonoBehaviour {
                 bounce(newDirection);
             }
         }
-        else if (collision.gameObject.tag.Equals("BorderWall") || (collision.gameObject.tag.Equals("Tree") && effectIndex != 1))
+        else if ((collision.gameObject.tag.Equals("BorderWall") || collision.gameObject.tag.Equals("Tree") || collision.gameObject.tag.Equals("Terrain")) && effectIndex != 1)
         {
             Destroy(this.gameObject);
         }
