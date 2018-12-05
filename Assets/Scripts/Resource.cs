@@ -14,6 +14,7 @@ public class Resource : MonoBehaviour
     public int effectModifier;
 
     bool isGone = false; //Whether or not the resource has been picked up and should delete itself
+    bool colorSet = false; //Whether the color of the sprite has been set
 
     Sprite self;
     SpriteRenderer sr;
@@ -64,5 +65,48 @@ public class Resource : MonoBehaviour
             //Do the eat stuff. May need to update the return value
             isGone = true;
         }
+    }
+
+    public void colorCode()
+    {
+        //Debug.Log("Setting color via modifiers:");
+       //Debug.Log(gunModifier);
+        //Debug.Log(shotModifier);
+        //Debug.Log(effectModifier);
+        float colorR = 1.0f;
+        float colorG = 1.0f;
+        float colorB = 1.0f;
+        if(gunModifier > 4)
+        {
+            colorG -= .5f;
+            colorB -= .5f;
+        }
+        else if (gunModifier > 2)
+        {
+            colorG -= .2f;
+            colorB -= .2f;
+        }
+        if(shotModifier > 4)
+        {
+            colorR -= .5f;
+            colorB -= .5f;
+        }
+        else if (shotModifier > 2)
+        {
+            colorR -= .2f;
+            colorB -= .2f;
+        }
+        if(effectModifier > 4)
+        {
+            colorG -= .5f;
+            colorR -= .5f;
+        }
+        else if (effectModifier > 2)
+        {
+            colorG -= .2f;
+            colorB -= .2f;
+        }
+        sr.color = new Color(colorR, colorG, colorB);
+
     }
 }

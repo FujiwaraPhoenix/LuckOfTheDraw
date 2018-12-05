@@ -160,7 +160,8 @@ public class PlayerBullet : MonoBehaviour {
                 //Bounce
                 case 1:
                     Vector3 newDirection = (Vector3.Reflect(travelDir, collision.contacts[0].normal));
-                    travelDir = (Vector2)newDirection;
+                    //travelDir = (Vector2)newDirection;
+                    bounce(newDirection);
                     break;
                 //Slow the enemy.
                 case 2:
@@ -185,7 +186,7 @@ public class PlayerBullet : MonoBehaviour {
             }
             if(gunIndex == 6 && Player.pc.health < 30) //Lifesteal, EDIT THE IF STATEMENT IF THE PLAYER GETS A MAX HEALTH VARIABLE
             {
-                Player.pc.health++;
+                Player.pc.lifesteal();
                 //Potentially edit if we have a method for healing instead of manually changing the value
             }
         }
@@ -194,13 +195,25 @@ public class PlayerBullet : MonoBehaviour {
             if (effectIndex == 1)
             {
                 Vector3 newDirection = (Vector3.Reflect(travelDir, collision.contacts[0].normal));
-                travelDir = (Vector2)newDirection;
+                bounce(newDirection);
             }
         }
         else if (collision.gameObject.tag.Equals("BorderWall") || (collision.gameObject.tag.Equals("Tree") && effectIndex != 1))
         {
             Destroy(this.gameObject);
         }
+        else if (effectIndex == 1)
+        {
+            Vector3 newDirection = (Vector3.Reflect(travelDir, collision.contacts[0].normal));
+            bounce(newDirection);
+        }
+    }
+
+    void bounce(Vector3 newDirection)
+    {
+        float angle = Mathf.Atan2(newDirection.y, newDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        travelDir = newDirection;
     }
 
     /*public void OnTriggerEnter2D(Collider2D collision)

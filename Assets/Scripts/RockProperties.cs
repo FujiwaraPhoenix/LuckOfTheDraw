@@ -27,12 +27,16 @@ public class RockProperties : MonoBehaviour {
         GunGenNumber = Random.Range(1,7);
         ShotGenNumber = Random.Range(1, 7);
         EffectGenNumber = Random.Range(1, 7);
+
+        this.gameObject.GetComponent<Resource>().gunModifier = GunGenNumber;
+        this.gameObject.GetComponent<Resource>().shotModifier = ShotGenNumber;
+        this.gameObject.GetComponent<Resource>().effectModifier = EffectGenNumber;
+
+        GetComponent<Resource>().colorCode();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        this.gameObject.GetComponent<Resource>().gunModifier = GunGenNumber;
-        this.gameObject.GetComponent<Resource>().shotModifier = ShotGenNumber;
-        this.gameObject.GetComponent<Resource>().effectModifier = EffectGenNumber;
+        
     }
 }
