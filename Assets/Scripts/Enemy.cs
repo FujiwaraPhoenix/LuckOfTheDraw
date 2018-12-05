@@ -60,7 +60,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     float spawnTimer = 0;
     public int spawnMax = 3;
     int spawnedEnemies = 0;
-    public GameObject enemyToSpawn;
+    public GameObject enemyToSpawn, enemyToSpawn2;
 
     //Spawned Globals
     bool spawned = false;
@@ -137,15 +137,26 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             switch (hpBarsLeft)
             {
                 case 1:
+                    //Replace with a new triple charge.
+                    break;
+                case 2:
+                    enemyBehavior = AIType.AoEShot;
+                    shootCooldown = 1f;
+                    break;
+                case 3:
+                    enemyBehavior = AIType.Spawner;
+                    enemyToSpawn = enemyToSpawn2;
+                    break;
+                case 4:
                     enemyBehavior = AIType.BullRush;
                     stationaryReset = 1f;
                     mvtSpd = 250;
                     break;
-                case 2:
+                case 5:
                     enemyBehavior = AIType.Sniper;
                     shootCooldown = .5f;
                     break;
-                case 3:
+                case 6:
                     enemyBehavior = AIType.Spawner;
                     break;
             }
