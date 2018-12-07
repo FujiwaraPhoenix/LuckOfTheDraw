@@ -233,14 +233,14 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -330,10 +330,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBoss: 1
-  hpBarsLeft: 3
-  hpReset: 40
+  hpBarsLeft: 6
+  hpReset: 50
   damage: 15
-  health: 40
+  health: 50
   homeBiome: {fileID: 0}
   rb: {fileID: 0}
   inputDir: {x: 0, y: 0}
@@ -358,6 +358,8 @@ MonoBehaviour:
   spawnMax: 5
   enemyToSpawn: {fileID: 1879524734226852, guid: 6ae65735876c3d64bbe663abe1674feb,
     type: 2}
+  enemyToSpawn2: {fileID: 1734787849211096, guid: ddf7a57cf0d23364abef0f4f31bc0ffd,
+    type: 2}
   currentStatus: 0
   tickrate: 2
   tickTimer: 0
@@ -367,8 +369,18 @@ MonoBehaviour:
   effectList:
   - {fileID: 21300000, guid: 13ea8b93c37bf974794010bc411b6a5d, type: 3}
   - {fileID: 21300000, guid: 10bbdf0f0f396674bb988872c32940a3, type: 3}
-  EnemySound: {fileID: 0}
+  EnemySound: {fileID: 82349151597651766}
+  pursueGrowl: {fileID: 0}
   Stampede: {fileID: 8300000, guid: dd127d7d2f50ee7488662bf728e4ecd2, type: 3}
+  shootSound: {fileID: 8300000, guid: b4b77bbaeb43a5e4abf75c1cf80eff5e, type: 3}
+  territorialGrowl: {fileID: 0}
+  spawnSound: {fileID: 8300000, guid: e3b1e161dbe0e634f89ae06cfce4d75b, type: 3}
+  bossGrowl1: {fileID: 8300000, guid: 9a512f2a7cd9dbf4db6c4b3512dacf3b, type: 3}
+  bossGrowl2: {fileID: 8300000, guid: 9fef62856dbcd7e47be1c369d34a21d7, type: 3}
+  bossGrowl3: {fileID: 8300000, guid: 2d5816ab0aba9b043a16f58d27995850, type: 3}
+  bossGrowl4: {fileID: 8300000, guid: a149e47260e587841a1e4c24abd78da7, type: 3}
+  bossGrowl5: {fileID: 8300000, guid: ad84b369f14026845ade11f81cdcb95a, type: 3}
+  bossGrowl6: {fileID: 8300000, guid: c3f1f52ff1380594fad4cf12730529d8, type: 3}
   enemyBehavior: 4
 --- !u!212 &212271230787122122
 SpriteRenderer:

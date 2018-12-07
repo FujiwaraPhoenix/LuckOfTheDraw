@@ -40,11 +40,14 @@ public class PlayerShooter : MonoBehaviour {
     public AudioClip gunShot;
     //The rest is handled from within the instantiation of each object.
 
+    Animator gunAnimator;
+    public GameObject gunObject;
+    //anim stuff
 
 
     // Use this for initialization
     void Start () {
-		
+        gunAnimator = gunObject.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -121,6 +124,8 @@ public class PlayerShooter : MonoBehaviour {
         if (canShoot)
         {
             canShoot = false;
+
+            gunAnimator.Play("GunshootAnim", -1, 0);
             if(InventoryController.ic.gunIndex == 4) //Multishot
             {
                 GunSoundSource.PlayOneShot(gunShot, 1.0f);
