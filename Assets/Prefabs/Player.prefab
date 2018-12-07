@@ -363,6 +363,7 @@ MonoBehaviour:
   Walking: {fileID: 0}
   mvtSpd: 2
   faceLeft: 1
+  moving: 0
 --- !u!114 &114963532681290974
 MonoBehaviour:
   m_ObjectHideFlags: 1
