@@ -57,6 +57,10 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
     public bool faceLeft = false;
 
+    //animation
+    Animator playerAnimator;
+    public bool moving;
+
 
     public void Awake()
     {
@@ -76,6 +80,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
         rb = GetComponent<Rigidbody2D>();
         mySpriteRenderer = player1Sprite.GetComponent<SpriteRenderer>(); //this shit can't be in start, that's why movement wasn't working. 
         gunSpriteRenderer = gunSprite.GetComponent<SpriteRenderer>();
+        playerAnimator = player1Sprite.GetComponent<Animator>();
         effectflash.color = new Color(255, 255, 255, 0);
         Hbarfillcolorstart = Hbarfill.color;
         HungerImageStart = HungerImage.color;
@@ -205,6 +210,14 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
             gunSpriteRenderer.flipY = false;
         }
 
+    if (moving == true)
+        {
+            playerAnimator.Play("PlayerRunAnim");
+        } else if (moving == false)
+        {
+            playerAnimator.Play("PlayerIdle");
+        }
+
 
     }
 
@@ -225,6 +238,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
             {
                 Walking.pitch = mvtSpd + 0.25f;
                 Walking.Play();
+                moving = true;
             }
             mvtDir += Vector2.up;
         }
@@ -234,6 +248,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
             {
                 Walking.pitch = mvtSpd + 0.25f;
                 Walking.Play();
+                moving = true;
             }
             mvtDir += Vector2.down;
         }
@@ -243,6 +258,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
             {
                 Walking.pitch = mvtSpd + 0.25f;
                 Walking.Play();
+                moving = true;
             }
             mvtDir += Vector2.left;
             //player1Sprite.transform.localScale = new Vector3(-0.5f,0.5f,1);
@@ -254,6 +270,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
             {
                 Walking.pitch = mvtSpd + 0.25f;
                 Walking.Play();
+                moving = true;
             }
             mvtDir += Vector2.right;
             //player1Sprite.transform.localScale = new Vector3(0.5f, 0.5f, 1);
@@ -262,6 +279,7 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
         else if(tryUp == false && tryDown == false && tryRight == false && tryLeft == false)
         {
             Walking.Stop();
+            moving = false;
         }
         mvtDir.Normalize();
         rb.velocity = new Vector3(mvtDir.x * Time.deltaTime * mvtSpd * 75, mvtDir.y * Time.deltaTime * mvtSpd * 75);
