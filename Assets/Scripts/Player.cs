@@ -61,6 +61,8 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
     Animator playerAnimator;
     public bool moving;
 
+    public GameObject Losebanner;
+
 
     public void Awake()
     {
@@ -85,6 +87,8 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
         Hbarfillcolorstart = Hbarfill.color;
         HungerImageStart = HungerImage.color;
         loseText.gameObject.SetActive(false);
+        Losebanner.gameObject.SetActive(false);
+
     }
 
     public IEnumerator FadeImage(bool fadeAway)
@@ -178,7 +182,8 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
 
         if (!alive) //If the player is dead, say they lost and freeze time
         {
-            loseText.gameObject.SetActive(true);
+            //loseText.gameObject.SetActive(true);
+            Losebanner.gameObject.SetActive(true);
             Time.timeScale = 0;
             this.gameObject.SetActive(false);
         }
