@@ -24,6 +24,7 @@ public class GateControl : MonoBehaviour {
     private Color alphaColor;
     private float SpeedOfFade = 2.0f;
     private bool isentered = false;
+    public AudioSource mainmusic;
 
     bool closeGate = false;
     
@@ -45,7 +46,7 @@ public class GateControl : MonoBehaviour {
 	void Update () {
         if (isentered == true)
         {
-
+            mainmusic.mute = true;
             leftblack.GetComponent<SpriteRenderer>().color = Color.Lerp(leftblack.GetComponent<SpriteRenderer>().color, alphaColor, SpeedOfFade * Time.deltaTime);
             rightblack.GetComponent<SpriteRenderer>().color = Color.Lerp(rightblack.GetComponent<SpriteRenderer>().color, alphaColor, SpeedOfFade * Time.deltaTime);
             topblack.GetComponent<SpriteRenderer>().color = Color.Lerp(topblack.GetComponent<SpriteRenderer>().color, alphaColor, SpeedOfFade * Time.deltaTime);
