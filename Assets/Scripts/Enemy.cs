@@ -37,6 +37,8 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
     public float stationaryTimer;
     public float stationaryReset = 3f;
     public float chargeTimer;
+    public int chargeCount = 3;
+    public int chargesRemaining = 3;
 
     //Wander Globals
     bool wandering = false; //Whether or not the NPC is wandering around
@@ -102,7 +104,8 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
         Spawner,
         BullRush,
         AoEShot,
-        MoveShoot
+        MoveShoot,
+        TripleCharge
     }
 
     public AIType enemyBehavior;
@@ -149,6 +152,7 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
             {
                 case 1:
                     //Replace with a new triple charge.
+                    enemyBehavior = AIType.TripleCharge;
                     break;
                 case 2:
                     enemyBehavior = AIType.AoEShot;
@@ -251,6 +255,9 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
                 break;
             case AIType.MoveShoot:
                 moveAndShoot();
+                break;
+            case AIType.TripleCharge:
+                blindRageMulti();
                 break;
         }
     }
@@ -632,6 +639,58 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
                 shotTimer += Time.deltaTime;
             }
         }
+    }
+
+    void blindRageMulti()
+    {
+        if (EnemySound.isPlaying == false)
+        {
+            EnemySound.PlayOneShot(Stampede, 1.0f);
+        }
+        if (isPlayerClose(aggroRadius))
+        {
+            //Locks in the current location of the player...
+            if (!dirLocked)
+            {
+                Vector3 directionToMove = new Vector3(Player.pc.transform.position.x - transform.position.x, Player.pc.transform.position.y - transform.position.y);
+                directionToMove = directionToMove.normalized;
+                inputDir = directionToMove;
+                dirLocked = !dirLocked;
+                charging = !charging;
+                chargeTimer = 1.5f;
+            }
+            //And then goes balls deep after them.
+            if (charging && stationaryTimer < 0f && chargesRemaining > 0)
+            {
+                if (chargeTimer > 0f)
+                {
+                    rb.velocity = inputDir * mvtSpd * Time.deltaTime;
+                }
+                else
+                {
+                    chargesRemaining--;
+                    if (chargesRemaining == 0)
+                    {
+                        stationaryTimer = stationaryReset;
+                    }
+                    charging = !charging;
+                }
+            }
+            //Once they've charged, chill for a sec and find player. Then rush again.
+            if (!charging)
+            {
+                dirLocked = !dirLocked;
+            }
+            else if (stationaryTimer > 0f)
+            {
+                chargesRemaining = chargeCount;
+                inputDir = Vector2.zero;
+                rb.velocity = Vector2.zero;
+            }
+        }
+
+        chargeTimer -= Time.deltaTime;
+        stationaryTimer -= Time.deltaTime;
     }
 
     public static Vector2 ToVect(float a)
