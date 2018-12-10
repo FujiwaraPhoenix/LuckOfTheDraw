@@ -28,19 +28,12 @@ public class BossArrow : MonoBehaviour
         float angle = Mathf.Atan2(Boss_pos.y, Boss_pos.x) * Mathf.Rad2Deg;
         this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-        sr.color = new Color(colorFlash, colorFlash, 1);
-        if (colorFlash <= 1)
-        {
-            colorFlash += .1f;
-        }
+        
 
 
     }
 
-    public void flashColor()
-    {
-        colorFlash = .5f;
-    }
+
 }
 
 
