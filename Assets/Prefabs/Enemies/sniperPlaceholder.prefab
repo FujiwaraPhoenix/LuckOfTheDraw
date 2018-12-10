@@ -46,7 +46,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4199786104096318
 Transform:
   m_ObjectHideFlags: 1
@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1507421268430330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.483532, y: -11.630409, z: -1}
+  m_LocalPosition: {x: -15.256898, y: -13.956511, z: -1}
   m_LocalScale: {x: 0.21221201, y: 0.21221201, z: 0.21221201}
   m_Children:
   - {fileID: 4199786104096318}
@@ -243,6 +243,8 @@ MonoBehaviour:
   stationaryTimer: 0
   stationaryReset: 3
   chargeTimer: 0
+  chargeCount: 3
+  chargesRemaining: 3
   wanderTimerMax: 4
   wanderTimerMin: 0.5
   wanderCooldownMax: 5
@@ -269,6 +271,12 @@ MonoBehaviour:
   shootSound: {fileID: 8300000, guid: b4b77bbaeb43a5e4abf75c1cf80eff5e, type: 3}
   territorialGrowl: {fileID: 0}
   spawnSound: {fileID: 0}
+  bossGrowl1: {fileID: 0}
+  bossGrowl2: {fileID: 0}
+  bossGrowl3: {fileID: 0}
+  bossGrowl4: {fileID: 0}
+  bossGrowl5: {fileID: 0}
+  bossGrowl6: {fileID: 0}
   enemyBehavior: 3
 --- !u!212 &212572271883301274
 SpriteRenderer:
