@@ -57,4 +57,12 @@ public class ProjectileController : MonoBehaviour {
         speed = 2;
     }
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Tree")
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
 }
