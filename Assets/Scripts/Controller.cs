@@ -10,6 +10,8 @@ public class Controller : MonoBehaviour {
     public Text winText;
     public bool bossBeaten;
 
+    public GameObject winbanner;
+
     //Do not touch this!
     public void Awake()
     {
@@ -26,18 +28,23 @@ public class Controller : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+ 
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (bossBeaten)
         {
-            winText.gameObject.SetActive(true);
+
+            winbanner.gameObject.SetActive(true);
+            //winText.gameObject.SetActive(true);
         }
         else
         {
+
+            winbanner.gameObject.SetActive(false);
             winText.gameObject.SetActive(false);
         }
+
 	}
 }
