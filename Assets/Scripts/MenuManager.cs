@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour { //For menu scene management
 
+    public GameObject loading;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -17,6 +19,7 @@ public class MenuManager : MonoBehaviour { //For menu scene management
 
     public void startGame()
     {
+        loading.SetActive(true);
         SceneManager.LoadScene("SampleScene");
     }
 
