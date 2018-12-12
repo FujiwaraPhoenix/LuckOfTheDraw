@@ -122,9 +122,14 @@ public class Enemy : MonoBehaviour { //Enemies must have the enemy tag and layer
         }
         maxHealth = health;
     }
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+
+    // Update is called once per frame
+    void FixedUpdate() {
+
+        if (health <= 0)
+        {
+            takeDamage(1);
+        }
 
         //Flashes red when damage is taken
         sr.color = new Color(1, (health/maxHealth), (health/maxHealth));
