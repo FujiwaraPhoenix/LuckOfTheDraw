@@ -188,12 +188,12 @@ public class Player : MonoBehaviour { //The Player should be tagged as player an
             this.gameObject.SetActive(false);
         }
 
-        /*if(Input.GetKey(KeyCode.P)) //Resets the game
+        if(Input.GetKey(KeyCode.P)) //Resets the game
         {
-            Destroy(this.gameObject, .001f);
-            Destroy(Controller.Instance, .001f);
-            SceneManager.LoadScene("SampleScene");
-        }*/
+            //Destroy(this.gameObject, .001f);
+            //Destroy(Controller.Instance, .001f);
+            SceneManager.LoadScene("MenuScene");
+        }
         invulnTimer -= Time.deltaTime;
 
     if (Input.mousePosition.x <= Screen.width / 2)
